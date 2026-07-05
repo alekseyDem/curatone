@@ -475,12 +475,33 @@ async function seed() {
       affiliation: 'University of Lagos',
       order: 8,
     },
+    // Jurors who served on earlier competitions and are not on the current
+    // panel. They appear in the full roster with no downgrade marker.
+    {
+      name: 'Hana Kobayashi',
+      role: 'Printmaker',
+      country: 'Japan',
+      shortCredential: 'Woodblock printmaker; served on the Moments of Life 2025 jury.',
+      active: false,
+      order: 9,
+    },
+    {
+      name: 'Lucas Moreau',
+      role: 'Sculptor',
+      country: 'France',
+      shortCredential: 'Sculptor working in bronze and cast glass; served on the Colors 2025 jury.',
+      active: false,
+      order: 10,
+    },
   ]
   for (const j of juryData) {
+    const { active, ...rest } = j as typeof j & { active?: boolean }
     await payload.create({
       collection: 'jury-members',
       data: {
-        ...j,
+        ...rest,
+        active: active ?? true,
+        membership: { tier: 'jury', start: '2025-01-01T00:00:00.000Z' },
         bio: rt(`${j.name} — ${j.shortCredential}`),
         judgingRecord: [connections.id, colors2025.id],
         memberSince: '2025-01-01T00:00:00.000Z',

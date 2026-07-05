@@ -840,6 +840,18 @@ export interface JuryMember {
   judgingRecord?: (number | Exhibition)[] | null;
   memberSince?: string | null;
   /**
+   * Ticked = shown in the prominent "Current jury" section. Unticked members still appear in the full roster with no change to how they are presented — this flag controls the current panel only, never seniority or validity.
+   */
+  active?: boolean | null;
+  /**
+   * Internal membership record. Informational storage only — dates are tracked manually by the owner (off-platform). Not visible to editors and never shown on the public site.
+   */
+  membership?: {
+    tier?: ('jury' | 'expert') | null;
+    start?: string | null;
+    end?: string | null;
+  };
+  /**
    * Lower numbers appear first.
    */
   order?: number | null;
@@ -1238,6 +1250,14 @@ export interface JuryMembersSelect<T extends boolean = true> {
       };
   judgingRecord?: T;
   memberSince?: T;
+  active?: T;
+  membership?:
+    | T
+    | {
+        tier?: T;
+        start?: T;
+        end?: T;
+      };
   order?: T;
   showOnHomepage?: T;
   onEditorialBoard?: T;

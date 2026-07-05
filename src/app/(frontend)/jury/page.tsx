@@ -33,6 +33,9 @@ export default async function JuryListPage() {
   ])
 
   const jury = juryRes.docs as JuryMember[]
+  // `active` controls inclusion in the current panel only — never seniority
+  // or validity. The full roster below combines everyone with no downgrade.
+  const currentJury = jury.filter((m) => m.active !== false)
   const countries = new Set(
     jury
       .map((m) => (m.country ?? '').split(',').pop()?.trim())
@@ -95,17 +98,27 @@ export default async function JuryListPage() {
         </div>
       </div>
 
-      {/* ---------- Roster grid ---------- */}
+      {/* ---------- Current jury — full cards (active members) ---------- */}
+      <div style={{ padding: 'clamp(40px, 6vw, 64px) var(--gutter) 0' }}>
+        <div className="section-head">
+          <h2>Current jury</h2>
+          {currentJury.length > 0 && (
+            <span className="mono" style={{ fontSize: 10.5, letterSpacing: '0.14em', color: 'var(--caption)', textTransform: 'uppercase' }}>
+              {currentJury.length} {currentJury.length === 1 ? 'member' : 'members'} on the current panel
+            </span>
+          )}
+        </div>
+      </div>
       <div
         className="m-c2 m-s640"
         style={{
-          padding: 'var(--gutter) var(--gutter) 0',
+          padding: 'clamp(28px, 4.5vw, 44px) var(--gutter) 0',
           display: 'grid',
           gridTemplateColumns: '1fr 1fr 1fr 1fr',
           gap: '40px 36px',
         }}
       >
-        {jury.map((member) => (
+        {currentJury.map((member) => (
           <Link key={member.id} href={`/jury/${member.slug}`} style={{ display: 'block' }}>
             <ArtworkImage
               media={member.photo}
@@ -125,10 +138,66 @@ export default async function JuryListPage() {
             )}
           </Link>
         ))}
-        {jury.length === 0 && (
-          <p style={{ color: 'var(--body-muted)', fontSize: 14, margin: 0 }}>The jury roster is being assembled.</p>
+        {currentJury.length === 0 && (
+          <p style={{ color: 'var(--body-muted)', fontSize: 14, margin: 0 }}>The current panel is being assembled.</p>
         )}
       </div>
+
+      {/* ---------- Full roster — every juror, no former/inactive markers ---------- */}
+      {jury.length > 0 && (
+        <div style={{ padding: 'clamp(48px, 7vw, 80px) var(--gutter) 0' }}>
+          <div className="section-head">
+            <h2>Jurors &amp; contributors</h2>
+            <span className="mono" style={{ fontSize: 10.5, letterSpacing: '0.14em', color: 'var(--caption)', textTransform: 'uppercase' }}>
+              {jury.length} in total
+            </span>
+          </div>
+          <p style={{ fontSize: 14, color: 'var(--body-muted)', lineHeight: 1.7, margin: '20px 0 0', maxWidth: 620 }}>
+            The complete roster of everyone who has served on the Curatone jury. Each juror&rsquo;s service is a
+            permanent part of the platform&rsquo;s record.
+          </p>
+          <div
+            className="m-c2 m-s640"
+            style={{
+              marginTop: 'clamp(28px, 4.5vw, 40px)',
+              display: 'grid',
+              gridTemplateColumns: 'repeat(3, 1fr)',
+              gap: '20px 36px',
+            }}
+          >
+            {jury.map((member) => (
+              <Link
+                key={member.id}
+                href={`/jury/${member.slug}`}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 16,
+                  padding: '14px 0',
+                  borderBottom: '1px solid var(--gray-border)',
+                }}
+              >
+                <div style={{ width: 48, height: 48, flex: 'none' }}>
+                  <ArtworkImage
+                    media={member.photo}
+                    aspect="1/1"
+                    placeholderLabel=""
+                    sizes="48px"
+                  />
+                </div>
+                <div>
+                  <div style={{ fontWeight: 600, fontSize: 14.5 }}>{member.name}</div>
+                  {member.country && (
+                    <div className="mono" style={{ fontSize: 10, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--caption)', marginTop: 3 }}>
+                      {member.country}
+                    </div>
+                  )}
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* ---------- Apply CTA ---------- */}
       <div
