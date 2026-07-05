@@ -462,7 +462,7 @@ export default async function HomePage() {
       <div className="gutter section">
         <div className="section-head" style={{ marginBottom: 44 }}>
           <h2>Recent awards</h2>
-          <Link href="/competitions" className="arrow-link">
+          <Link href="/winners" className="arrow-link">
             Winners archive →
           </Link>
         </div>
