@@ -43,7 +43,7 @@ export default async function AllCertificatesPage({ params }: { params: Promise<
   )
 
   return (
-    <div style={{ padding: 'clamp(24px, 4vw, 44px) var(--gutter)' }}>
+    <div className="cert-print-root" style={{ padding: 'clamp(24px, 4vw, 44px) var(--gutter)' }}>
       <div className="no-print" style={{ maxWidth: 210 + 'mm', margin: '0 auto clamp(20px, 3vw, 32px)' }}>
         <div className="mono" style={{ fontSize: 10, letterSpacing: '0.14em', color: 'var(--caption)', textTransform: 'uppercase' }}>
           {competition.title}

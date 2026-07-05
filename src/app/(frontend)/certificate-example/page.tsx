@@ -178,18 +178,17 @@ function CertMock({ spec }: { spec: CertSpec }) {
                 borderRadius: '50%',
                 border: '1px solid var(--oxblood)',
                 display: 'flex',
+                flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: 'clamp(7px,0.9vw,9px)',
-                letterSpacing: '0.1em',
+                letterSpacing: '0.06em',
                 color: 'var(--oxblood)',
                 textAlign: 'center',
-                lineHeight: 1.5,
+                lineHeight: 1.4,
               }}
             >
-              {spec.sealTop}
-              <br />
-              {spec.sealBottom}
+              <span style={{ fontSize: 'clamp(5px,0.65vw,6.5px)' }}>{spec.sealTop}</span>
+              <span style={{ fontSize: 'clamp(6.5px,0.85vw,9px)' }}>{spec.sealBottom}</span>
             </div>
           </div>
 
@@ -267,7 +266,7 @@ const juryDocs: CertSpec[] = [
         Open Call: Colors, 2026
       </>
     ),
-    sealTop: 'CTA',
+    sealTop: 'CURATONE',
     sealBottom: '2026',
     certNo: 'CTA-JUR-2026-0031',
     signatory: 'Board of curators',
@@ -290,7 +289,7 @@ const juryDocs: CertSpec[] = [
         2026 international competition cycle
       </>
     ),
-    sealTop: 'CTA',
+    sealTop: 'CURATONE',
     sealBottom: '2026',
     certNo: 'CTA-INV-2026-0031',
     signatory: 'Board of curators',
@@ -313,7 +312,7 @@ const juryDocs: CertSpec[] = [
         multiple Curatone competitions
       </>
     ),
-    sealTop: 'CTA',
+    sealTop: 'CURATONE',
     sealBottom: '2026',
     certNo: 'CTA-EXC-2026-0031',
     signatory: 'Board of curators',
@@ -338,7 +337,7 @@ const winnerLandscape: CertSpec = {
       Open Call: Colors, 2026
     </>
   ),
-  sealTop: 'CTA',
+  sealTop: 'CURATONE',
   sealBottom: '2026',
   certNo: 'CTA-2026-0147',
   signatory: 'Board of curators',
@@ -362,7 +361,7 @@ const winnerCatalog: CertSpec = {
       alongside jury notes and provenance
     </>
   ),
-  sealTop: 'CTA',
+  sealTop: 'CURATONE',
   sealBottom: '2026',
   certNo: 'CTA-CAT-2026-0147',
   signatory: 'Editorial board',
@@ -386,7 +385,7 @@ const participantCert: CertSpec = {
       in Open Call: Colors, 2026
     </>
   ),
-  sealTop: 'CTA',
+  sealTop: 'CURATONE',
   sealBottom: '2026',
   certNo: 'CTA-PAR-2026-0388',
   signatory: 'Board of curators',
@@ -410,7 +409,7 @@ const participantCatalog: CertSpec = {
       entry in the public archive
     </>
   ),
-  sealTop: 'CTA',
+  sealTop: 'CURATONE',
   sealBottom: '2026',
   certNo: 'CTA-CAT-2026-0388',
   signatory: 'Editorial board',

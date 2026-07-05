@@ -67,18 +67,15 @@ export function Certificate({ data, qrSvg }: { data: CertificateData; qrSvg: str
                 borderRadius: '50%',
                 border: '1px solid var(--oxblood)',
                 display: 'flex',
+                flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: 11,
-                letterSpacing: '0.1em',
                 color: 'var(--oxblood)',
                 textAlign: 'center',
-                lineHeight: 1.5,
               }}
             >
-              CTA
-              <br />
-              {data.year || '—'}
+              <span style={{ fontSize: 8, letterSpacing: '0.08em' }}>CURATONE</span>
+              <span style={{ fontSize: 10.5, letterSpacing: '0.08em', marginTop: 3 }}>{data.year || '—'}</span>
             </div>
           </div>
 

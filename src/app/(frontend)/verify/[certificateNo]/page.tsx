@@ -166,22 +166,15 @@ function CertificateCard({ submission, comp }: { submission: Submission; comp: E
                   borderRadius: '50%',
                   border: '1px solid var(--oxblood)',
                   display: 'flex',
+                  flexDirection: 'column',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  fontSize: 9,
-                  letterSpacing: '0.1em',
                   color: 'var(--oxblood)',
                   textAlign: 'center',
-                  lineHeight: 1.5,
                 }}
               >
-                CTA
-                {year && (
-                  <>
-                    <br />
-                    {year}
-                  </>
-                )}
+                <span style={{ fontSize: 6.5, letterSpacing: '0.06em' }}>CURATONE</span>
+                {year && <span style={{ fontSize: 9, letterSpacing: '0.08em', marginTop: 2 }}>{year}</span>}
               </div>
             </div>
             <div style={{ textAlign: 'right' }}>

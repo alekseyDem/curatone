@@ -44,7 +44,15 @@ const getCertificate = cache(async (number: string) => {
 
 export async function generateMetadata({ params }: { params: Promise<{ number: string }> }): Promise<Metadata> {
   const { number } = await params
-  return { title: `Certificate ${decodeParam(number)}`, robots: { index: false } }
+  const data = await getCertificate(decodeParam(number))
+  // The page title is what the browser uses as the "Save as PDF" filename —
+  // lead with the artist's name so certificates save named after the artist.
+  if (!data) return { title: { absolute: `Certificate ${decodeParam(number)}` }, robots: { index: false } }
+  const cert = buildCertificateData(data.submission, data.comp)
+  return {
+    title: { absolute: `${cert.name} — Curatone Certificate ${cert.number}` },
+    robots: { index: false },
+  }
 }
 
 export default async function CertificatePage({ params }: { params: Promise<{ number: string }> }) {
@@ -56,7 +64,7 @@ export default async function CertificatePage({ params }: { params: Promise<{ nu
   const qrSvg = await verifyQrSvg(cert.verifyUrl)
 
   return (
-    <div style={{ padding: 'clamp(24px, 4vw, 44px) var(--gutter)' }}>
+    <div className="cert-print-root" style={{ padding: 'clamp(24px, 4vw, 44px) var(--gutter)' }}>
       <div className="no-print" style={{ maxWidth: 210 + 'mm', margin: '0 auto clamp(20px, 3vw, 32px)', display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
         <div>
           <div className="mono" style={{ fontSize: 10, letterSpacing: '0.14em', color: 'var(--caption)', textTransform: 'uppercase' }}>

@@ -726,25 +726,39 @@ h2,
   }
 }
 
-/* Print: one clean A4 per certificate, no site chrome */
+/* Print: one clean A4 per certificate, no site chrome, no blank pages */
 @media print {
   .site-header,
   footer,
   .no-print {
     display: none !important;
   }
+  html,
   body {
     background: #fff;
+    margin: 0;
+    padding: 0;
+  }
+  /* the route wrapper must not add height around the A4 sheet */
+  .cert-print-root {
+    padding: 0 !important;
+    margin: 0 !important;
   }
   .cert-sheet {
     box-shadow: none;
     border: none;
     margin: 0;
     width: 210mm;
-    min-height: 297mm;
-    padding: 14mm;
+    height: auto;
+    min-height: 0;
+    padding: 12mm;
+  }
+  /* fill most of the page without exceeding it (avoids a trailing blank page) */
+  .cert-frame {
+    min-height: 255mm;
   }
   .cert-page {
+    margin: 0 !important;
     break-after: page;
     page-break-after: always;
   }
