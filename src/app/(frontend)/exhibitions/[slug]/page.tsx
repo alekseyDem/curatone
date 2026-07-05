@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 import { ArtworkImage } from '@/components/ArtworkImage'
+import { CatalogViewer } from '@/components/CatalogViewer'
 import { CountdownDigits, DaysRemaining } from '@/components/Countdown'
 import { FaqAccordion } from '@/components/FaqAccordion'
 import { Medallion, type AwardTier } from '@/components/Medallion'
@@ -817,6 +818,9 @@ async function CompetitionResults({ competition }: { competition: Exhibition }) 
       {/* ---------- Platinum spotlight ---------- */}
       {platinum && <PlatinumSpotlight work={platinum} />}
 
+      {/* ---------- Exhibition catalog (flip-book + download/Amazon) ---------- */}
+      <CatalogViewer catalog={competition.catalog} />
+
       {/* ---------- Tiered finalist galleries with category filter ---------- */}
       <div style={{ padding: 'clamp(28px, 4.5vw, 48px) var(--gutter) var(--section-pad)' }}>
         {cards.length > 0 ? (
@@ -988,6 +992,9 @@ function ExhibitionShow({ exhibition }: { exhibition: Exhibition }) {
           </div>
         </div>
       )}
+
+      {/* ---------- Exhibition catalog (flip-book + download/Amazon) ---------- */}
+      <CatalogViewer catalog={exhibition.catalog} />
 
       {/* ---------- Gallery ---------- */}
       {works.length > 0 && (

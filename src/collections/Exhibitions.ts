@@ -224,6 +224,39 @@ export const Exhibitions: CollectionConfig = {
       ],
     },
     {
+      name: 'catalog',
+      type: 'group',
+      label: 'Exhibition catalog',
+      admin: {
+        description:
+          'Optional catalog for this exhibition (mainly used for competitions). Shown on the public results / exhibition page as a page-flip viewer with download and buy links.',
+      },
+      fields: [
+        {
+          name: 'embedUrl',
+          type: 'text',
+          label: 'Flip-book embed URL',
+          admin: {
+            description:
+              'The iframe/embed link from a flip-book host (Issuu, Heyzine, FlippingBook, etc.). If empty, the uploaded PDF below is shown in the browser\'s viewer instead.',
+          },
+        },
+        {
+          name: 'pdf',
+          type: 'upload',
+          relationTo: 'media',
+          label: 'Catalog PDF (download)',
+          admin: { description: 'The downloadable PDF. Also used as the viewer if no embed URL is set.' },
+        },
+        {
+          name: 'amazonUrl',
+          type: 'text',
+          label: 'Amazon purchase URL',
+          admin: { description: 'Link to buy the printed catalog on Amazon.' },
+        },
+      ],
+    },
+    {
       name: 'feeNote',
       type: 'text',
       label: 'Entry fee — displayed text',

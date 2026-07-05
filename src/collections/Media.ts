@@ -34,7 +34,8 @@ export const Media: CollectionConfig = {
   ],
   upload: {
     staticDir: 'media',
-    mimeTypes: ['image/*'],
+    // images plus public documents (e.g. downloadable exhibition catalog PDFs)
+    mimeTypes: ['image/*', 'application/pdf'],
     imageSizes: [
       { name: 'thumbnail', width: 480, withoutEnlargement: true },
       { name: 'card', width: 1000, withoutEnlargement: true },

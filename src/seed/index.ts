@@ -746,6 +746,35 @@ async function seed() {
     sections: [{ body: rt('Widerrufsrecht für Verbraucher. [Vollständiger Text wird vom Betreiber ergänzt.]') }],
   })
 
+  // ---------- Exhibition catalog (demo) ----------
+  // Minimal one-page PDF so the catalog viewer + download link work locally.
+  {
+    let pdf = '%PDF-1.4\n'
+    const offsets: number[] = []
+    const addObj = (s: string) => {
+      offsets.push(pdf.length)
+      pdf += s
+    }
+    addObj('1 0 obj\n<< /Type /Catalog /Pages 2 0 R >>\nendobj\n')
+    addObj('2 0 obj\n<< /Type /Pages /Kids [3 0 R] /Count 1 >>\nendobj\n')
+    addObj('3 0 obj\n<< /Type /Page /Parent 2 0 R /MediaBox [0 0 300 200] >>\nendobj\n')
+    const xrefStart = pdf.length
+    pdf += 'xref\n0 4\n0000000000 65535 f \n'
+    for (const off of offsets) pdf += String(off).padStart(10, '0') + ' 00000 n \n'
+    pdf += 'trailer\n<< /Size 4 /Root 1 0 R >>\nstartxref\n' + xrefStart + '\n%%EOF'
+    const buffer = Buffer.from(pdf, 'latin1')
+    const catalogMedia = await payload.create({
+      collection: 'media',
+      data: { alt: 'Connections 2026 exhibition catalog' } as never,
+      file: { data: buffer, name: 'connections-2026-catalog.pdf', mimetype: 'application/pdf', size: buffer.length },
+    })
+    await payload.update({
+      collection: 'exhibitions',
+      id: connections.id,
+      data: { catalog: { pdf: catalogMedia.id, amazonUrl: 'https://www.amazon.com/dp/EXAMPLE' } } as never,
+    })
+  }
+
   // ---------- Homepage global ----------
   await payload.updateGlobal({
     slug: 'homepage',

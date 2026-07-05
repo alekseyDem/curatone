@@ -268,6 +268,23 @@ export interface Exhibition {
     countriesCount?: number | null;
   };
   /**
+   * Optional catalog for this exhibition (mainly used for competitions). Shown on the public results / exhibition page as a page-flip viewer with download and buy links.
+   */
+  catalog?: {
+    /**
+     * The iframe/embed link from a flip-book host (Issuu, Heyzine, FlippingBook, etc.). If empty, the uploaded PDF below is shown in the browser's viewer instead.
+     */
+    embedUrl?: string | null;
+    /**
+     * The downloadable PDF. Also used as the viewer if no embed URL is set.
+     */
+    pdf?: (number | null) | Media;
+    /**
+     * Link to buy the printed catalog on Amazon.
+     */
+    amazonUrl?: string | null;
+  };
+  /**
    * Marketing display only, e.g. "$15 – $25 per work". The actual charged amount is set below in "Payments".
    */
   feeNote?: string | null;
@@ -1055,6 +1072,13 @@ export interface ExhibitionsSelect<T extends boolean = true> {
     | {
         worksCount?: T;
         countriesCount?: T;
+      };
+  catalog?:
+    | T
+    | {
+        embedUrl?: T;
+        pdf?: T;
+        amazonUrl?: T;
       };
   feeNote?: T;
   awardsNote?: T;
