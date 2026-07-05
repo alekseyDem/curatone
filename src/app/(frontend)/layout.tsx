@@ -26,6 +26,17 @@ export const metadata: Metadata = {
     'Juried international art competitions, a peer-reviewed journal (ISSN 3054-6621), online exhibitions, and a public, verifiable record of results.',
 }
 
+const organizationJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Curatone.art',
+  url: process.env.NEXT_PUBLIC_SERVER_URL || 'https://curatone.art',
+  logo: `${process.env.NEXT_PUBLIC_SERVER_URL || 'https://curatone.art'}/logo.png`,
+  description:
+    'International curatorial platform based in Berlin: juried art competitions, a peer-reviewed journal (ISSN 3054-6621), online exhibitions, and a public verifiable record of results.',
+  address: { '@type': 'PostalAddress', addressLocality: 'Berlin', addressCountry: 'DE' },
+}
+
 export default async function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props
   const enterCompetition = await getEnterCompetition()
@@ -33,6 +44,10 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${aboreto.variable} ${openSans.variable} ${plexMono.variable}`}>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
         <Header enterHref={enterCompetition ? `/exhibitions/${enterCompetition.slug}/enter` : '/competitions'} />
         <main>{children}</main>
         <Footer />

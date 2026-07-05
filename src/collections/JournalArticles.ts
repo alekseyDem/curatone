@@ -148,8 +148,24 @@ export const JournalArticles: CollectionConfig = {
       fields: [
         { name: 'certificateIssued', type: 'checkbox', defaultValue: false, label: 'Certificate issued' },
         { name: 'certificatePaid', type: 'checkbox', defaultValue: false, label: 'Certificate paid' },
+        {
+          name: 'certificateFee',
+          type: 'number',
+          defaultValue: 30,
+          label: 'Certificate fee',
+          admin: { description: 'Price of the publication certificate for this article.' },
+        },
         { name: 'stripeSessionId', type: 'text', label: 'Stripe session ID' },
-        { name: 'payToken', type: 'text', label: 'Payment link token' },
+        {
+          name: 'payToken',
+          type: 'text',
+          label: 'Payment link token',
+          defaultValue: () => crypto.randomUUID(),
+          admin: {
+            description:
+              'To offer the paid certificate, email the author this link: <site>/pay/certificate/<article id>?t=<this token>',
+          },
+        },
       ],
     },
     seoFields,

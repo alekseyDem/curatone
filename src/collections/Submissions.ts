@@ -190,7 +190,11 @@ export const Submissions: CollectionConfig = {
           name: 'payToken',
           type: 'text',
           label: 'Payment link token',
-          admin: { description: 'Secures the targeted finalist payment link. Generated automatically.' },
+          defaultValue: () => crypto.randomUUID(),
+          admin: {
+            description:
+              'Secures the targeted finalist payment link. To request the finalist fee, email the artist this link: <site>/pay/finalist/<entry id>?t=<this token>',
+          },
         },
       ],
     },

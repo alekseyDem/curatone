@@ -279,7 +279,27 @@ export const Exhibitions: CollectionConfig = {
           ],
           label: 'Currency',
         },
+        {
+          name: 'judgingToken',
+          type: 'text',
+          defaultValue: () => crypto.randomUUID(),
+          label: 'Judging image-link token',
+          admin: {
+            description:
+              'Secures the image links inside the judging CSV exports so jurors can view entries without accounts. Generated automatically; changing it invalidates previously exported links.',
+          },
+        },
       ],
+    },
+    {
+      name: 'judgingExports',
+      type: 'ui',
+      admin: {
+        condition: (data) => data?.type === 'competition',
+        components: {
+          Field: '/components/admin/ExportButtons#ExportButtons',
+        },
+      },
     },
     {
       name: 'hideAuthorsUntilResults',

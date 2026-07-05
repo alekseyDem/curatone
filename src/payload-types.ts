@@ -288,6 +288,10 @@ export interface Exhibition {
      */
     finalistFee?: number | null;
     currency?: ('usd' | 'eur') | null;
+    /**
+     * Secures the image links inside the judging CSV exports so jurors can view entries without accounts. Generated automatically; changing it invalidates previously exported links.
+     */
+    judgingToken?: string | null;
   };
   /**
    * While the competition is open or judging, author identities are never shown publicly.
@@ -487,7 +491,7 @@ export interface Submission {
     finalistFeePaid?: boolean | null;
     stripeSessionId?: string | null;
     /**
-     * Secures the targeted finalist payment link. Generated automatically.
+     * Secures the targeted finalist payment link. To request the finalist fee, email the artist this link: <site>/pay/finalist/<entry id>?t=<this token>
      */
     payToken?: string | null;
   };
@@ -601,7 +605,14 @@ export interface JournalArticle {
   certificate?: {
     certificateIssued?: boolean | null;
     certificatePaid?: boolean | null;
+    /**
+     * Price of the publication certificate for this article.
+     */
+    certificateFee?: number | null;
     stripeSessionId?: string | null;
+    /**
+     * To offer the paid certificate, email the author this link: <site>/pay/certificate/<article id>?t=<this token>
+     */
     payToken?: string | null;
   };
   /**
@@ -1038,6 +1049,7 @@ export interface ExhibitionsSelect<T extends boolean = true> {
         entryFee?: T;
         finalistFee?: T;
         currency?: T;
+        judgingToken?: T;
       };
   hideAuthorsUntilResults?: T;
   seo?:
@@ -1124,6 +1136,7 @@ export interface JournalArticlesSelect<T extends boolean = true> {
     | {
         certificateIssued?: T;
         certificatePaid?: T;
+        certificateFee?: T;
         stripeSessionId?: T;
         payToken?: T;
       };
