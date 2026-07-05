@@ -645,6 +645,30 @@ h2,
   outline-offset: 3px;
 }
 
+/* ---------- Winner cards (nested-link tiles) ---------- */
+
+.winner-card {
+  transition: box-shadow 0.15s;
+}
+
+.winner-card:hover {
+  box-shadow: 0 16px 40px rgba(11, 92, 110, 0.12);
+}
+
+.winner-card__overlay:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+}
+
+.winner-card__name:hover {
+  text-decoration: underline;
+}
+
+.winner-card__name:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+}
+
 /* ---------- Responsive grid helpers (match design data-mob) ---------- */
 
 @media (max-width: 1023px) {

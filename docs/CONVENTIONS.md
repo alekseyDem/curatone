@@ -66,7 +66,8 @@ hover/focus CSS, mailto links); `design_update/screenshots/*.png` are captures.
   `/exhibitions-archive` are OLD URLs handled by `redirects.json` — never live routes.
 - **New designed routes** (dedicated React pages, they shadow any CMS page of the same slug):
   `/about`, `/contact`, `/certificate-example` (singular — matches redirect + homepage link),
-  `/become-a-jury`, `/personal-exhibition`, `/featured-artists`, `/journal/about`.
+  `/become-a-jury`, `/personal-exhibition`, `/winners` (the winners archive — replaced the former
+  Featured Artists page; `/featured-artists` now 301s to `/winners`), `/journal/about`.
 - **Header/Footer** are already updated (dropdown nav + unified headingless footer). Do not modify
   `src/components/Header.tsx` / `Footer.tsx` — they wrap every page via the layout.
 - **One email everywhere: `info@curatone.art`** (mailto). No `contact@`/`journal@`/`press@`.
@@ -75,7 +76,7 @@ hover/focus CSS, mailto links); `design_update/screenshots/*.png` are captures.
   Journal→/journal, About the Journal→/journal/about, Editorial Board→/journal/editorial-board,
   Submission Guidelines→/journal/guidelines, Article Submission→/journal/submit, Jury List→/jury,
   Become a Jury→/become-a-jury, Certificate Examples→/certificate-example, Personal Exhibition→
-  /personal-exhibition, Featured Artists→/featured-artists, Winner Detail→/winners/[slug],
+  /personal-exhibition, Winners→/winners, Winner Detail→/winners/[slug],
   Artist Profile→/artists/[slug], Exhibition→/exhibitions/[slug], Press→/press, Blog→/blog,
   About→/about, Contact→/contact.
 

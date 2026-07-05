@@ -13,12 +13,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: base, changeFrequency: 'daily', priority: 1 },
     { url: `${base}/competitions`, changeFrequency: 'daily', priority: 0.9 },
     { url: `${base}/exhibitions`, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${base}/winners`, changeFrequency: 'weekly', priority: 0.7 },
     { url: `${base}/journal`, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${base}/journal/about`, changeFrequency: 'monthly', priority: 0.5 },
     { url: `${base}/journal/guidelines`, changeFrequency: 'monthly', priority: 0.5 },
     { url: `${base}/journal/editorial-board`, changeFrequency: 'monthly', priority: 0.5 },
     { url: `${base}/jury`, changeFrequency: 'weekly', priority: 0.7 },
+    { url: `${base}/become-a-jury`, changeFrequency: 'monthly', priority: 0.5 },
+    { url: `${base}/personal-exhibition`, changeFrequency: 'monthly', priority: 0.5 },
+    { url: `${base}/certificate-example`, changeFrequency: 'monthly', priority: 0.4 },
     { url: `${base}/blog`, changeFrequency: 'weekly', priority: 0.6 },
     { url: `${base}/press`, changeFrequency: 'monthly', priority: 0.4 },
+    { url: `${base}/about`, changeFrequency: 'monthly', priority: 0.5 },
+    { url: `${base}/contact`, changeFrequency: 'monthly', priority: 0.4 },
   ]
 
   const [exhibitions, articles, posts, jury, pages, winners] = await Promise.all([

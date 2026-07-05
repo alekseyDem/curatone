@@ -7,14 +7,13 @@ const COLUMNS: { label: string; href: string }[][] = [
   [
     { label: 'Open calls', href: '/competitions' },
     { label: 'Enter a competition', href: '/competitions' },
-    { label: 'Results', href: '/competitions' },
-    { label: 'Winners', href: '/featured-artists' },
+    { label: 'Results', href: '/exhibitions' },
+    { label: 'Winners', href: '/winners' },
   ],
   [
     { label: 'Exhibitions archive', href: '/exhibitions' },
     { label: 'Online exhibitions', href: '/exhibitions' },
     { label: 'Personal exhibition', href: '/personal-exhibition' },
-    { label: 'Featured artists', href: '/featured-artists' },
   ],
   [
     { label: 'Journal', href: '/journal' },
