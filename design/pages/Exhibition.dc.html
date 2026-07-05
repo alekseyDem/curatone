@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aboreto&amp;family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>body{margin:0;font-family:'Open Sans',sans-serif;color:#24272A;background:#FFFFFF}
+@media (max-width:1023px){[data-mob~="c2"]{grid-template-columns:repeat(2,1fr)!important}}
+@media (max-width:900px){[data-mob~="s900"]{grid-template-columns:1fr!important}[data-mob~="s900"]>*{grid-column:auto!important}}
+@media (max-width:760px){[data-mob~="hide760"]{display:none!important}}
+@media (max-width:640px){[data-mob~="s640"]{grid-template-columns:1fr!important}[data-mob~="s640"]>*{grid-column:auto!important}[data-mob~="c2m"]{grid-template-columns:repeat(2,1fr)!important}}
+</style>
+</helmet>
+
+<div data-screen-label="Exhibition page">
+
+  <div style="position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;row-gap:8px;padding:14px clamp(20px,5.5vw,64px);border-bottom:1px solid #E2E4E8">
+    <img src="uploads/logo.png" alt="Curatone.art" style="height:36px;display:block">
+    <div style="display:flex;align-items:center;gap:34px;font-size:13.5px">
+      <div data-mob="hide760" style="display:flex;align-items:center;gap:clamp(14px,2.2vw,34px)"><span tabindex="0" style="cursor:pointer;transition:color 0.15s" style-hover="color:#0B5C6E">Competitions</span><span style="color:#0B5C6E;font-weight:600">Exhibitions</span><span tabindex="0" style="cursor:pointer;transition:color 0.15s" style-hover="color:#0B5C6E">Journal</span><span tabindex="0" style="cursor:pointer;transition:color 0.15s" style-hover="color:#0B5C6E">Jury</span><span tabindex="0" style="cursor:pointer;transition:color 0.15s" style-hover="color:#0B5C6E">About</span></div>
+      <span tabindex="0" style="background:#0B5C6E;color:#FFFFFF;padding:12px 26px;font-size:13.5px;cursor:pointer;transition:background 0.15s,color 0.15s,border-color 0.15s" style-hover="background:#053C48" style-active="background:#032A33" style-focus="outline:2px solid #0B5C6E;outline-offset:2px">Enter a competition</span>
+    </div>
+  </div>
+
+  <!-- exhibition header -->
+  <div style="background:#0A3F4C;color:#EDF1F2;padding:clamp(36px,7vw,72px) clamp(20px,5.5vw,64px);text-align:center">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.24em;text-transform:uppercase;color:#9FC3CC">Personal exhibition · June 10 — August 10, 2026</div>
+    <h1 style="font-family:Aboreto,serif;font-size:54px;font-weight:400;margin:26px 0 0">Meryem Berrada: Selected Works</h1>
+    <div style="width:56px;height:1px;background:#870000;margin:28px auto"></div>
+    <div style="font-size:14.5px;color:#C3D8DD;max-width:620px;margin:0 auto;line-height:1.75">Twelve works from 2022 – 2026 by the winner of Moments of Life 2025. Curated by Curatone.art; presented with a published interview and full exhibition documentation.</div>
+    <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:34px">
+      <span style="background:#EDF1F2;color:#0A3F4C;padding:13px 28px;font-size:13.5px;font-weight:600">Read the interview</span>
+      <span tabindex="0" style="border:1px solid #9FC3CC;padding:13px 28px;font-size:13.5px;cursor:pointer;transition:background 0.15s,color 0.15s,border-color 0.15s" style-hover="background:#9FC3CC;color:#0A3F4C" style-focus="outline:2px solid #9FC3CC;outline-offset:2px">Artist profile</span>
+    </div>
+  </div>
+
+  <!-- about the exhibition (long text) -->
+  <div data-mob="s900" style="padding:clamp(20px,5.5vw,64px) clamp(20px,5.5vw,64px) 0;display:grid;grid-template-columns:320px 1fr;gap:clamp(20px,5.5vw,64px);align-items:start">
+    <h2 style="font-family:Aboreto,serif;font-size:26px;font-weight:400;margin:0">About the exhibition</h2>
+    <div style="column-width:280px;column-count:2;column-gap:clamp(32px,5vw,56px);font-size:14px;color:#5B6066;line-height:1.85">
+      <p style="margin:0 0 18px">Selected Works brings together twelve paintings and mixed-media pieces made between 2022 and 2026, tracing the development of Berrada's practice from early watercolor studies to the layered panel works that earned her the top award at Moments of Life 2025. The exhibition is organized in three loose movements — studies of place, the weaving cycle, and recent works on memory — presented here in a single continuous sequence.</p>
+      <p style="margin:0 0 18px">Berrada works from Casablanca, and the city's architecture, textile markets, and coastal light recur throughout the selection. Rather than documenting these subjects, the works treat them as remembered structures: simplified, re-colored, and rebuilt from pattern. The curators have paired early and recent treatments of the same motifs so that this process of revision is visible across the room.</p>
+      <p style="margin:0">The exhibition is accompanied by a published interview with the artist and full documentation: each work is catalogued with title, year, medium, and dimensions, and the exhibition itself is recorded in the platform's permanent archive.</p>
+    </div>
+  </div>
+
+  <!-- gallery: single-artist show — no per-work artist captions -->
+  <div style="padding:clamp(36px,7vw,72px) clamp(20px,5.5vw,64px) 0">
+    <div data-mob="c2 s640" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:44px 40px">
+      <div style="grid-column:1/3">
+        <div style="aspect-ratio:16/10;background:repeating-linear-gradient(45deg,#E8EAED 0 12px,#F1F2F4 12px 24px);display:flex;align-items:center;justify-content:center;border:1px solid #E2E4E8"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#8A9096;text-transform:uppercase">Work — replace</span></div>
+        <div style="font-size:13.5px;margin-top:14px"><span style="font-weight:600">Doors of the Medina</span> <span style="color:#6A6F75">— 2026 · Mixed media on panel · 120 × 80 cm</span></div>
+      </div>
+      <div>
+        <div style="aspect-ratio:4/5;background:repeating-linear-gradient(45deg,#E8EAED 0 12px,#F1F2F4 12px 24px);display:flex;align-items:center;justify-content:center;border:1px solid #E2E4E8"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#8A9096;text-transform:uppercase">Work — replace</span></div>
+        <div style="font-size:13.5px;margin-top:14px"><span style="font-weight:600">Salt Study</span> <span style="color:#6A6F75">— 2025 · Watercolor</span></div>
+      </div>
+      <div>
+        <div style="aspect-ratio:4/5;background:repeating-linear-gradient(45deg,#E8EAED 0 12px,#F1F2F4 12px 24px);display:flex;align-items:center;justify-content:center;border:1px solid #E2E4E8"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#8A9096;text-transform:uppercase">Work — replace</span></div>
+        <div style="font-size:13.5px;margin-top:14px"><span style="font-weight:600">Morning, Essaouira</span> <span style="color:#6A6F75">— 2024 · Oil on canvas</span></div>
+      </div>
+      <div>
+        <div style="aspect-ratio:4/5;background:repeating-linear-gradient(45deg,#E8EAED 0 12px,#F1F2F4 12px 24px);display:flex;align-items:center;justify-content:center;border:1px solid #E2E4E8"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#8A9096;text-transform:uppercase">Work — replace</span></div>
+        <div style="font-size:13.5px;margin-top:14px"><span style="font-weight:600">Weavers I</span> <span style="color:#6A6F75">— 2023 · Mixed media</span></div>
+      </div>
+      <div>
+        <div style="aspect-ratio:4/5;background:repeating-linear-gradient(45deg,#E8EAED 0 12px,#F1F2F4 12px 24px);display:flex;align-items:center;justify-content:center;border:1px solid #E2E4E8"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#8A9096;text-transform:uppercase">Work — replace</span></div>
+        <div style="font-size:13.5px;margin-top:14px"><span style="font-weight:600">Weavers II</span> <span style="color:#6A6F75">— 2023 · Mixed media</span></div>
+      </div>
+      <div>
+        <div style="aspect-ratio:4/5;background:repeating-linear-gradient(45deg,#E8EAED 0 12px,#F1F2F4 12px 24px);display:flex;align-items:center;justify-content:center;border:1px solid #E2E4E8"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#8A9096;text-transform:uppercase">Work — replace</span></div>
+        <div style="font-size:13.5px;margin-top:14px"><span style="font-weight:600">Blue Hour</span> <span style="color:#6A6F75">— 2022 · Oil on canvas</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- interview excerpt -->
+  <div data-mob="s900" style="margin:clamp(36px,7vw,72px) clamp(20px,5.5vw,64px) 0;border-top:1px solid #24272A;padding:32px 0 0;display:grid;grid-template-columns:320px 1fr;gap:clamp(20px,5.5vw,64px)">
+    <h2 style="font-family:Aboreto,serif;font-size:26px;font-weight:400;margin:0">From the interview</h2>
+    <div style="max-width:720px">
+      <p style="font-size:16px;font-style:italic;color:#5B6066;line-height:1.85;margin:0;font-family:Georgia,serif">"I paint the city the way it is remembered rather than the way it is seen. The exhibition brings together works made across four years — what connects them is not subject but a way
+ of holding color at a distance — as something remembered."</p>
+      <div style="font-size:13px;color:#6A6F75;margin-top:18px">Meryem Berrada, in conversation with the curators · <span tabindex="0" style="color:#0B5C6E;font-weight:600;cursor:pointer;transition:color 0.15s" style-hover="color:#083F4C;text-decoration:underline" style-focus="outline:2px solid currentColor;outline-offset:3px">Read the full interview →</span></div>
+    </div>
+  </div>
+
+  <!-- group show caption variant -->
+  <div style="margin:clamp(20px,5.5vw,64px) clamp(20px,5.5vw,64px) 0;border-top:1px solid #24272A;padding-top:28px">
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;row-gap:8px;align-items:baseline;margin-bottom:36px">
+      <h2 style="font-family:Aboreto,serif;font-size:26px;font-weight:400;margin:0">Group exhibition variant</h2>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.12em;color:#6A6F75">IN GROUP SHOWS, EACH WORK CARRIES ITS ARTIST'S NAME</span>
+    </div>
+    <div data-mob="c2 s640" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px">
+      <div>
+        <div style="aspect-ratio:4/5;background:repeating-linear-gradient(45deg,#E8EAED 0 12px,#F1F2F4 12px 24px);display:flex;align-items:center;justify-content:center;border:1px solid #E2E4E8"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#8A9096;text-transform:uppercase">Work — replace</span></div>
+        <div style="font-weight:600;font-size:14.5px;margin-top:14px;color:#0B5C6E">Ivelina Dagsvold</div>
+        <div style="font-size:13px;color:#6A6F75;margin-top:2px">Threads of Home — 2026 · Acrylic on canvas</div>
+      </div>
+      <div>
+        <div style="aspect-ratio:4/5;background:repeating-linear-gradient(45deg,#E8EAED 0 12px,#F1F2F4 12px 24px);display:flex;align-items:center;justify-content:center;border:1px solid #E2E4E8"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#8A9096;text-transform:uppercase">Work — replace</span></div>
+        <div style="font-weight:600;font-size:14.5px;margin-top:14px;color:#0B5C6E">Kenji Sato</div>
+        <div style="font-size:13px;color:#6A6F75;margin-top:2px">Paper Tide — 2026 · Ink on paper</div>
+      </div>
+      <div>
+        <div style="aspect-ratio:4/5;background:repeating-linear-gradient(45deg,#E8EAED 0 12px,#F1F2F4 12px 24px);display:flex;align-items:center;justify-content:center;border:1px solid #E2E4E8"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#8A9096;text-transform:uppercase">Work — replace</span></div>
+        <div style="font-weight:600;font-size:14.5px;margin-top:14px;color:#0B5C6E">Anna Weiss</div>
+        <div style="font-size:13px;color:#6A6F75;margin-top:2px">Still Water — 2025 · Watercolor</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin:clamp(20px,5.5vw,64px) clamp(20px,5.5vw,64px) clamp(36px,7vw,72px);background:#F1F2F4;border:1px solid #E2E4E8;display:flex;justify-content:space-between;flex-wrap:wrap;row-gap:8px;align-items:center;padding:30px 40px">
+    <div style="font-size:13.5px;color:#5B6066;line-height:1.7;max-width:760px">This exhibition is documented: the artist receives an exhibition record and certificate, and the exhibition remains permanently accessible in the archive.</div>
+    <span tabindex="0" style="font-size:13.5px;color:#0B5C6E;font-weight:600;flex:none;margin-left:40px;cursor:pointer;transition:color 0.15s" style-hover="color:#083F4C;text-decoration:underline" style-focus="outline:2px solid currentColor;outline-offset:3px">Apply for a personal exhibition →</span>
+  </div>
+
+  <div style="background:#24272A;color:#A9ADB2;padding:26px clamp(20px,5.5vw,64px);font-size:12px;display:flex;justify-content:space-between;flex-wrap:wrap;row-gap:8px;align-items:center">
+    <img src="uploads/logo.png" alt="Curatone.art" style="height:24px;display:block;filter:invert(1)">
+    <span>© 2026 Curatone.art · ISSN 3054-6621 · Impressum · Datenschutz · AGB</span>
+  </div>
+
+</div></x-dc>
+</body>
+</html>

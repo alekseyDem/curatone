@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aboreto&amp;family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>body{margin:0;font-family:'Open Sans',sans-serif;color:#24272A;background:#FFFFFF}
+@media (max-width:1023px){[data-mob~="c2"]{grid-template-columns:repeat(2,1fr)!important}}
+@media (max-width:900px){[data-mob~="s900"]{grid-template-columns:1fr!important}[data-mob~="s900"]>*{grid-column:auto!important}}
+@media (max-width:760px){[data-mob~="hide760"]{display:none!important}}
+@media (max-width:640px){[data-mob~="s640"]{grid-template-columns:1fr!important}[data-mob~="s640"]>*{grid-column:auto!important}[data-mob~="c2m"]{grid-template-columns:repeat(2,1fr)!important}}
+</style>
+</helmet>
+
+<div data-screen-label="Blog listing">
+
+  <div style="position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;row-gap:8px;padding:14px clamp(20px,5.5vw,64px);border-bottom:1px solid #E2E4E8">
+    <img src="uploads/logo.png" alt="Curatone.art" style="height:36px;display:block">
+    <div style="display:flex;align-items:center;gap:34px;font-size:13.5px">
+      <div data-mob="hide760" style="display:flex;align-items:center;gap:clamp(14px,2.2vw,34px)"><span tabindex="0" style="cursor:pointer;transition:color 0.15s" style-hover="color:#0B5C6E">Competitions</span><span tabindex="0" style="cursor:pointer;transition:color 0.15s" style-hover="color:#0B5C6E">Exhibitions</span><span tabindex="0" style="cursor:pointer;transition:color 0.15s" style-hover="color:#0B5C6E">Journal</span><span tabindex="0" style="cursor:pointer;transition:color 0.15s" style-hover="color:#0B5C6E">Jury</span><span tabindex="0" style="cursor:pointer;transition:color 0.15s" style-hover="color:#0B5C6E">About</span></div>
+      <span tabindex="0" style="background:#0B5C6E;color:#FFFFFF;padding:12px 26px;font-size:13.5px;cursor:pointer;transition:background 0.15s,color 0.15s,border-color 0.15s" style-hover="background:#053C48" style-active="background:#032A33" style-focus="outline:2px solid #0B5C6E;outline-offset:2px">Enter a competition</span>
+    </div>
+  </div>
+
+  <div style="padding:clamp(20px,5.5vw,64px) clamp(20px,5.5vw,64px) 0">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#0B5C6E">Notes on practice</div>
+    <h1 style="font-family:Aboreto,serif;font-size:clamp(30px,4.5vw,44px);font-weight:400;margin:18px 0 0">Blog</h1>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;border-bottom:1px solid #E2E4E8;padding-bottom:24px">
+      <span tabindex="0" style="background:#0B5C6E;color:#FFFFFF;padding:8px 18px;font-size:12.5px;cursor:pointer;transition:background 0.15s,color 0.15s,border-color 0.15s" style-hover="background:#053C48" style-active="background:#032A33" style-focus="outline:2px solid #0B5C6E;outline-offset:2px">All</span>
+      <span tabindex="0" style="border:1px solid #D7DADE;padding:8px 18px;font-size:12.5px;color:#5B6066;cursor:pointer;transition:background 0.15s,color 0.15s,border-color 0.15s" style-hover="border-color:#24272A;color:#24272A" style-focus="outline:2px solid #0B5C6E;outline-offset:2px">For artists</span>
+      <span tabindex="0" style="border:1px solid #D7DADE;padding:8px 18px;font-size:12.5px;color:#5B6066;cursor:pointer;transition:background 0.15s,color 0.15s,border-color 0.15s" style-hover="border-color:#24272A;color:#24272A" style-focus="outline:2px solid #0B5C6E;outline-offset:2px">Competitions</span>
+      <span tabindex="0" style="border:1px solid #D7DADE;padding:8px 18px;font-size:12.5px;color:#5B6066;cursor:pointer;transition:background 0.15s,color 0.15s,border-color 0.15s" style-hover="border-color:#24272A;color:#24272A" style-focus="outline:2px solid #0B5C6E;outline-offset:2px">Interviews</span>
+      <span tabindex="0" style="border:1px solid #D7DADE;padding:8px 18px;font-size:12.5px;color:#5B6066;cursor:pointer;transition:background 0.15s,color 0.15s,border-color 0.15s" style-hover="border-color:#24272A;color:#24272A" style-focus="outline:2px solid #0B5C6E;outline-offset:2px">Platform news</span>
+    </div>
+  </div>
+
+  <div data-mob="s900" style="padding:44px clamp(20px,5.5vw,64px) 0;display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(32px,5vw,56px);align-items:start">
+    <div>
+      <div style="aspect-ratio:16/9;background:repeating-linear-gradient(45deg,#E8EAED 0 12px,#F1F2F4 12px 24px);display:flex;align-items:center;justify-content:center;border:1px solid #E2E4E8"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#8A9096;text-transform:uppercase">Cover image — replace</span></div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#0B5C6E;margin-top:22px">FOR ARTISTS · JULY 1, 2026</div>
+      <div style="font-family:Aboreto,serif;font-size:29px;line-height:1.35;margin-top:12px">How to document your art career: certificates, exhibition records, and archives</div>
+      <p style="font-size:14px;color:#5B6066;line-height:1.75;margin:14px 0 0;max-width:640px">What counts as verifiable professional documentation, how juried results differ from open publication, and how to keep a record that institutions can check.</p>
+      <div tabindex="0" style="font-size:13px;color:#0B5C6E;font-weight:600;margin-top:16px;cursor:pointer;transition:color 0.15s" style-hover="color:#083F4C;text-decoration:underline" style-focus="outline:2px solid currentColor;outline-offset:3px">Read the article →</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:0">
+      <div style="display:flex;flex-wrap:wrap;gap:22px;padding:0 0 24px;border-bottom:1px solid #E2E4E8">
+        <div style="width:150px;aspect-ratio:4/3;background:repeating-linear-gradient(45deg,#E8EAED 0 10px,#F1F2F4 10px 20px);flex:none;border:1px solid #E2E4E8"></div>
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.14em;color:#0B5C6E">COMPETITIONS · JUNE 24, 2026</div>
+          <div style="font-weight:600;font-size:15.5px;line-height:1.45;margin-top:8px">What juries look for: reading the four evaluation criteria</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:22px;padding:24px 0;border-bottom:1px solid #E2E4E8">
+        <div style="width:150px;aspect-ratio:4/3;background:repeating-linear-gradient(45deg,#E8EAED 0 10px,#F1F2F4 10px 20px);flex:none;border:1px solid #E2E4E8"></div>
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.14em;color:#0B5C6E">INTERVIEWS · JUNE 12, 2026</div>
+          <div style="font-weight:600;font-size:15.5px;line-height:1.45;margin-top:8px">In the studio with Meryem Berrada, winner of Moments of Life 2025</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:22px;padding:24px 0">
+        <div style="width:150px;aspect-ratio:4/3;background:repeating-linear-gradient(45deg,#E8EAED 0 10px,#F1F2F4 10px 20px);flex:none;border:1px solid #E2E4E8"></div>
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.14em;color:#0B5C6E">PLATFORM NEWS · JUNE 2, 2026</div>
+          <div style="font-weight:600;font-size:15.5px;line-height:1.45;margin-top:8px">Open Call: Colors — theme, categories, and deadline schedule</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding:clamp(32px,5vw,56px) clamp(20px,5.5vw,64px) 0">
+    <div data-mob="c2 s640" style="border-top:1px solid #24272A;padding-top:44px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:44px">
+      <div>
+        <div style="aspect-ratio:4/3;background:repeating-linear-gradient(45deg,#E8EAED 0 12px,#F1F2F4 12px 24px);display:flex;align-items:center;justify-content:center;border:1px solid #E2E4E8"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#8A9096;text-transform:uppercase">Image</span></div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.14em;color:#0B5C6E;margin-top:16px">FOR ARTISTS · MAY 20, 2026</div>
+        <div style="font-weight:600;font-size:16px;line-height:1.45;margin-top:8px">Photographing paintings for juried submission: a practical guide</div>
+      </div>
+      <div>
+        <div style="aspect-ratio:4/3;background:repeating-linear-gradient(45deg,#E8EAED 0 12px,#F1F2F4 12px 24px);display:flex;align-items:center;justify-content:center;border:1px solid #E2E4E8"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#8A9096;text-transform:uppercase">Image</span></div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.14em;color:#0B5C6E;margin-top:16px">FOR ARTISTS · MAY 8, 2026</div>
+        <div style="font-weight:600;font-size:16px;line-height:1.45;margin-top:8px">Writing an "About the artist" that reads like a professional record</div>
+      </div>
+      <div>
+        <div style="aspect-ratio:4/3;background:repeating-linear-gradient(45deg,#E8EAED 0 12px,#F1F2F4 12px 24px);display:flex;align-items:center;justify-content:center;border:1px solid #E2E4E8"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#8A9096;text-transform:uppercase">Image</span></div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.14em;color:#0B5C6E;margin-top:16px">COMPETITIONS · APRIL 28, 2026</div>
+        <div style="font-weight:600;font-size:16px;line-height:1.45;margin-top:8px">Results of Connections 2026: jury notes on the awarded works</div>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:center;gap:10px;padding:52px 0 clamp(36px,7vw,72px);font-family:'IBM Plex Mono',monospace;font-size:12px">
+      <span style="border:1px solid #24272A;background:#24272A;color:#FFFFFF;padding:9px 15px">1</span>
+      <span tabindex="0" style="border:1px solid #D7DADE;padding:9px 15px;color:#5B6066;cursor:pointer;transition:background 0.15s,color 0.15s,border-color 0.15s" style-hover="border-color:#24272A;color:#24272A" style-focus="outline:2px solid #0B5C6E;outline-offset:2px">2</span>
+      <span tabindex="0" style="border:1px solid #D7DADE;padding:9px 15px;color:#5B6066;cursor:pointer;transition:background 0.15s,color 0.15s,border-color 0.15s" style-hover="border-color:#24272A;color:#24272A" style-focus="outline:2px solid #0B5C6E;outline-offset:2px">3</span>
+      <span tabindex="0" style="border:1px solid #D7DADE;padding:9px 15px;color:#5B6066;cursor:pointer;transition:background 0.15s,color 0.15s,border-color 0.15s" style-hover="border-color:#24272A;color:#24272A" style-focus="outline:2px solid #0B5C6E;outline-offset:2px">→</span>
+    </div>
+  </div>
+
+  <div style="background:#24272A;color:#A9ADB2;padding:26px clamp(20px,5.5vw,64px);font-size:12px;display:flex;justify-content:space-between;flex-wrap:wrap;row-gap:8px;align-items:center">
+    <img src="uploads/logo.png" alt="Curatone.art" style="height:24px;display:block;filter:invert(1)">
+    <span>© 2026 Curatone.art · ISSN 3054-6621 · Impressum · Datenschutz · AGB</span>
+  </div>
+
+</div>
+
+</x-dc>
+</body>
+</html>

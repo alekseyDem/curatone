@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aboreto&amp;family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>body{margin:0;font-family:'Open Sans',sans-serif;color:#24272A;background:#FFFFFF}
+@media (max-width:1023px){[data-mob~="c2"]{grid-template-columns:repeat(2,1fr)!important}}
+@media (max-width:900px){[data-mob~="s900"]{grid-template-columns:1fr!important}[data-mob~="s900"]>*{grid-column:auto!important}}
+@media (max-width:760px){[data-mob~="hide760"]{display:none!important}}
+@media (max-width:640px){[data-mob~="s640"]{grid-template-columns:1fr!important}[data-mob~="s640"]>*{grid-column:auto!important}[data-mob~="c2m"]{grid-template-columns:repeat(2,1fr)!important}}
+</style>
+</helmet>
+
+<div data-screen-label="Jury list">
+
+  <div style="position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;row-gap:8px;padding:14px clamp(20px,5.5vw,64px);border-bottom:1px solid #E2E4E8">
+    <img src="uploads/logo.png" alt="Curatone.art" style="height:36px;display:block">
+    <div style="display:flex;align-items:center;gap:34px;font-size:13.5px">
+      <div data-mob="hide760" style="display:flex;align-items:center;gap:clamp(14px,2.2vw,34px)"><span tabindex="0" style="cursor:pointer;transition:color 0.15s" style-hover="color:#0B5C6E">Competitions</span><span tabindex="0" style="cursor:pointer;transition:color 0.15s" style-hover="color:#0B5C6E">Exhibitions</span><span tabindex="0" style="cursor:pointer;transition:color 0.15s" style-hover="color:#0B5C6E">Journal</span><span style="color:#0B5C6E;font-weight:600">Jury</span><span tabindex="0" style="cursor:pointer;transition:color 0.15s" style-hover="color:#0B5C6E">About</span></div>
+      <span tabindex="0" style="background:#0B5C6E;color:#FFFFFF;padding:12px 26px;font-size:13.5px;cursor:pointer;transition:background 0.15s,color 0.15s,border-color 0.15s" style-hover="background:#053C48" style-active="background:#032A33" style-focus="outline:2px solid #0B5C6E;outline-offset:2px">Enter a competition</span>
+    </div>
+  </div>
+
+  <div data-mob="s900" style="padding:clamp(36px,7vw,72px) clamp(20px,5.5vw,64px) 0;display:grid;grid-template-columns:1fr 420px;gap:clamp(40px,7.5vw,80px);align-items:end">
+    <div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#0B5C6E">The masthead of the institution</div>
+      <h1 style="font-family:Aboreto,serif;font-size:54px;font-weight:400;margin:20px 0 0">The jury</h1>
+      <p style="font-size:15.5px;color:#5B6066;line-height:1.75;margin:24px 0 0;max-width:620px">Every entry at Curatone is evaluated by the full jury — credentialed artists, curators, and designers listed publicly with their credentials. Jury service is documented and certified, and each juror's record is part of the platform's public archive.</p>
+    </div>
+    <div data-mob="c2 s640" style="border:1px solid #D7DADE;display:grid;grid-template-columns:1fr 1fr 1fr">
+      <div style="padding:22px 20px;border-right:1px solid #E2E4E8;text-align:center"><div style="font-family:Aboreto,serif;font-size:clamp(23px,3vw,30px);color:#0B5C6E">15</div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.14em;color:#6A6F75;margin-top:5px">MEMBERS</div></div>
+      <div style="padding:22px 20px;border-right:1px solid #E2E4E8;text-align:center"><div style="font-family:Aboreto,serif;font-size:clamp(23px,3vw,30px);color:#0B5C6E">12</div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.14em;color:#6A6F75;margin-top:5px">COUNTRIES</div></div>
+      <div style="padding:22px 20px;text-align:center"><div style="font-family:Aboreto,serif;font-size:clamp(23px,3vw,30px);color:#0B5C6E">5+</div><div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.14em;color:#6A6F75;margin-top:5px">COMPETITIONS</div></div>
+    </div>
+  </div>
+
+  <div data-mob="c2 s640" style="padding:clamp(20px,5.5vw,64px) clamp(20px,5.5vw,64px) 0;display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:40px 36px">
+    <div>
+      <div style="aspect-ratio:3/4;background:repeating-linear-gradient(45deg,#E8EAED 0 12px,#F1F2F4 12px 24px);display:flex;align-items:center;justify-content:center;border:1px solid #E2E4E8"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#8A9096;text-transform:uppercase">Portrait</span></div>
+      <div style="margin-top:16px;font-weight:600;font-size:15px;color:#0B5C6E">Qichao An</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#6A6F75;margin-top:5px">Creative director · China</div>
+      <div style="font-size:12.5px;color:#5B6066;line-height:1.6;margin-top:9px;border-top:1px solid #E2E4E8;padding-top:9px">Fifteen years in visual design; recipient of nearly 100 international design awards.</div>
+    </div>
+    <div>
+      <div style="aspect-ratio:3/4;background:repeating-linear-gradient(45deg,#E8EAED 0 12px,#F1F2F4 12px 24px);display:flex;align-items:center;justify-content:center;border:1px solid #E2E4E8"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#8A9096;text-transform:uppercase">Portrait</span></div>
+      <div style="margin-top:16px;font-weight:600;font-size:15px;color:#0B5C6E">Mosaz (Zijun Zhao)</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#6A6F75;margin-top:5px">Artist · New York, USA</div>
+      <div style="font-size:12.5px;color:#5B6066;line-height:1.6;margin-top:9px;border-top:1px solid #E2E4E8;padding-top:9px">Leonardo da Vinci and Premio Firenze awards; juror for the Genoa Biennale and the China–Italy Contemporary Art Yearbook.</div>
+    </div>
+    <div>
+      <div style="aspect-ratio:3/4;background:repeating-linear-gradient(45deg,#E8EAED 0 12px,#F1F2F4 12px 24px);display:flex;align-items:center;justify-content:center;border:1px solid #E2E4E8"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#8A9096;text-transform:uppercase">Portrait</span></div>
+      <div style="margin-top:16px;font-weight:600;font-size:15px;color:#0B5C6E">Irina Naumycheva</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#6A6F75;margin-top:5px">Designer · Miami, USA</div>
+      <div style="font-size:12.5px;color:#5B6066;line-height:1.6;margin-top:9px;border-top:1px solid #E2E4E8;padding-top:9px">Creator of the AI-Art &amp; Design Flow methodology; juror for international art platforms including Apexart.</div>
+    </div>
+    <div>
+      <div style="aspect-ratio:3/4;background:repeating-linear-gradient(45deg,#E8EAED 0 12px,#F1F2F4 12px 24px);display:flex;align-items:center;justify-content:center;border:1px solid #E2E4E8"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#8A9096;text-transform:uppercase">Portrait</span></div>
+      <div style="margin-top:16px;font-weight:600;font-size:15px;color:#0B5C6E">Josephine Florens</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#6A6F75;margin-top:5px">Oil painter · Germany</div>
+      <div style="font-size:12.5px;color:#5B6066;line-height:1.6;margin-top:9px;border-top:1px solid #E2E4E8;padding-top:9px">Member of the College Art Association (USA) and the Union of Marine Painters of Odesa.</div>
+    </div>
+    <div>
+      <div style="aspect-ratio:3/4;background:repeating-linear-gradient(45deg,#E8EAED 0 12px,#F1F2F4 12px 24px);display:flex;align-items:center;justify-content:center;border:1px solid #E2E4E8"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#8A9096;text-transform:uppercase">Portrait</span></div>
+      <div style="margin-top:16px;font-weight:600;font-size:15px;color:#0B5C6E">Elena Marchetti</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#6A6F75;margin-top:5px">Curator · Italy</div>
+      <div style="font-size:12.5px;color:#5B6066;line-height:1.6;margin-top:9px;border-top:1px solid #E2E4E8;padding-top:9px">Independent curator of contemporary painting; exhibition projects in Milan, Turin, and Basel.</div>
+    </div>
+    <div>
+      <div style="aspect-ratio:3/4;background:repeating-linear-gradient(45deg,#E8EAED 0 12px,#F1F2F4 12px 24px);display:flex;align-items:center;justify-content:center;border:1px solid #E2E4E8"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#8A9096;text-transform:uppercase">Portrait</span></div>
+      <div style="margin-top:16px;font-weight:600;font-size:15px;color:#0B5C6E">David Okafor</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#6A6F75;margin-top:5px">Photographer · Nigeria</div>
+      <div style="font-size:12.5px;color:#5B6066;line-height:1.6;margin-top:9px;border-top:1px solid #E2E4E8;padding-top:9px">Documentary photographer; work published and exhibited internationally, including Lagos Photo.</div>
+    </div>
+    <div>
+      <div style="aspect-ratio:3/4;background:repeating-linear-gradient(45deg,#E8EAED 0 12px,#F1F2F4 12px 24px);display:flex;align-items:center;justify-content:center;border:1px solid #E2E4E8"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#8A9096;text-transform:uppercase">Portrait</span></div>
+      <div style="margin-top:16px;font-weight:600;font-size:15px;color:#0B5C6E">Sofia Lindqvist</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#6A6F75;margin-top:5px">Art historian · Sweden</div>
+      <div style="font-size:12.5px;color:#5B6066;line-height:1.6;margin-top:9px;border-top:1px solid #E2E4E8;padding-top:9px">Researcher in twentieth-century Nordic art; lecturer and contributor to peer-reviewed journals.</div>
+    </div>
+    <div>
+      <div style="aspect-ratio:3/4;background:repeating-linear-gradient(45deg,#E8EAED 0 12px,#F1F2F4 12px 24px);display:flex;align-items:center;justify-content:center;border:1px solid #E2E4E8"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#8A9096;text-transform:uppercase">Portrait</span></div>
+      <div style="margin-top:16px;font-weight:600;font-size:15px;color:#0B5C6E">Chen Wei</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#6A6F75;margin-top:5px">Illustrator · Singapore</div>
+      <div style="font-size:12.5px;color:#5B6066;line-height:1.6;margin-top:9px;border-top:1px solid #E2E4E8;padding-top:9px">Award-winning illustrator; clients and exhibitions across Asia and Europe.</div>
+    </div>
+  </div>
+
+  <div style="margin:clamp(36px,7vw,72px) clamp(20px,5.5vw,64px) clamp(40px,7.5vw,80px);background:#F1F2F4;border:1px solid #E2E4E8;display:flex;justify-content:space-between;flex-wrap:wrap;row-gap:8px;align-items:center;padding:36px 44px">
+    <div>
+      <div style="font-family:Aboreto,serif;font-size:22px">Join the jury</div>
+      <div style="font-size:13.5px;color:#5B6066;margin-top:8px;max-width:640px;line-height:1.65">Applications from experienced artists and established professionals are reviewed by the board of curators. Jury members are listed publicly and receive documented judging credentials.</div>
+    </div>
+    <span tabindex="0" style="background:#0B5C6E;color:#FFFFFF;padding:15px 32px;font-size:13.5px;flex:none;cursor:pointer;transition:background 0.15s,color 0.15s,border-color 0.15s" style-hover="background:#053C48" style-active="background:#032A33" style-focus="outline:2px solid #0B5C6E;outline-offset:2px">Apply to the jury</span>
+  </div>
+
+  <div style="background:#24272A;color:#A9ADB2;padding:26px clamp(20px,5.5vw,64px);font-size:12px;display:flex;justify-content:space-between;flex-wrap:wrap;row-gap:8px;align-items:center">
+    <img src="uploads/logo.png" alt="Curatone.art" style="height:24px;display:block;filter:invert(1)">
+    <span>© 2026 Curatone.art · ISSN 3054-6621 · Impressum · Datenschutz · AGB</span>
+  </div>
+
+</div>
+
+</x-dc>
+</body>
+</html>

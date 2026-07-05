@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aboreto&amp;family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>body{margin:0;font-family:'Open Sans',sans-serif;color:#24272A;background:#FFFFFF}
+@media (max-width:1023px){[data-mob~="c2"]{grid-template-columns:repeat(2,1fr)!important}}
+@media (max-width:900px){[data-mob~="s900"]{grid-template-columns:1fr!important}[data-mob~="s900"]>*{grid-column:auto!important}}
+@media (max-width:760px){[data-mob~="hide760"]{display:none!important}}
+@media (max-width:640px){[data-mob~="s640"]{grid-template-columns:1fr!important}[data-mob~="s640"]>*{grid-column:auto!important}[data-mob~="c2m"]{grid-template-columns:repeat(2,1fr)!important}}
+</style>
+</helmet>
+
+<div data-screen-label="Competition entry form">
+
+  <div style="position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;row-gap:8px;padding:14px clamp(20px,5.5vw,64px);border-bottom:1px solid #E2E4E8">
+    <img src="uploads/logo.png" alt="Curatone.art" style="height:36px;display:block">
+    <div style="display:flex;align-items:center;gap:34px;font-size:13.5px">
+      <div data-mob="hide760" style="display:flex;align-items:center;gap:clamp(14px,2.2vw,34px)"><span style="color:#0B5C6E;font-weight:600">Competitions</span><span tabindex="0" style="cursor:pointer;transition:color 0.15s" style-hover="color:#0B5C6E">Exhibitions</span><span tabindex="0" style="cursor:pointer;transition:color 0.15s" style-hover="color:#0B5C6E">Journal</span><span tabindex="0" style="cursor:pointer;transition:color 0.15s" style-hover="color:#0B5C6E">Jury</span><span tabindex="0" style="cursor:pointer;transition:color 0.15s" style-hover="color:#0B5C6E">About</span></div>
+      <span tabindex="0" style="background:#0B5C6E;color:#FFFFFF;padding:12px 26px;font-size:13.5px;cursor:pointer;transition:background 0.15s,color 0.15s,border-color 0.15s" style-hover="background:#053C48" style-active="background:#032A33" style-focus="outline:2px solid #0B5C6E;outline-offset:2px">Enter a competition</span>
+    </div>
+  </div>
+
+  <div style="max-width:760px;margin:0 auto;padding:44px 32px clamp(40px,7.5vw,80px)">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:#6A6F75">Competitions / Open Call: Colors / <span style="color:#24272A">Entry</span></div>
+
+    <!-- open call card -->
+    <div style="border:1px solid #24272A;margin-top:28px;display:flex;flex-wrap:wrap;gap:28px;align-items:center;padding:26px 32px">
+      <div style="width:96px;aspect-ratio:4/5;background:repeating-linear-gradient(45deg,#E8EAED 0 10px,#F1F2F4 10px 20px);flex:none;border:1px solid #E2E4E8"></div>
+      <div style="flex:1">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:#870000">Now accepting entries</div>
+        <div style="font-family:Aboreto,serif;font-size:24px;margin-top:8px">Open Call: Colors</div>
+        <div style="font-size:13px;color:#6A6F75;margin-top:6px">Painting · Drawing · Modern Art · $15–25 per work · up to 3 works</div>
+      </div>
+      <div style="text-align:center;border-left:1px solid #E2E4E8;padding-left:28px;flex:none">
+        <div style="font-family:Aboreto,serif;font-size:clamp(23px,3vw,30px);color:#0B5C6E">64</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.12em;color:#6A6F75;margin-top:3px">DAYS LEFT</div>
+        <div style="font-size:12px;font-weight:600;margin-top:6px">Sep 6, 2026</div>
+      </div>
+    </div>
+
+    <h1 style="font-family:Aboreto,serif;font-size:34px;font-weight:400;margin:clamp(28px,4.5vw,48px) 0 0">Entry form</h1>
+    <p style="font-size:14px;color:#5B6066;line-height:1.75;margin:14px 0 0">Submitted works remain private during the entry period. A confirmation with your entry number is issued by email.</p>
+
+    <!-- work 1 -->
+    <div style="border-top:1px solid #24272A;margin-top:36px;padding-top:24px">
+      <div style="display:flex;justify-content:space-between;flex-wrap:wrap;row-gap:8px;align-items:baseline">
+        <h2 style="font-family:Aboreto,serif;font-size:21px;font-weight:400;margin:0">Work 1</h2>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#9AA0A6">$25</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:22px;margin-top:26px">
+        <div>
+          <div style="font-size:12.5px;font-weight:600;margin-bottom:8px">Image <span style="color:#870000">*</span></div>
+          <div style="border:1px dashed #9AA0A6;padding:36px;text-align:center;background:#F8F9FA">
+            <div style="font-size:13.5px;font-weight:600;color:#0B5C6E">Choose a file or drag it here</div>
+            <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.08em;color:#6A6F75;margin-top:8px">JPG OR PNG · MIN 2000 PX LONG SIDE · MAX 25 MB</div>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:12.5px;font-weight:600;margin-bottom:8px">Title <span style="color:#870000">*</span></div>
+          <div style="border:1px solid #D7DADE;padding:13px 16px;font-size:13.5px;color:#9AA0A6">Title of the work</div>
+        </div>
+        <div>
+          <div style="font-size:12.5px;font-weight:600;margin-bottom:8px">Category <span style="color:#870000">*</span></div>
+          <div style="border:1px solid #D7DADE;padding:13px 16px;font-size:13.5px;display:flex;justify-content:space-between;flex-wrap:wrap;row-gap:8px"><span>Painting</span><span style="color:#6A6F75">▾</span></div>
+        </div>
+        <div>
+          <div style="font-size:12.5px;font-weight:600;margin-bottom:8px">Year <span style="color:#870000">*</span></div>
+          <div style="border:1px solid #D7DADE;padding:13px 16px;font-size:13.5px;color:#9AA0A6">2026</div>
+        </div>
+        <div>
+          <div style="font-size:12.5px;font-weight:600;margin-bottom:8px">Medium <span style="color:#870000">*</span></div>
+          <div style="border:1px solid #D7DADE;padding:13px 16px;font-size:13.5px;color:#9AA0A6">e.g. Acrylic on canvas</div>
+        </div>
+        <div>
+          <div style="font-size:12.5px;font-weight:600;margin-bottom:8px">Dimensions</div>
+          <div style="border:1px solid #D7DADE;padding:13px 16px;font-size:13.5px;color:#9AA0A6">e.g. 90 × 120 cm</div>
+        </div>
+        <div>
+          <div style="font-size:12.5px;font-weight:600;margin-bottom:8px">Statement <span style="color:#6A6F75;font-weight:400">— optional, max 120 words</span></div>
+          <div style="border:1px solid #D7DADE;padding:14px 16px;font-size:13.5px;color:#9AA0A6;min-height:72px;line-height:1.7">A short note on the work and its relation to the theme.</div>
+        </div>
+      </div>
+      <div style="border:1px dashed #D7DADE;padding:16px;text-align:center;font-size:13px;color:#0B5C6E;font-weight:600;margin-top:26px">+ Add another work — up to 3 ($15 each additional)</div>
+    </div>
+
+    <!-- artist details -->
+    <div style="border-top:1px solid #24272A;margin-top:44px;padding-top:24px">
+      <h2 style="font-family:Aboreto,serif;font-size:21px;font-weight:400;margin:0">Artist details</h2>
+      <div style="display:flex;flex-direction:column;gap:22px;margin-top:26px">
+        <div>
+          <div style="font-size:12.5px;font-weight:600;margin-bottom:8px">Full name <span style="color:#870000">*</span> <span style="color:#6A6F75;font-weight:400">— as it should appear on the certificate</span></div>
+          <div style="border:1px solid #D7DADE;padding:13px 16px;font-size:13.5px;color:#9AA0A6">First Last</div>
+        </div>
+        <div>
+          <div style="font-size:12.5px;font-weight:600;margin-bottom:8px">Country <span style="color:#870000">*</span></div>
+          <div style="border:1px solid #D7DADE;padding:13px 16px;font-size:13.5px;display:flex;justify-content:space-between;flex-wrap:wrap;row-gap:8px"><span style="color:#9AA0A6">Select country</span><span style="color:#6A6F75">▾</span></div>
+        </div>
+        <div>
+          <div style="font-size:12.5px;font-weight:600;margin-bottom:8px">Email <span style="color:#870000">*</span></div>
+          <div style="border:1px solid #D7DADE;padding:13px 16px;font-size:13.5px;color:#9AA0A6">name@example.com</div>
+        </div>
+        <div>
+          <div style="font-size:12.5px;font-weight:600;margin-bottom:8px">Portfolio or website</div>
+          <div style="border:1px solid #D7DADE;padding:13px 16px;font-size:13.5px;color:#9AA0A6">https://</div>
+        </div>
+        <div>
+          <div style="font-size:12.5px;font-weight:600;margin-bottom:8px">About the artist <span style="color:#870000">*</span> <span style="color:#6A6F75;font-weight:400">— awards, associations, achievements; used on your public profile if you become a finalist</span></div>
+          <div style="border:1px solid #D7DADE;padding:14px 16px;font-size:13.5px;color:#9AA0A6;min-height:110px;line-height:1.7">Education, memberships, exhibitions, awards, and other professional achievements — written in third person.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- total + submit -->
+    <div style="border:1px solid #D7DADE;margin-top:44px">
+      <div style="display:flex;justify-content:space-between;flex-wrap:wrap;row-gap:8px;padding:14px 26px;border-bottom:1px solid #E2E4E8;font-size:13px"><span style="color:#6A6F75">Works added</span><span style="font-weight:600">1 of 3</span></div>
+      <div style="display:flex;justify-content:space-between;flex-wrap:wrap;row-gap:8px;padding:14px 26px;font-size:13.5px;background:#F1F2F4"><span style="font-weight:600">Total</span><span style="font-weight:700">$25</span></div>
+    </div>
+    <div style="background:#0B5C6E;color:#FFFFFF;text-align:center;padding:17px 0;font-size:14.5px;margin-top:24px">Proceed to payment — $25</div>
+    <div style="text-align:center;font-size:12.5px;color:#6A6F75;margin-top:14px">Secure payment · confirmation by email · only finalist works are published with the results</div>
+  </div>
+
+  <div style="background:#24272A;color:#A9ADB2;padding:26px clamp(20px,5.5vw,64px);font-size:12px;display:flex;justify-content:space-between;flex-wrap:wrap;row-gap:8px;align-items:center">
+    <img src="uploads/logo.png" alt="Curatone.art" style="height:24px;display:block;filter:invert(1)">
+    <span>© 2026 Curatone.art · ISSN 3054-6621 · Impressum · Datenschutz · AGB</span>
+  </div>
+
+</div>
+
+</x-dc>
+</body>
+</html>

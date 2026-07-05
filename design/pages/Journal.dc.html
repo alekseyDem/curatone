@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aboreto&amp;family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>body{margin:0;font-family:'Open Sans',sans-serif;color:#24272A;background:#FFFFFF}
+@media (max-width:1023px){[data-mob~="c2"]{grid-template-columns:repeat(2,1fr)!important}}
+@media (max-width:900px){[data-mob~="s900"]{grid-template-columns:1fr!important}[data-mob~="s900"]>*{grid-column:auto!important}}
+@media (max-width:760px){[data-mob~="hide760"]{display:none!important}}
+@media (max-width:640px){[data-mob~="s640"]{grid-template-columns:1fr!important}[data-mob~="s640"]>*{grid-column:auto!important}[data-mob~="c2m"]{grid-template-columns:repeat(2,1fr)!important}}
+</style>
+</helmet>
+
+<div data-screen-label="Journal listing">
+
+  <div style="position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;row-gap:8px;padding:14px clamp(20px,5.5vw,64px);border-bottom:1px solid #E2E4E8">
+    <img src="uploads/logo.png" alt="Curatone.art" style="height:36px;display:block">
+    <div style="display:flex;align-items:center;gap:34px;font-size:13.5px">
+      <div data-mob="hide760" style="display:flex;align-items:center;gap:clamp(14px,2.2vw,34px)"><span tabindex="0" style="cursor:pointer;transition:color 0.15s" style-hover="color:#0B5C6E">Competitions</span><span tabindex="0" style="cursor:pointer;transition:color 0.15s" style-hover="color:#0B5C6E">Exhibitions</span><span style="color:#0B5C6E;font-weight:600">Journal</span><span tabindex="0" style="cursor:pointer;transition:color 0.15s" style-hover="color:#0B5C6E">Jury</span><span tabindex="0" style="cursor:pointer;transition:color 0.15s" style-hover="color:#0B5C6E">About</span></div>
+      <span tabindex="0" style="background:#0B5C6E;color:#FFFFFF;padding:12px 26px;font-size:13.5px;cursor:pointer;transition:background 0.15s,color 0.15s,border-color 0.15s" style-hover="background:#053C48" style-active="background:#032A33" style-focus="outline:2px solid #0B5C6E;outline-offset:2px">Enter a competition</span>
+    </div>
+  </div>
+
+  <!-- journal masthead -->
+  <div style="margin:clamp(32px,5vw,56px) clamp(20px,5.5vw,64px) 0;border-top:3px double #24272A;border-bottom:1px solid #24272A;padding:44px 0;text-align:center">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:#6A6F75">ISSN 3054-6621 · Published by Curatone.art, Germany</div>
+    <h1 style="font-family:Aboreto,serif;font-size:46px;font-weight:400;margin:22px 0 0">Curatone Art &amp; Research Journal</h1>
+    <div style="font-size:14.5px;color:#5B6066;margin-top:16px;max-width:640px;margin-left:auto;margin-right:auto;line-height:1.7">Peer-reviewed research on contemporary art and design. Every published article receives a registered DOI.</div>
+    <div style="display:inline-flex;border:1px solid #D7DADE;margin-top:30px">
+      <div style="padding:14px 30px;border-right:1px solid #E2E4E8;font-size:12.5px"><span style="color:#6A6F75">Review model </span><span style="font-weight:600">Double-blind</span></div>
+      <div style="padding:14px 30px;border-right:1px solid #E2E4E8;font-size:12.5px"><span style="color:#6A6F75">Editorial board </span><span style="font-weight:600">10+ members</span></div>
+      <div style="padding:14px 30px;border-right:1px solid #E2E4E8;font-size:12.5px"><span style="color:#6A6F75">Frequency </span><span style="font-weight:600">Quarterly</span></div>
+      <div style="padding:14px 30px;font-size:12.5px"><span style="color:#6A6F75">Access </span><span style="font-weight:600">Open</span></div>
+    </div>
+  </div>
+
+  <div data-mob="s900" style="padding:clamp(32px,5vw,56px) clamp(20px,5.5vw,64px) 0;display:grid;grid-template-columns:1fr 380px;gap:clamp(40px,7.5vw,80px);align-items:start">
+    <div>
+      <div style="display:flex;justify-content:space-between;flex-wrap:wrap;row-gap:8px;align-items:baseline;margin-bottom:8px">
+        <h2 style="font-family:Aboreto,serif;font-size:28px;font-weight:400;margin:0">Vol. 2 · Issue 3 · 2026</h2>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.12em;color:#6A6F75">CURRENT ISSUE · PUBLISHED JUNE 2026</span>
+      </div>
+      <div style="padding:26px 0;border-bottom:1px solid #E2E4E8;display:flex;flex-wrap:wrap;gap:30px">
+        <div style="width:170px;aspect-ratio:4/3;background:repeating-linear-gradient(45deg,#E8EAED 0 10px,#F1F2F4 10px 20px);border:1px solid #E2E4E8;flex:none;display:flex;align-items:center;justify-content:center"><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.12em;color:#8A9096">IMAGE</span></div>
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#0B5C6E">DOI 10.63653/CTAR.2026.14 · RESEARCH ARTICLE · PP. 4–21</div>
+          <div style="font-size:19px;font-weight:600;margin-top:10px;line-height:1.45;color:#0B5C6E">Color as archive: pigment choice and cultural memory in contemporary painting</div>
+          <div style="font-size:13px;color:#6A6F75;margin-top:8px">Marta Keller (Berlin University of the Arts) · Ama Osei (University of Ghana)</div>
+          <p style="font-size:13.5px;color:#5B6066;line-height:1.7;margin:12px 0 0;max-width:720px">The article examines pigment selection as a carrier of cultural memory in contemporary painting practice, drawing on interviews with twenty-four artists and a corpus of works from international juried exhibitions between 2020 and 2025.</p>
+        </div>
+      </div>
+      <div style="padding:26px 0;border-bottom:1px solid #E2E4E8;display:flex;flex-wrap:wrap;gap:30px">
+        <div style="width:170px;aspect-ratio:4/3;background:repeating-linear-gradient(45deg,#E8EAED 0 10px,#F1F2F4 10px 20px);border:1px solid #E2E4E8;flex:none;display:flex;align-items:center;justify-content:center"><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.12em;color:#8A9096">IMAGE</span></div>
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#0B5C6E">DOI 10.63653/CTAR.2026.13 · RESEARCH ARTICLE · PP. 22–39</div>
+          <div style="font-size:19px;font-weight:600;margin-top:10px;line-height:1.45;color:#0B5C6E">The juried exhibition as professional record: documentation practices in online curation</div>
+          <div style="font-size:13px;color:#6A6F75;margin-top:8px">Louis Fontaine (Université Paris 8)</div>
+          <p style="font-size:13.5px;color:#5B6066;line-height:1.7;margin:12px 0 0;max-width:720px">A survey of documentation standards across forty online curatorial platforms, assessing how certificates, archives, and published jury credentials function as verifiable professional records for artists.</p>
+        </div>
+      </div>
+      <div style="padding:26px 0;border-bottom:1px solid #E2E4E8;display:flex;flex-wrap:wrap;gap:30px">
+        <div style="width:170px;aspect-ratio:4/3;background:repeating-linear-gradient(45deg,#E8EAED 0 10px,#F1F2F4 10px 20px);border:1px solid #E2E4E8;flex:none;display:flex;align-items:center;justify-content:center"><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.12em;color:#8A9096">IMAGE</span></div>
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#0B5C6E">DOI 10.63653/CTAR.2026.12 · REVIEW · PP. 40–52</div>
+          <div style="font-size:19px;font-weight:600;margin-top:10px;line-height:1.45;color:#0B5C6E">Digital surfaces: material authenticity in post-photographic media</div>
+          <div style="font-size:13px;color:#6A6F75;margin-top:8px">Sergio Andrade (NOVA University Lisbon) · Timo Virtanen (Aalto University)</div>
+          <p style="font-size:13.5px;color:#5B6066;line-height:1.7;margin:12px 0 0;max-width:720px">A review of recent scholarship on materiality in digital and post-photographic art, with attention to how juried exhibitions evaluate authenticity in born-digital works.</p>
+        </div>
+      </div>
+      <div style="padding:26px 0;border-bottom:1px solid #E2E4E8;display:flex;flex-wrap:wrap;gap:30px">
+        <div style="width:170px;aspect-ratio:4/3;background:repeating-linear-gradient(45deg,#E8EAED 0 10px,#F1F2F4 10px 20px);border:1px solid #E2E4E8;flex:none;display:flex;align-items:center;justify-content:center"><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.12em;color:#8A9096">IMAGE</span></div>
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#0B5C6E">DOI 10.63653/CTAR.2026.11 · RESEARCH ARTICLE · PP. 53–70</div>
+          <div style="font-size:19px;font-weight:600;margin-top:10px;line-height:1.45;color:#0B5C6E">Contemporary art and design as instruments of social cohesion: a cross-national study</div>
+          <div style="font-size:13px;color:#6A6F75;margin-top:8px">Hanna Scholz (Curatone Research Initiative, Berlin)</div>
+          <p style="font-size:13.5px;color:#5B6066;line-height:1.7;margin:12px 0 0;max-width:720px">Part of the journal's ongoing research initiative on the impact of contemporary art and design on global social structures; reports findings from a twelve-country comparative study.</p>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:center;padding:24px 0"><span tabindex="0" style="font-size:13.5px;color:#0B5C6E;font-weight:600;cursor:pointer;transition:color 0.15s" style-hover="color:#083F4C;text-decoration:underline" style-focus="outline:2px solid currentColor;outline-offset:3px">Full table of contents →</span></div>
+    </div>
+
+    <div>
+      <div style="background:#F1F2F4;border:1px solid #E2E4E8;padding:30px 32px">
+        <div style="font-family:Aboreto,serif;font-size:19px">Submit an article</div>
+        <p style="font-size:13px;color:#5B6066;line-height:1.7;margin:12px 0 0">Original research on contemporary art and design. Double-blind peer review; accepted articles are published open access with a registered DOI.</p>
+        <div style="background:#0B5C6E;color:#FFFFFF;text-align:center;padding:13px 0;font-size:13.5px;margin-top:22px">Submission form</div>
+        <div tabindex="0" style="text-align:center;font-size:12.5px;color:#0B5C6E;margin-top:14px;cursor:pointer;transition:color 0.15s" style-hover="color:#083F4C;text-decoration:underline" style-focus="outline:2px solid currentColor;outline-offset:3px">Author guidelines →</div>
+      </div>
+      <div style="border:1px solid #D7DADE;margin-top:28px;padding:22px 26px;font-size:13px;color:#5B6066;line-height:1.7">Submission guidelines, article types, and formatting requirements are published separately.<div tabindex="0" style="color:#0B5C6E;font-weight:600;margin-top:10px;cursor:pointer;transition:color 0.15s" style-hover="color:#083F4C;text-decoration:underline" style-focus="outline:2px solid currentColor;outline-offset:3px">Submission guidelines →</div></div>
+      <div style="border:1px solid #D7DADE;margin-top:28px;padding:26px 28px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:#6A6F75">Editorial board</div>
+        <div style="font-size:13px;line-height:2;margin-top:12px;color:#5B6066">Dr. Hanna Scholz — Editor-in-chief, Berlin<br>Prof. Marta Keller — Berlin University of the Arts<br>Dr. Louis Fontaine — Université Paris 8<br>Prof. Sergio Andrade — NOVA University Lisbon<br><span tabindex="0" style="color:#0B5C6E;font-weight:600;cursor:pointer;transition:color 0.15s" style-hover="color:#083F4C;text-decoration:underline" style-focus="outline:2px solid currentColor;outline-offset:3px">Full board (10+) →</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- issues -->
+  <div style="padding:clamp(36px,7vw,72px) clamp(20px,5.5vw,64px) 0">
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;row-gap:8px;align-items:baseline;border-top:1px solid #24272A;padding-top:28px;margin-bottom:44px">
+      <h2 style="font-family:Aboreto,serif;font-size:28px;font-weight:400;margin:0">Issues</h2>
+      <span tabindex="0" style="font-size:13.5px;color:#0B5C6E;cursor:pointer;transition:color 0.15s" style-hover="color:#083F4C;text-decoration:underline" style-focus="outline:2px solid currentColor;outline-offset:3px">All issues →</span>
+    </div>
+    <div data-mob="c2 s640" style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:36px">
+      <div>
+        <div style="aspect-ratio:3/4;border:1px solid #24272A;background:#FFFFFF;padding:10px">
+          <div style="height:100%;background:repeating-linear-gradient(45deg,#E8EAED 0 12px,#F1F2F4 12px 24px);display:flex;align-items:center;justify-content:center"><span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.12em;color:#8A9096;text-transform:uppercase">Issue cover</span></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;flex-wrap:wrap;row-gap:8px;align-items:baseline;margin-top:16px"><span style="font-weight:600;font-size:14.5px">Vol. 2 · Issue 3</span><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.12em;color:#870000">CURRENT</span></div>
+        <div style="font-size:12.5px;color:#6A6F75;margin-top:3px">June 2026 · 4 articles</div>
+      </div>
+      <div>
+        <div style="aspect-ratio:3/4;border:1px solid #D7DADE;background:#FFFFFF;padding:10px">
+          <div style="height:100%;background:repeating-linear-gradient(45deg,#E8EAED 0 12px,#F1F2F4 12px 24px);display:flex;align-items:center;justify-content:center"><span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.12em;color:#8A9096;text-transform:uppercase">Issue cover</span></div>
+        </div>
+        <div style="font-weight:600;font-size:14.5px;margin-top:16px">Vol. 2 · Issue 2</div>
+        <div style="font-size:12.5px;color:#6A6F75;margin-top:3px">March 2026 · 5 articles</div>
+      </div>
+      <div>
+        <div style="aspect-ratio:3/4;border:1px solid #D7DADE;background:#FFFFFF;padding:10px">
+          <div style="height:100%;background:repeating-linear-gradient(45deg,#E8EAED 0 12px,#F1F2F4 12px 24px);display:flex;align-items:center;justify-content:center"><span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.12em;color:#8A9096;text-transform:uppercase">Issue cover</span></div>
+        </div>
+        <div style="font-weight:600;font-size:14.5px;margin-top:16px">Vol. 2 · Issue 1</div>
+        <div style="font-size:12.5px;color:#6A6F75;margin-top:3px">December 2025 · 4 articles</div>
+      </div>
+      <div>
+        <div style="aspect-ratio:3/4;border:1px solid #D7DADE;background:#FFFFFF;padding:10px">
+          <div style="height:100%;background:repeating-linear-gradient(45deg,#E8EAED 0 12px,#F1F2F4 12px 24px);display:flex;align-items:center;justify-content:center"><span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.12em;color:#8A9096;text-transform:uppercase">Issue cover</span></div>
+        </div>
+        <div style="font-weight:600;font-size:14.5px;margin-top:16px">Vol. 1 · Issue 2</div>
+        <div style="font-size:12.5px;color:#6A6F75;margin-top:3px">September 2025 · 3 articles</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin:clamp(20px,5.5vw,64px) clamp(20px,5.5vw,64px) 0;border-top:1px solid #24272A;padding:28px 0 clamp(20px,5.5vw,64px);display:flex;justify-content:space-between;flex-wrap:wrap;row-gap:8px;align-items:center;gap:clamp(28px,4.5vw,48px)">
+    <div style="font-size:13.5px;color:#5B6066;max-width:760px;line-height:1.7">The journal's ongoing research initiative — <span style="font-style:italic">The Impact of Contemporary Art and Design on Global Social Structures</span> — accepts contributions on a rolling basis.</div>
+    <span tabindex="0" style="border:1px solid #24272A;padding:13px 28px;font-size:13.5px;flex:none;cursor:pointer;transition:background 0.15s,color 0.15s,border-color 0.15s" style-hover="background:#24272A;color:#FFFFFF" style-active="background:#3B3F44;color:#FFFFFF" style-focus="outline:2px solid #0B5C6E;outline-offset:2px">About the initiative</span>
+  </div>
+
+  <div style="background:#24272A;color:#A9ADB2;padding:26px clamp(20px,5.5vw,64px);font-size:12px;display:flex;justify-content:space-between;flex-wrap:wrap;row-gap:8px;align-items:center">
+    <img src="uploads/logo.png" alt="Curatone.art" style="height:24px;display:block;filter:invert(1)">
+    <span>© 2026 Curatone.art · ISSN 3054-6621 · Impressum · Datenschutz · AGB</span>
+  </div>
+
+</div>
+
+</x-dc>
+</body>
+</html>

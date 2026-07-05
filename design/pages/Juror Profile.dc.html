@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aboreto&amp;family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>body{margin:0;font-family:'Open Sans',sans-serif;color:#24272A;background:#FFFFFF}
+@media (max-width:1023px){[data-mob~="c2"]{grid-template-columns:repeat(2,1fr)!important}}
+@media (max-width:900px){[data-mob~="s900"]{grid-template-columns:1fr!important}[data-mob~="s900"]>*{grid-column:auto!important}}
+@media (max-width:760px){[data-mob~="hide760"]{display:none!important}}
+@media (max-width:640px){[data-mob~="s640"]{grid-template-columns:1fr!important}[data-mob~="s640"]>*{grid-column:auto!important}[data-mob~="c2m"]{grid-template-columns:repeat(2,1fr)!important}}
+</style>
+</helmet>
+
+<div data-screen-label="Juror profile">
+
+  <div style="position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;row-gap:8px;padding:14px clamp(20px,5.5vw,64px);border-bottom:1px solid #E2E4E8">
+    <img src="uploads/logo.png" alt="Curatone.art" style="height:36px;display:block">
+    <div style="display:flex;align-items:center;gap:34px;font-size:13.5px">
+      <div data-mob="hide760" style="display:flex;align-items:center;gap:clamp(14px,2.2vw,34px)"><span tabindex="0" style="cursor:pointer;transition:color 0.15s" style-hover="color:#0B5C6E">Competitions</span><span tabindex="0" style="cursor:pointer;transition:color 0.15s" style-hover="color:#0B5C6E">Exhibitions</span><span tabindex="0" style="cursor:pointer;transition:color 0.15s" style-hover="color:#0B5C6E">Journal</span><span style="color:#0B5C6E;font-weight:600">Jury</span><span tabindex="0" style="cursor:pointer;transition:color 0.15s" style-hover="color:#0B5C6E">About</span></div>
+      <span tabindex="0" style="background:#0B5C6E;color:#FFFFFF;padding:12px 26px;font-size:13.5px;cursor:pointer;transition:background 0.15s,color 0.15s,border-color 0.15s" style-hover="background:#053C48" style-active="background:#032A33" style-focus="outline:2px solid #0B5C6E;outline-offset:2px">Enter a competition</span>
+    </div>
+  </div>
+
+  <div style="padding:44px clamp(20px,5.5vw,64px) 0;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:#6A6F75">Jury / <span style="color:#24272A">Josephine Florens</span></div>
+
+  <div data-mob="s900" style="padding:44px clamp(20px,5.5vw,64px) clamp(36px,7vw,72px);display:grid;grid-template-columns:380px 1fr;gap:clamp(40px,7.5vw,80px);align-items:start">
+    <div>
+      <div style="aspect-ratio:3/4;background:repeating-linear-gradient(45deg,#E8EAED 0 12px,#F1F2F4 12px 24px);border:1px solid #E2E4E8;display:flex;align-items:center;justify-content:center"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#8A9096;text-transform:uppercase">Portrait — replace</span></div>
+      <div style="border:1px solid #D7DADE;margin-top:24px">
+        <div style="display:flex;justify-content:space-between;flex-wrap:wrap;row-gap:8px;padding:13px 22px;border-bottom:1px solid #E2E4E8;font-size:13px"><span style="color:#6A6F75">Jury member since</span><span style="font-weight:600">2025</span></div>
+        <div style="display:flex;justify-content:space-between;flex-wrap:wrap;row-gap:8px;padding:13px 22px;font-size:13px"><span style="color:#6A6F75">Competitions judged</span><span style="font-weight:600">4</span></div>
+      </div>
+    </div>
+    <div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:#0B5C6E">Jury member</div>
+      <h1 style="font-family:Aboreto,serif;font-size:46px;font-weight:400;margin:18px 0 0">Josephine Florens</h1>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#6A6F75;margin-top:12px">Professional oil painter · Germany</div>
+      <p style="font-size:14.5px;color:#5B6066;line-height:1.85;margin:28px 0 0;max-width:680px">Josephine Florens is a professional oil painter based in Germany, working primarily in marine and landscape painting. Her practice combines classical technique with contemporary subject matter, and her work has been shown in juried exhibitions across Europe.</p>
+      <p style="font-size:14.5px;color:#5B6066;line-height:1.85;margin:16px 0 0;max-width:680px">She serves on the Curatone jury across painting and drawing categories, scoring each assigned work independently under the platform's published criteria.</p>
+      <h2 style="font-family:Aboreto,serif;font-size:22px;font-weight:400;margin:44px 0 8px;border-top:1px solid #24272A;padding-top:24px">Credentials</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;padding:14px 0;border-bottom:1px solid #E2E4E8;align-items:baseline"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#0B5C6E">01</span><span style="font-size:14px">Member, College Art Association (USA)</span></div>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;padding:14px 0;border-bottom:1px solid #E2E4E8;align-items:baseline"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#0B5C6E">02</span><span style="font-size:14px">Member, Union of Marine Painters of Odesa</span></div>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;padding:14px 0;border-bottom:1px solid #E2E4E8;align-items:baseline"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#0B5C6E">03</span><span style="font-size:14px">Juried exhibitions in Germany, Ukraine, and Poland, 2015–2026</span></div>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;padding:14px 0;border-bottom:1px solid #E2E4E8;align-items:baseline"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#0B5C6E">04</span><span style="font-size:14px">Documented jury service at Curatone.art, 2025 – present</span></div>
+      <h2 style="font-family:Aboreto,serif;font-size:22px;font-weight:400;margin:44px 0 20px;border-top:1px solid #24272A;padding-top:24px">Judging record</h2>
+      <div style="border:1px solid #D7DADE">
+        <div data-mob="s640" style="display:grid;grid-template-columns:110px 1fr 1fr;background:#F1F2F4;border-bottom:1px solid #E2E4E8;padding:11px 22px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.14em;color:#6A6F75;text-transform:uppercase"><span>Year</span><span>Competition</span><span>Categories</span></div>
+        <div data-mob="s640" style="display:grid;grid-template-columns:110px 1fr 1fr;padding:14px 22px;border-bottom:1px solid #E2E4E8;font-size:13.5px"><span style="color:#6A6F75">2026</span><span style="font-weight:600">Open Call: Colors</span><span style="color:#5B6066">Painting · Drawing</span></div>
+        <div data-mob="s640" style="display:grid;grid-template-columns:110px 1fr 1fr;padding:14px 22px;border-bottom:1px solid #E2E4E8;font-size:13.5px"><span style="color:#6A6F75">2026</span><span style="font-weight:600">Connections 2026</span><span style="color:#5B6066">Painting</span></div>
+        <div data-mob="s640" style="display:grid;grid-template-columns:110px 1fr 1fr;padding:14px 22px;font-size:13.5px"><span style="color:#6A6F75">2025</span><span style="font-weight:600">Moments of Life 2025</span><span style="color:#5B6066">Painting · Drawing</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding:0 clamp(20px,5.5vw,64px) clamp(40px,7.5vw,80px)">
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;row-gap:8px;align-items:baseline;border-top:1px solid #24272A;padding-top:28px;margin-bottom:36px">
+      <h2 style="font-family:Aboreto,serif;font-size:24px;font-weight:400;margin:0">Other jury members</h2>
+      <span tabindex="0" style="font-size:13.5px;color:#0B5C6E;cursor:pointer;transition:color 0.15s" style-hover="color:#083F4C;text-decoration:underline" style-focus="outline:2px solid currentColor;outline-offset:3px">Full jury list →</span>
+    </div>
+    <div data-mob="c2 s640" style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:36px">
+      <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center">
+        <div style="width:64px;height:64px;border-radius:50%;background:repeating-linear-gradient(45deg,#E8EAED 0 8px,#F1F2F4 8px 16px);flex:none;border:1px solid #E2E4E8"></div>
+        <div><div style="font-weight:600;font-size:14px;color:#0B5C6E">Qichao An</div><div style="font-size:12px;color:#6A6F75;margin-top:2px">Creative director · China</div></div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center">
+        <div style="width:64px;height:64px;border-radius:50%;background:repeating-linear-gradient(45deg,#E8EAED 0 8px,#F1F2F4 8px 16px);flex:none;border:1px solid #E2E4E8"></div>
+        <div><div style="font-weight:600;font-size:14px;color:#0B5C6E">Mosaz (Zijun Zhao)</div><div style="font-size:12px;color:#6A6F75;margin-top:2px">Artist · New York, USA</div></div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center">
+        <div style="width:64px;height:64px;border-radius:50%;background:repeating-linear-gradient(45deg,#E8EAED 0 8px,#F1F2F4 8px 16px);flex:none;border:1px solid #E2E4E8"></div>
+        <div><div style="font-weight:600;font-size:14px;color:#0B5C6E">Irina Naumycheva</div><div style="font-size:12px;color:#6A6F75;margin-top:2px">Designer · Miami, USA</div></div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center">
+        <div style="width:64px;height:64px;border-radius:50%;background:repeating-linear-gradient(45deg,#E8EAED 0 8px,#F1F2F4 8px 16px);flex:none;border:1px solid #E2E4E8"></div>
+        <div><div style="font-weight:600;font-size:14px;color:#0B5C6E">Elena Marchetti</div><div style="font-size:12px;color:#6A6F75;margin-top:2px">Curator · Italy</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:#24272A;color:#A9ADB2;padding:26px clamp(20px,5.5vw,64px);font-size:12px;display:flex;justify-content:space-between;flex-wrap:wrap;row-gap:8px;align-items:center">
+    <img src="uploads/logo.png" alt="Curatone.art" style="height:24px;display:block;filter:invert(1)">
+    <span>© 2026 Curatone.art · ISSN 3054-6621 · Impressum · Datenschutz · AGB</span>
+  </div>
+
+</div>
+
+</x-dc>
+</body>
+</html>

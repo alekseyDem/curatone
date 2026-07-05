@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aboreto&amp;family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>body{margin:0;font-family:'Open Sans',sans-serif;color:#24272A;background:#FFFFFF}
+@media (max-width:1023px){[data-mob~="c2"]{grid-template-columns:repeat(2,1fr)!important}}
+@media (max-width:900px){[data-mob~="s900"]{grid-template-columns:1fr!important}[data-mob~="s900"]>*{grid-column:auto!important}}
+@media (max-width:760px){[data-mob~="hide760"]{display:none!important}}
+@media (max-width:640px){[data-mob~="s640"]{grid-template-columns:1fr!important}[data-mob~="s640"]>*{grid-column:auto!important}[data-mob~="c2m"]{grid-template-columns:repeat(2,1fr)!important}}
+</style>
+</helmet>
+
+<div data-screen-label="Press page">
+
+  <div style="position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;row-gap:8px;padding:14px clamp(20px,5.5vw,64px);border-bottom:1px solid #E2E4E8">
+    <img src="uploads/logo.png" alt="Curatone.art" style="height:36px;display:block">
+    <div style="display:flex;align-items:center;gap:34px;font-size:13.5px">
+      <div data-mob="hide760" style="display:flex;align-items:center;gap:clamp(14px,2.2vw,34px)"><span tabindex="0" style="cursor:pointer;transition:color 0.15s" style-hover="color:#0B5C6E">Competitions</span><span tabindex="0" style="cursor:pointer;transition:color 0.15s" style-hover="color:#0B5C6E">Exhibitions</span><span tabindex="0" style="cursor:pointer;transition:color 0.15s" style-hover="color:#0B5C6E">Journal</span><span tabindex="0" style="cursor:pointer;transition:color 0.15s" style-hover="color:#0B5C6E">Jury</span><span style="color:#0B5C6E;font-weight:600">About</span></div>
+      <span tabindex="0" style="background:#0B5C6E;color:#FFFFFF;padding:12px 26px;font-size:13.5px;cursor:pointer;transition:background 0.15s,color 0.15s,border-color 0.15s" style-hover="background:#053C48" style-active="background:#032A33" style-focus="outline:2px solid #0B5C6E;outline-offset:2px">Enter a competition</span>
+    </div>
+  </div>
+
+  <div style="padding:clamp(20px,5.5vw,64px) clamp(20px,5.5vw,64px) 0;max-width:1100px">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#0B5C6E">Independent coverage</div>
+    <h1 style="font-family:Aboreto,serif;font-size:clamp(30px,4.5vw,44px);font-weight:400;margin:18px 0 0">Press</h1>
+    <p style="font-size:14.5px;color:#5B6066;line-height:1.75;margin:20px 0 0;max-width:620px">Coverage of Curatone.art, its competitions, and its journal in independent publications. Each entry links to the article at its original source.</p>
+  </div>
+
+  <div style="padding:clamp(28px,4.5vw,48px) clamp(20px,5.5vw,64px) 0;max-width:1100px">
+    <div style="border-top:1px solid #24272A">
+
+      <a href="#" style="display:grid;grid-template-columns:220px 1fr auto;gap:44px;align-items:center;padding:30px 0;border-bottom:1px solid #E2E4E8;text-decoration:none;color:#24272A">
+        <span style="font-family:Georgia,serif;font-style:italic;font-size:22px;color:#9AA0A6">ArtDaily</span>
+        <span>
+          <span style="display:block;font-size:16px;font-weight:600;line-height:1.5">Curatone.art announces results of its Connections 2026 international juried competition</span>
+          <span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.12em;color:#6A6F75;margin-top:8px;text-transform:uppercase">ArtDaily · March 4, 2026</span>
+        </span>
+        <span style="font-size:15px;color:#0B5C6E;font-weight:600">↗</span>
+      </a>
+
+      <a href="#" style="display:grid;grid-template-columns:220px 1fr auto;gap:44px;align-items:center;padding:30px 0;border-bottom:1px solid #E2E4E8;text-decoration:none;color:#24272A">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:16px;letter-spacing:0.04em;color:#9AA0A6">artdeadline.com</span>
+        <span>
+          <span style="display:block;font-size:16px;font-weight:600;line-height:1.5">Open Call: Colors — international competition for painting, drawing, and modern art</span>
+          <span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.12em;color:#6A6F75;margin-top:8px;text-transform:uppercase">Artdeadline · June 2026</span>
+        </span>
+        <span style="font-size:15px;color:#0B5C6E;font-weight:600">↗</span>
+      </a>
+
+      <a href="#" style="display:grid;grid-template-columns:220px 1fr auto;gap:44px;align-items:center;padding:30px 0;border-bottom:1px solid #E2E4E8;text-decoration:none;color:#24272A">
+        <span style="font-family:Aboreto,serif;font-size:17px;letter-spacing:0.18em;color:#9AA0A6">DEARTLINE</span>
+        <span>
+          <span style="display:block;font-size:16px;font-weight:600;line-height:1.5">A juried record: how Curatone documents artistic recognition</span>
+          <span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.12em;color:#6A6F75;margin-top:8px;text-transform:uppercase">Deartline · May 18, 2026</span>
+        </span>
+        <span style="font-size:15px;color:#0B5C6E;font-weight:600">↗</span>
+      </a>
+
+      <a href="#" style="display:grid;grid-template-columns:220px 1fr auto;gap:44px;align-items:center;padding:30px 0;border-bottom:1px solid #E2E4E8;text-decoration:none;color:#24272A">
+        <span style="font-weight:700;font-size:17px;letter-spacing:0.02em;color:#9AA0A6">Berlin Art Link</span>
+        <span>
+          <span style="display:block;font-size:16px;font-weight:600;line-height:1.5">Berlin-based platform Curatone launches peer-reviewed art and research journal</span>
+          <span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.12em;color:#6A6F75;margin-top:8px;text-transform:uppercase">Berlin Art Link · January 22, 2026</span>
+        </span>
+        <span style="font-size:15px;color:#0B5C6E;font-weight:600">↗</span>
+      </a>
+
+      <a href="#" style="display:grid;grid-template-columns:220px 1fr auto;gap:44px;align-items:center;padding:30px 0;border-bottom:1px solid #E2E4E8;text-decoration:none;color:#24272A">
+        <span style="font-family:Georgia,serif;font-size:18px;letter-spacing:0.06em;color:#9AA0A6">KUNSTFORUM</span>
+        <span>
+          <span style="display:block;font-size:16px;font-weight:600;line-height:1.5">Online-Kuratierung und dokumentierte Anerkennung: das Modell Curatone</span>
+          <span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.12em;color:#6A6F75;margin-top:8px;text-transform:uppercase">Kunstforum · November 2025</span>
+        </span>
+        <span style="font-size:15px;color:#0B5C6E;font-weight:600">↗</span>
+      </a>
+
+    </div>
+    <div style="font-size:12.5px;color:#6A6F75;margin-top:20px">Publication names and logos belong to their respective owners; links open at the original source.</div>
+  </div>
+
+  <div style="margin:clamp(20px,5.5vw,64px) clamp(20px,5.5vw,64px) clamp(36px,7vw,72px);max-width:972px;background:#F1F2F4;border:1px solid #E2E4E8;display:flex;justify-content:space-between;flex-wrap:wrap;row-gap:8px;align-items:center;padding:30px 40px">
+    <div style="font-size:13.5px;color:#5B6066;line-height:1.7">Press inquiries: <span style="font-weight:600;color:#24272A">press@curatone.art</span> · Logo files and fact sheet available on request.</div>
+    <span tabindex="0" style="font-size:13.5px;color:#0B5C6E;font-weight:600;flex:none;margin-left:40px;cursor:pointer;transition:color 0.15s" style-hover="color:#083F4C;text-decoration:underline" style-focus="outline:2px solid currentColor;outline-offset:3px">Media kit →</span>
+  </div>
+
+  <div style="background:#24272A;color:#A9ADB2;padding:26px clamp(20px,5.5vw,64px);font-size:12px;display:flex;justify-content:space-between;flex-wrap:wrap;row-gap:8px;align-items:center">
+    <img src="uploads/logo.png" alt="Curatone.art" style="height:24px;display:block;filter:invert(1)">
+    <span>© 2026 Curatone.art · ISSN 3054-6621 · Impressum · Datenschutz · AGB</span>
+  </div>
+
+</div>
+
+</x-dc>
+</body>
+</html>

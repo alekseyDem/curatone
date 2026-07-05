@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aboreto&amp;family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>body{margin:0;font-family:'Open Sans',sans-serif;color:#24272A;background:#FFFFFF}
+@media (max-width:1023px){[data-mob~="c2"]{grid-template-columns:repeat(2,1fr)!important}}
+@media (max-width:900px){[data-mob~="s900"]{grid-template-columns:1fr!important}[data-mob~="s900"]>*{grid-column:auto!important}}
+@media (max-width:760px){[data-mob~="hide760"]{display:none!important}}
+@media (max-width:640px){[data-mob~="s640"]{grid-template-columns:1fr!important}[data-mob~="s640"]>*{grid-column:auto!important}[data-mob~="c2m"]{grid-template-columns:repeat(2,1fr)!important}}
+</style>
+</helmet>
+
+<div data-screen-label="Artist profile">
+
+  <div style="position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;row-gap:8px;padding:14px clamp(20px,5.5vw,64px);border-bottom:1px solid #E2E4E8">
+    <img src="uploads/logo.png" alt="Curatone.art" style="height:36px;display:block">
+    <div style="display:flex;align-items:center;gap:34px;font-size:13.5px">
+      <div data-mob="hide760" style="display:flex;align-items:center;gap:clamp(14px,2.2vw,34px)"><span tabindex="0" style="cursor:pointer;transition:color 0.15s" style-hover="color:#0B5C6E">Competitions</span><span style="color:#0B5C6E;font-weight:600">Exhibitions</span><span tabindex="0" style="cursor:pointer;transition:color 0.15s" style-hover="color:#0B5C6E">Journal</span><span tabindex="0" style="cursor:pointer;transition:color 0.15s" style-hover="color:#0B5C6E">Jury</span><span tabindex="0" style="cursor:pointer;transition:color 0.15s" style-hover="color:#0B5C6E">About</span></div>
+      <span tabindex="0" style="background:#0B5C6E;color:#FFFFFF;padding:12px 26px;font-size:13.5px;cursor:pointer;transition:background 0.15s,color 0.15s,border-color 0.15s" style-hover="background:#053C48" style-active="background:#032A33" style-focus="outline:2px solid #0B5C6E;outline-offset:2px">Enter a competition</span>
+    </div>
+  </div>
+
+  <div style="padding:44px clamp(20px,5.5vw,64px) 0;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:#6A6F75">Artists / <span style="color:#24272A">Ivelina Dagsvold</span></div>
+
+  <div data-mob="s900" style="padding:44px clamp(20px,5.5vw,64px) 0;display:grid;grid-template-columns:280px 1fr;gap:clamp(20px,5.5vw,64px);align-items:start">
+    <div>
+      <div style="aspect-ratio:3/4;background:repeating-linear-gradient(45deg,#E8EAED 0 12px,#F1F2F4 12px 24px);border:1px solid #E2E4E8;display:flex;align-items:center;justify-content:center"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#8A9096;text-transform:uppercase">Portrait — replace</span></div>
+    </div>
+    <div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:#0B5C6E">Artist profile · Finalist</div>
+      <h1 style="font-family:Aboreto,serif;font-size:48px;font-weight:400;margin:18px 0 0">Ivelina Dagsvold</h1>
+      <div style="font-size:15px;color:#6A6F75;margin-top:12px">Bulgaria · Painter</div>
+      <div style="display:flex;flex-wrap:wrap;gap:26px;margin-top:22px;font-size:13.5px">
+        <span style="color:#0B5C6E;font-weight:600;border-bottom:1px solid #0B5C6E;padding-bottom:2px">Portfolio ↗</span>
+        <span style="color:#0B5C6E;font-weight:600;border-bottom:1px solid #0B5C6E;padding-bottom:2px">Instagram ↗</span>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:30px">
+        <div style="display:flex;align-items:center;gap:10px;border:1px solid #D7DADE;padding:10px 18px">
+          <div style="width:28px;height:28px;border-radius:50%;border:1px solid #A8842C;background:radial-gradient(circle at 38% 32%,#F3E9D2,#D3B878);display:flex;align-items:center;justify-content:center;font-family:Aboreto,serif;font-size:12px;flex:none">G</div>
+          <span style="font-size:12.5px;font-weight:600">Gold — Connections 2026</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;border:1px solid #D7DADE;padding:10px 18px">
+          <div style="width:28px;height:28px;border-radius:50%;border:1px solid #9EA2A6;background:radial-gradient(circle at 38% 32%,#F0F1F2,#C4C8CC);display:flex;align-items:center;justify-content:center;font-family:Aboreto,serif;font-size:12px;flex:none">S</div>
+          <span style="font-size:12.5px;font-weight:600">Silver — Colors 2025</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-mob="s900" style="margin:clamp(32px,5vw,56px) clamp(20px,5.5vw,64px) 0;border-top:1px solid #24272A;padding:32px 0 0;display:grid;grid-template-columns:320px 1fr;gap:clamp(20px,5.5vw,64px)">
+    <h2 style="font-family:Aboreto,serif;font-size:26px;font-weight:400;margin:0">About the artist</h2>
+    <div style="font-size:14.5px;color:#5B6066;line-height:1.85;max-width:760px">
+      <p style="margin:0 0 18px">Ivelina Dagsvold is a Bulgarian painter working in acrylic and mixed media. Her practice draws on textile traditions of the Balkans, translating woven pattern into layered painterly structures. She holds an MA in Fine Arts from the National Academy of Art, Sofia.</p>
+      <p style="margin:0">Her work has been exhibited in group shows in Sofia, Vienna, and Berlin, and is held in private collections across Europe. She is a member of the Union of Bulgarian Artists and a recipient of awards in international juried competitions, including a Gold award at Connections 2026.</p>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.12em;color:#9AA0A6;margin-top:20px;text-transform:uppercase">Biography provided by the artist</div>
+    </div>
+  </div>
+
+  <div style="margin:clamp(32px,5vw,56px) clamp(20px,5.5vw,64px) 0;border-top:1px solid #24272A;padding-top:28px">
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;row-gap:8px;align-items:baseline;margin-bottom:32px">
+      <h2 style="font-family:Aboreto,serif;font-size:26px;font-weight:400;margin:0">Recognition at Curatone</h2>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.12em;color:#6A6F75">ALL RESULTS VERIFIABLE BY CERTIFICATE NUMBER</span>
+    </div>
+    <div style="border:1px solid #D7DADE">
+      <div data-mob="s640" style="display:grid;grid-template-columns:110px 1fr 1fr 1fr 120px;background:#F1F2F4;border-bottom:1px solid #E2E4E8;padding:12px 26px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.14em;color:#6A6F75;text-transform:uppercase">
+        <span>Year</span><span>Competition</span><span>Result</span><span>Certificate</span><span></span>
+      </div>
+      <div data-mob="s640" style="display:grid;grid-template-columns:110px 1fr 1fr 1fr 120px;padding:16px 26px;border-bottom:1px solid #E2E4E8;font-size:13.5px;align-items:center">
+        <span style="color:#6A6F75">2026</span><span style="font-weight:600">Connections 2026</span><span>Gold award · 8.7 / 10 · Painting</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px">CTA-2026-0089</span><span tabindex="0" style="color:#0B5C6E;font-weight:600;font-size:13px;text-align:right;cursor:pointer;transition:color 0.15s" style-hover="color:#083F4C;text-decoration:underline" style-focus="outline:2px solid currentColor;outline-offset:3px">Verify →</span>
+      </div>
+      <div data-mob="s640" style="display:grid;grid-template-columns:110px 1fr 1fr 1fr 120px;padding:16px 26px;border-bottom:1px solid #E2E4E8;font-size:13.5px;align-items:center">
+        <span style="color:#6A6F75">2025</span><span style="font-weight:600">Colors 2025</span><span>Silver award · 6.8 / 10 · Painting</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px">CTA-2025-0312</span><span tabindex="0" style="color:#0B5C6E;font-weight:600;font-size:13px;text-align:right;cursor:pointer;transition:color 0.15s" style-hover="color:#083F4C;text-decoration:underline" style-focus="outline:2px solid currentColor;outline-offset:3px">Verify →</span>
+      </div>
+      <div data-mob="s640" style="display:grid;grid-template-columns:110px 1fr 1fr 1fr 120px;padding:16px 26px;font-size:13.5px;align-items:center">
+        <span style="color:#6A6F75">2025</span><span style="font-weight:600">Juried online exhibition</span><span>Exhibition record · Moments of Life 2025</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px">EXH-2025-0147</span><span tabindex="0" style="color:#0B5C6E;font-weight:600;font-size:13px;text-align:right;cursor:pointer;transition:color 0.15s" style-hover="color:#083F4C;text-decoration:underline" style-focus="outline:2px solid currentColor;outline-offset:3px">Verify →</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding:clamp(32px,5vw,56px) clamp(20px,5.5vw,64px) clamp(40px,7.5vw,80px)">
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;row-gap:8px;align-items:baseline;border-top:1px solid #24272A;padding-top:28px;margin-bottom:40px">
+      <h2 style="font-family:Aboreto,serif;font-size:26px;font-weight:400;margin:0">Works on Curatone</h2>
+    </div>
+    <div data-mob="c2 s640" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px">
+      <div>
+        <div style="aspect-ratio:4/5;background:repeating-linear-gradient(45deg,#E8EAED 0 12px,#F1F2F4 12px 24px);display:flex;align-items:center;justify-content:center;border:1px solid #E2E4E8"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#8A9096;text-transform:uppercase">Work — replace</span></div>
+        <div style="font-weight:600;font-size:14.5px;margin-top:14px">Threads of Home</div>
+        <div style="font-size:12.5px;color:#6A6F75;margin-top:2px">2026 · Acrylic on canvas · Gold, Connections 2026</div>
+      </div>
+      <div>
+        <div style="aspect-ratio:4/5;background:repeating-linear-gradient(45deg,#E8EAED 0 12px,#F1F2F4 12px 24px);display:flex;align-items:center;justify-content:center;border:1px solid #E2E4E8"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#8A9096;text-transform:uppercase">Work — replace</span></div>
+        <div style="font-weight:600;font-size:14.5px;margin-top:14px">Red Field Notation</div>
+        <div style="font-size:12.5px;color:#6A6F75;margin-top:2px">2025 · Acrylic on canvas · Silver, Colors 2025</div>
+      </div>
+      <div>
+        <div style="aspect-ratio:4/5;background:repeating-linear-gradient(45deg,#E8EAED 0 12px,#F1F2F4 12px 24px);display:flex;align-items:center;justify-content:center;border:1px solid #E2E4E8"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#8A9096;text-transform:uppercase">Work — replace</span></div>
+        <div style="font-weight:600;font-size:14.5px;margin-top:14px">Loom Study II</div>
+        <div style="font-size:12.5px;color:#6A6F75;margin-top:2px">2025 · Mixed media · Exhibited, Moments of Life 2025</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:#24272A;color:#A9ADB2;padding:26px clamp(20px,5.5vw,64px);font-size:12px;display:flex;justify-content:space-between;flex-wrap:wrap;row-gap:8px;align-items:center">
+    <img src="uploads/logo.png" alt="Curatone.art" style="height:24px;display:block;filter:invert(1)">
+    <span>© 2026 Curatone.art · ISSN 3054-6621 · Impressum · Datenschutz · AGB</span>
+  </div>
+
+</div>
+
+</x-dc>
+</body>
+</html>
