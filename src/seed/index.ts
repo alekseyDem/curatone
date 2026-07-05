@@ -138,7 +138,7 @@ async function seed() {
     },
   })
 
-  const structures = await payload.create({
+  await payload.create({
     collection: 'exhibitions',
     draft: false,
     data: {
@@ -659,7 +659,7 @@ async function seed() {
 
   // ---------- Pages ----------
   const page = async (data: Record<string, unknown>) =>
-    payload.create({ collection: 'pages', draft: false, data: data as never })
+    payload.create({ collection: 'pages', draft: false, data: { _status: 'published', ...data } as never })
 
   await page({
     title: 'About Curatone',

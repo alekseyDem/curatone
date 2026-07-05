@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 
 import { submitEntry, type EntryErrors } from './actions'
@@ -61,7 +61,6 @@ export function EntryForm({ competition }: { competition: CompetitionSummary }) 
   const [errors, setErrors] = useState<EntryErrors>({})
   const [pending, setPending] = useState(false)
   const [done, setDone] = useState(false)
-  const fileInputRef = useRef<HTMLInputElement>(null)
 
   const fee = competition.entryFee
   const sym = competition.currency === 'eur' ? '€' : '$'
@@ -169,7 +168,6 @@ export function EntryForm({ competition }: { competition: CompetitionSummary }) 
               }}
             >
               <input
-                ref={fileInputRef}
                 type="file"
                 accept="image/*"
                 style={{ display: 'none' }}

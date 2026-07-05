@@ -449,8 +449,14 @@ h2,
 
 .site-header__logo {
   height: 40px;
-  width: auto;
+  width: auto; /* keep both dimensions in sync for next/image */
   display: block;
+}
+
+@media (max-width: 760px) {
+  .site-header__logo {
+    height: 32px;
+  }
 }
 
 .site-header__tag {

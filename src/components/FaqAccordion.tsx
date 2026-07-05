@@ -18,13 +18,11 @@ export function FaqAccordion({ items }: { items: Item[] }) {
 
   const mid = Math.ceil(items.length / 2)
   const columns = [items.slice(0, mid), items.slice(mid)]
-  let indexOffset = 0
 
   return (
     <div className="m-s900" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 var(--gutter)' }}>
       {columns.map((col, c) => {
         const offset = c === 0 ? 0 : mid
-        indexOffset = offset
         return (
           <div key={c}>
             {col.map((item, i) => {
