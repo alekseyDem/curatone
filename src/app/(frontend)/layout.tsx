@@ -16,14 +16,34 @@ const openSans = Open_Sans({
 })
 const plexMono = IBM_Plex_Mono({ weight: ['400', '500'], subsets: ['latin'], variable: '--font-mono' })
 
+const SITE_DESCRIPTION =
+  'Juried international art competitions, a peer-reviewed journal (ISSN 3054-6621), online exhibitions, and a public, verifiable record of results.'
+
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SERVER_URL || 'https://curatone.art'),
   title: {
     default: 'Curatone.art — International Curatorial Platform',
     template: '%s · Curatone.art',
   },
-  description:
-    'Juried international art competitions, a peer-reviewed journal (ISSN 3054-6621), online exhibitions, and a public, verifiable record of results.',
+  description: SITE_DESCRIPTION,
+  applicationName: 'Curatone.art',
+  alternates: { canonical: '/' },
+  // Cascades to every page; per-page title/description flow into OG automatically.
+  openGraph: {
+    type: 'website',
+    siteName: 'Curatone.art',
+    locale: 'en',
+    url: '/',
+    title: 'Curatone.art — International Curatorial Platform',
+    description: SITE_DESCRIPTION,
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Curatone.art' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Curatone.art — International Curatorial Platform',
+    description: SITE_DESCRIPTION,
+    images: ['/og-image.png'],
+  },
 }
 
 const organizationJsonLd = {
@@ -48,8 +68,11 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
+        <a href="#main-content" className="skip-link">
+          Skip to content
+        </a>
         <Header enterHref={enterCompetition ? `/exhibitions/${enterCompetition.slug}/enter` : '/competitions'} />
-        <main>{children}</main>
+        <main id="main-content">{children}</main>
         <Footer />
       </body>
     </html>

@@ -67,15 +67,51 @@ export async function generateMetadata({
   }
 }
 
+function competitionJsonLd(competition: Exhibition) {
+  const base = process.env.NEXT_PUBLIC_SERVER_URL || 'https://curatone.art'
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Event',
+    name: competition.title,
+    description: competition.seo?.seoDescription || undefined,
+    url: `${base}/exhibitions/${competition.slug}`,
+    eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode',
+    eventStatus:
+      competition.status === 'closed'
+        ? 'https://schema.org/EventScheduled'
+        : 'https://schema.org/EventScheduled',
+    startDate: competition.dates?.start || undefined,
+    endDate: competition.dates?.deadline || competition.dates?.resultsDate || undefined,
+    location: { '@type': 'VirtualLocation', url: `${base}/exhibitions/${competition.slug}` },
+    organizer: { '@type': 'Organization', name: 'Curatone.art', url: base },
+    image: `${base}/og-image.png`,
+  }
+}
+
 export default async function ExhibitionPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const exhibition = await getExhibition(slug)
   if (!exhibition) notFound()
 
   if (exhibition.type === 'competition') {
-    if (exhibition.status === 'closed') return <CompetitionResults competition={exhibition} />
-    if (exhibition.status === 'judging') return <CompetitionJudging competition={exhibition} />
-    return <CompetitionOpen competition={exhibition} />
+    const jsonLd = (
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(competitionJsonLd(exhibition)) }}
+      />
+    )
+    return (
+      <>
+        {jsonLd}
+        {exhibition.status === 'closed' ? (
+          <CompetitionResults competition={exhibition} />
+        ) : exhibition.status === 'judging' ? (
+          <CompetitionJudging competition={exhibition} />
+        ) : (
+          <CompetitionOpen competition={exhibition} />
+        )}
+      </>
+    )
   }
   return <ExhibitionShow exhibition={exhibition} />
 }

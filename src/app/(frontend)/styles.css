@@ -423,6 +423,27 @@ h2,
   padding: 4px 0 4px 22px;
 }
 
+/* ---------- Skip link (accessibility) ---------- */
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 200;
+  background: var(--teal);
+  color: #fff;
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  left: 12px;
+  top: 12px;
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
 /* ---------- Sticky header ---------- */
 
 .site-header {
