@@ -284,7 +284,7 @@ export interface Exhibition {
      */
     entryFee?: number | null;
     /**
-     * 0 = none. If greater than 0, finalists pay this after results via a targeted payment link.
+     * 0 = none (all selected finalists publish on Close). If greater than 0, a finalist is published only after "Finalist fee paid" is ticked on their entry — so you publish only selected finalists who paid.
      */
     finalistFee?: number | null;
     currency?: ('usd' | 'eur') | null;
@@ -488,6 +488,9 @@ export interface Submission {
   submittedAt?: string | null;
   payment?: {
     entryPaid?: boolean | null;
+    /**
+     * Tick after you confirm the payment in Stripe (matched by email). When the competition charges a finalist fee, a finalist is published ONLY when this is ticked — unpaid finalists stay hidden.
+     */
     finalistFeePaid?: boolean | null;
     stripeSessionId?: string | null;
     /**

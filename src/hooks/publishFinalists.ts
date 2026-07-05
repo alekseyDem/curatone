@@ -1,10 +1,12 @@
 import type { PayloadRequest } from 'payload'
 
 import { readPrivateFileBuffer } from '../lib/privateFile'
+import { finalistIsPublic } from '../lib/finalistVisibility'
 
 /**
- * Spec §3.2: when a competition's status becomes "closed", only entries
- * with isFinalist=true become public. Their images move from private
+ * Spec §3.2: when a competition's status becomes "closed", entries with
+ * isFinalist=true become public — but only if the finalist fee is
+ * satisfied (see finalistVisibility). Their images move from private
  * storage to the public Media collection. Non-finalists never publish.
  */
 
@@ -22,7 +24,8 @@ export async function publishFinalistImage({ submission, req }: PublishArgs): Pr
       typeof submission.competition === 'object' ? submission.competition?.id : submission.competition
     if (!competitionId) return
     const competition = await payload.findByID({ collection: 'exhibitions', id: competitionId })
-    if (competition?.status !== 'closed') return
+    // Publish only selected finalists whose finalist fee is satisfied.
+    if (!finalistIsPublic(submission, competition)) return
 
     const imageId = typeof submission.image === 'object' ? submission.image?.id : submission.image
     if (!imageId) return

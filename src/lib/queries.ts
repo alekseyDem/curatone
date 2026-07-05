@@ -3,6 +3,7 @@ import { getPayload } from 'payload'
 import config from '@payload-config'
 
 import type { Exhibition, Submission } from '@/payload-types'
+import { finalistIsPublic } from './finalistVisibility'
 
 export const getPayloadClient = cache(async () => getPayload({ config }))
 
@@ -91,7 +92,8 @@ export const getFinalists = cache(async (competition: Exhibition): Promise<Submi
     limit: 200,
     depth: 2,
   })
-  return res.docs as Submission[]
+  // Only publish finalists whose finalist fee is satisfied (spec §7).
+  return (res.docs as Submission[]).filter((doc) => finalistIsPublic(doc, competition))
 })
 
 const TIER_ORDER = ['platinum', 'gold', 'silver'] as const
@@ -120,7 +122,7 @@ export const getRecentAwards = cache(async (limit = 3): Promise<Submission[]> =>
     limit,
     depth: 2,
   })
-  return res.docs as Submission[]
+  return (res.docs as Submission[]).filter((doc) => finalistIsPublic(doc, competitionOf(doc)))
 })
 
 /**
@@ -160,10 +162,10 @@ export const getPublicArtistBySlug = cache(async (slug: string) => {
     }),
   ])
 
-  // Only finalists of *closed* competitions count as public
+  // Only finalists of *closed* competitions whose finalist fee is satisfied
   const publicWorks = finalistWorks.docs.filter((w) => {
     const comp = w.competition
-    return comp && typeof comp === 'object' && comp.status === 'closed'
+    return comp && typeof comp === 'object' && finalistIsPublic(w, comp)
   })
 
   const articles = await payload.find({

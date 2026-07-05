@@ -14,6 +14,7 @@ import {
   getFinalists,
   getPayloadClient,
 } from '@/lib/queries'
+import { finalistIsPublic } from '@/lib/finalistVisibility'
 import type { Submission } from '@/payload-types'
 
 export const dynamic = 'force-dynamic'
@@ -31,9 +32,10 @@ const getWinner = cache(async (slug: string) => {
     depth: 2,
   })
   const submission = res.docs[0] as Submission | undefined
-  if (!submission || submission.isFinalist !== true) return null
+  if (!submission) return null
   const comp = competitionOf(submission)
-  if (!comp || comp.status !== 'closed' || comp._status !== 'published') return null
+  // Public only if finalist + closed + finalist fee satisfied, and published.
+  if (!comp || comp._status !== 'published' || !finalistIsPublic(submission, comp)) return null
   return { submission, comp }
 })
 

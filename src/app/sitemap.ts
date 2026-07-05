@@ -2,6 +2,8 @@ import type { MetadataRoute } from 'next'
 import { getPayload } from 'payload'
 import config from '@payload-config'
 
+import { finalistIsPublic } from '@/lib/finalistVisibility'
+
 export const dynamic = 'force-dynamic'
 
 /** Auto-generated sitemap (spec §8). Submit to Google Search Console after cutover. */
@@ -63,9 +65,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     entries.push({ url: `${base}/${doc.slug}`, lastModified: doc.updatedAt, changeFrequency: 'monthly', priority: 0.4 })
   }
   for (const doc of winners.docs) {
-    // Only finalists of closed competitions are public (spec §6)
+    // Only published finalists whose finalist fee is satisfied (spec §6/§7)
     const comp = typeof doc.competition === 'object' ? doc.competition : null
-    if (comp?.status === 'closed') {
+    if (finalistIsPublic(doc, comp)) {
       entries.push({ url: `${base}/winners/${doc.slug}`, lastModified: doc.updatedAt, changeFrequency: 'yearly', priority: 0.5 })
     }
   }

@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { tierMeta, type AwardTier } from '@/components/Medallion'
 import { categoryLabel } from '@/lib/categories'
 import { authorName, competitionOf, getPayloadClient } from '@/lib/queries'
+import { finalistIsPublic } from '@/lib/finalistVisibility'
 import type { Exhibition, Submission } from '@/payload-types'
 
 export const dynamic = 'force-dynamic'
@@ -37,7 +38,8 @@ const getCertificate = cache(async (certificateNumber: string) => {
   const submission = res.docs[0] as Submission | undefined
   if (!submission) return null
   const comp = competitionOf(submission)
-  if (!comp || comp.status !== 'closed' || comp._status !== 'published') return null
+  // Verifies only for a published finalist whose finalist fee is satisfied.
+  if (!comp || comp._status !== 'published' || !finalistIsPublic(submission, comp)) return null
   return { submission, comp }
 })
 

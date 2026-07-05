@@ -32,9 +32,12 @@ export const Submissions: CollectionConfig = {
     afterChange: [
       async ({ doc, previousDoc, req, context }) => {
         if (context?.skipPublishHook) return doc
-        // If this entry is marked finalist while its competition is already
-        // closed, publish its image immediately.
-        if (doc.isFinalist && !previousDoc?.isFinalist) {
+        // Publish when an entry becomes a finalist, OR when its finalist fee
+        // is marked paid — either can be the last step before it goes public
+        // (the image only publishes once the fee is satisfied). Idempotent.
+        const becameFinalist = doc.isFinalist && !previousDoc?.isFinalist
+        const becamePaid = doc.payment?.finalistFeePaid && !previousDoc?.payment?.finalistFeePaid
+        if (becameFinalist || becamePaid) {
           await publishFinalistImage({ submission: doc, req })
         }
         return doc
@@ -184,7 +187,16 @@ export const Submissions: CollectionConfig = {
       access: { read: adminFieldOnly, update: adminFieldOnly },
       fields: [
         { name: 'entryPaid', type: 'checkbox', defaultValue: false, label: 'Entry fee paid' },
-        { name: 'finalistFeePaid', type: 'checkbox', defaultValue: false, label: 'Finalist fee paid' },
+        {
+          name: 'finalistFeePaid',
+          type: 'checkbox',
+          defaultValue: false,
+          label: 'Finalist fee paid',
+          admin: {
+            description:
+              'Tick after you confirm the payment in Stripe (matched by email). When the competition charges a finalist fee, a finalist is published ONLY when this is ticked — unpaid finalists stay hidden.',
+          },
+        },
         { name: 'stripeSessionId', type: 'text', label: 'Stripe session ID' },
         {
           name: 'payToken',

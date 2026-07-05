@@ -267,7 +267,10 @@ export const Exhibitions: CollectionConfig = {
           type: 'number',
           defaultValue: 0,
           label: 'Finalist fee',
-          admin: { description: '0 = none. If greater than 0, finalists pay this after results via a targeted payment link.' },
+          admin: {
+            description:
+              '0 = none (all selected finalists publish on Close). If greater than 0, a finalist is published only after "Finalist fee paid" is ticked on their entry — so you publish only selected finalists who paid.',
+          },
         },
         {
           name: 'currency',
