@@ -199,6 +199,11 @@ function CertificateCard({ submission, comp }: { submission: Submission; comp: E
         </div>
       </div>
       <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: 28, marginTop: 32 }}>
+        {submission.certificateNumber && (
+          <Link href={`/certificate/${encodeURIComponent(submission.certificateNumber)}`} className="arrow-link">
+            View / print certificate →
+          </Link>
+        )}
         {submission.slug && (
           <Link href={`/winners/${submission.slug}`} className="arrow-link">
             View the winning work →

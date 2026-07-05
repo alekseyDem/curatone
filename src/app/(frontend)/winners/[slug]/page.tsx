@@ -241,9 +241,16 @@ export default async function WinnerDetailPage({ params }: { params: Promise<{ s
               </div>
               <div style={{ textAlign: 'right' }}>
                 <Link
+                  href={`/certificate/${encodeURIComponent(submission.certificateNumber)}`}
+                  className="arrow-link"
+                  style={{ fontSize: 13, display: 'block' }}
+                >
+                  View certificate →
+                </Link>
+                <Link
                   href={`/verify/${encodeURIComponent(submission.certificateNumber)}`}
                   className="arrow-link"
-                  style={{ fontSize: 13 }}
+                  style={{ fontSize: 13, display: 'block', marginTop: 6 }}
                 >
                   Verify →
                 </Link>

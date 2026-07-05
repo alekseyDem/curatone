@@ -40,6 +40,30 @@ export const Submissions: CollectionConfig = {
         if (becameFinalist || becamePaid) {
           await publishFinalistImage({ submission: doc, req })
         }
+        // Every finalist gets a certificate number automatically (used by the
+        // certificate generator and the /verify authenticity check).
+        if (doc.isFinalist && !doc.certificateNumber) {
+          try {
+            const compId = typeof doc.competition === 'object' ? doc.competition?.id : doc.competition
+            let year = new Date().getUTCFullYear()
+            if (compId) {
+              const c = await req.payload.findByID({ collection: 'exhibitions', id: compId })
+              const d = c?.dates?.resultsDate ?? c?.dates?.deadline
+              if (d) year = new Date(d).getUTCFullYear()
+            }
+            const number = `CTA-${year}-${String(doc.id).padStart(4, '0')}`
+            await req.payload.update({
+              collection: 'submissions',
+              id: doc.id,
+              data: { certificateNumber: number },
+              context: { skipPublishHook: true },
+            })
+          } catch (err) {
+            req.payload.logger.error(
+              `Failed to assign certificate number for submission ${doc.id}: ${err instanceof Error ? err.message : err}`,
+            )
+          }
+        }
         return doc
       },
     ],

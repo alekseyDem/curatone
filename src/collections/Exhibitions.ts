@@ -305,6 +305,16 @@ export const Exhibitions: CollectionConfig = {
       },
     },
     {
+      name: 'certificateGenerator',
+      type: 'ui',
+      admin: {
+        condition: (data) => data?.type === 'competition',
+        components: {
+          Field: '/components/admin/CertificateButtons#CertificateButtons',
+        },
+      },
+    },
+    {
       name: 'hideAuthorsUntilResults',
       type: 'checkbox',
       defaultValue: true,
