@@ -55,6 +55,30 @@ them faithfully. `design/README.md` documents the token system.
 - `/journal`, `/journal/[slug]`, `/journal/submit`, `/journal/guidelines`, `/journal/editorial-board`
 - `/blog`, `/blog/[slug]`, `/[slug]` (static Pages — already built)
 
+## Design update (design_update/ bundle)
+A second design bundle at `design_update/` adds pages and global changes. `design_update/SPEC.md`
+is its delta spec; `design_update/html/*.html` are the recommended standalone sources (real
+hover/focus CSS, mailto links); `design_update/screenshots/*.png` are captures.
+
+- **Route decision (authoritative):** ignore the SPEC's "Suggested route" column where it conflicts
+  with our SEO routing. Keep: competitions grid = `/competitions`, exhibitions archive = `/exhibitions`,
+  competition detail (3 states) = `/exhibitions/[slug]`. The design's `/publications` and
+  `/exhibitions-archive` are OLD URLs handled by `redirects.json` — never live routes.
+- **New designed routes** (dedicated React pages, they shadow any CMS page of the same slug):
+  `/about`, `/contact`, `/certificate-example` (singular — matches redirect + homepage link),
+  `/become-a-jury`, `/personal-exhibition`, `/featured-artists`, `/journal/about`.
+- **Header/Footer** are already updated (dropdown nav + unified headingless footer). Do not modify
+  `src/components/Header.tsx` / `Footer.tsx` — they wrap every page via the layout.
+- **One email everywhere: `info@curatone.art`** (mailto). No `contact@`/`journal@`/`press@`.
+- Map the design's `*.html` links to real routes: Open Calls→/competitions, Exhibitions Archive→/exhibitions,
+  Competition Page→/exhibitions/[slug], Competition Entry Form→(open competition)/exhibitions/[slug]/enter,
+  Journal→/journal, About the Journal→/journal/about, Editorial Board→/journal/editorial-board,
+  Submission Guidelines→/journal/guidelines, Article Submission→/journal/submit, Jury List→/jury,
+  Become a Jury→/become-a-jury, Certificate Examples→/certificate-example, Personal Exhibition→
+  /personal-exhibition, Featured Artists→/featured-artists, Winner Detail→/winners/[slug],
+  Artist Profile→/artists/[slug], Exhibition→/exhibitions/[slug], Press→/press, Blog→/blog,
+  About→/about, Contact→/contact.
+
 ## Hard rules
 - Never use the word "visa" anywhere.
 - Do not add dependencies. Do not run a dev server or the seed. Do not touch payload.config / collections.

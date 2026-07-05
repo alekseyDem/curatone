@@ -122,8 +122,8 @@ export default async function EditorialBoardPage() {
       >
         <div style={{ fontSize: 13.5, color: 'var(--body-muted)', lineHeight: 1.7 }}>
           The board welcomes expressions of interest from established researchers in art, design, and related fields:{' '}
-          <a href="mailto:journal@curatone.art" style={{ fontWeight: 600, color: 'var(--ink)' }}>
-            journal@curatone.art
+          <a href="mailto:info@curatone.art" style={{ fontWeight: 600, color: 'var(--ink)' }}>
+            info@curatone.art
           </a>
         </div>
         <Link href="/journal/guidelines" className="btn btn--secondary" style={{ padding: '13px 28px', flex: 'none' }}>

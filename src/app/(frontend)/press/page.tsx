@@ -10,7 +10,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: 'Press & Media',
     description:
-      'Coverage of Curatone.art, its competitions, and its journal in independent publications. Press inquiries: press@curatone.art.',
+      'Coverage of Curatone.art, its competitions, and its journal in independent publications. Press inquiries: info@curatone.art.',
   }
 }
 
@@ -110,12 +110,12 @@ export default async function PressPage() {
       >
         <div style={{ fontSize: 13.5, color: 'var(--body-muted)', lineHeight: 1.7 }}>
           Press inquiries:{' '}
-          <a href="mailto:press@curatone.art" style={{ fontWeight: 600, color: 'var(--ink)' }}>
-            press@curatone.art
+          <a href="mailto:info@curatone.art" style={{ fontWeight: 600, color: 'var(--ink)' }}>
+            info@curatone.art
           </a>{' '}
           · Logo files and fact sheet available on request.
         </div>
-        <a href="mailto:press@curatone.art?subject=Media%20kit%20request" className="arrow-link" style={{ flex: 'none' }}>
+        <a href="mailto:info@curatone.art?subject=Media%20kit%20request" className="arrow-link" style={{ flex: 'none' }}>
           Media kit →
         </a>
       </div>

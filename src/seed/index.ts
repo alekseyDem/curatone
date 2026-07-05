@@ -682,28 +682,8 @@ async function seed() {
   const page = async (data: Record<string, unknown>) =>
     payload.create({ collection: 'pages', draft: false, data: { _status: 'published', ...data } as never })
 
-  await page({
-    title: 'About Curatone',
-    slug: 'about',
-    intro:
-      'Curatone.art is an international curatorial platform based in Berlin: juried art competitions every seven weeks, a peer-reviewed journal, online exhibitions, and a public, verifiable record of results.',
-    sections: [
-      {
-        heading: 'What we do',
-        body: rt(
-          'Curatone runs curated international art competitions, publishes the peer-reviewed Curatone Art & Research Journal (ISSN 3054-6621) with DOI-registered articles, and maintains a public jury of credentialed art professionals.',
-          'Every result becomes part of a permanent public record: numbered certificates, an archived results gallery, and documented exhibition participation.',
-        ),
-      },
-      {
-        heading: 'Why documentation matters',
-        body: rt(
-          'Recognition only has professional value when it can be verified. Our jury roster is public, results are archived permanently, and every certificate carries a number that can be checked on this site.',
-        ),
-      },
-    ],
-    seo: { seoTitle: 'About Curatone — International Curatorial Platform, Berlin', seoDescription: 'Juried competitions, peer-reviewed journal (ISSN 3054-6621), online exhibitions and a verifiable public record. Based in Berlin.' },
-  })
+  // About, Contact and Certificate examples are dedicated designed routes
+  // (src/app/(frontend)/about, /contact, /certificate-example) — not CMS pages.
   await page({
     title: 'Rules and evaluation criteria',
     slug: 'rules',
@@ -731,41 +711,12 @@ async function seed() {
     seo: { seoTitle: 'Competition Rules and Evaluation Criteria', seoDescription: 'Entry rules, blind judging on a ten-point scale, and award tiers of Curatone competitions.' },
   })
   await page({
-    title: 'Contact',
-    slug: 'contact',
-    intro: 'Curatone.art · Berlin, Germany',
-    sections: [
-      {
-        heading: 'Get in touch',
-        body: rt(
-          'For competition questions, personal exhibition applications, journal submissions, or press: contact@curatone.art. We reply within three working days.',
-        ),
-      },
-    ],
-    seo: { seoTitle: 'Contact Curatone', seoDescription: 'Contact the Curatone.art curatorial platform in Berlin.' },
-  })
-  await page({
-    title: 'Certificate examples',
-    slug: 'certificate-example',
-    intro: 'Every award and publication at Curatone is documented with a numbered certificate. Below is what each certificate contains.',
-    sections: [
-      {
-        heading: 'What a certificate contains',
-        body: rt(
-          'Award certificates carry the artist’s name, the awarded work, the competition and year, the award tier, the certificate number, and the credentials of the jury. Journal publication certificates additionally carry the article DOI.',
-          'Any certificate can be verified by its number on this site. Verification is public and does not require an account.',
-        ),
-      },
-    ],
-    seo: { seoTitle: 'Certificate Examples — Documented Recognition', seoDescription: 'What Curatone award and publication certificates contain and how to verify them by number.' },
-  })
-  await page({
     title: 'Impressum',
     slug: 'impressum',
     sections: [
       {
         body: rt(
-          'Angaben gemäß § 5 TMG. Curatone.art, Berlin, Deutschland. Kontakt: contact@curatone.art.',
+          'Angaben gemäß § 5 TMG. Curatone.art, Berlin, Deutschland. Kontakt: info@curatone.art.',
           'Verantwortlich für den Inhalt: Curatone.art. [Vollständige Angaben werden vom Betreiber ergänzt.]',
         ),
       },

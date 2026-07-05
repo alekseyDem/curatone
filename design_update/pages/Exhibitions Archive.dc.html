@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aboreto&amp;family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>body{margin:0;font-family:'Open Sans',sans-serif;color:#24272A;background:#FFFFFF}
+@media (max-width:1023px){[data-mob~="c2"]{grid-template-columns:repeat(2,1fr)!important}}
+@media (max-width:900px){[data-mob~="s900"]{grid-template-columns:1fr!important}[data-mob~="s900"]>*{grid-column:auto!important}}
+@media (max-width:760px){[data-mob~="hide760"]{display:none!important}}
+@media (max-width:640px){[data-mob~="s640"]{grid-template-columns:1fr!important}[data-mob~="s640"]>*{grid-column:auto!important}[data-mob~="c2m"]{grid-template-columns:repeat(2,1fr)!important}}
+
+.nav-link:hover{color:#0B5C6E !important}
+.nav-dd-menu{display:none}
+.nav-dd:hover .nav-dd-menu,.nav-dd:focus-within .nav-dd-menu{display:block}
+.nav-dd-menu a:hover{background:#F1F2F4;color:#0B5C6E !important}
+.foot-link:hover{color:#FFFFFF !important}
+.cta-link,.arrow-link{text-decoration:none}
+</style>
+</helmet>
+
+<div data-screen-label="Exhibitions archive">
+
+  <div style="position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;row-gap:8px;padding:14px clamp(20px,5.5vw,64px);border-bottom:1px solid #E2E4E8">
+    <a href="Homepage.dc.html" style="display:block;flex:none"><img src="uploads/logo.png" alt="Curatone.art" style="height:36px;display:block"></a>
+    <div style="display:flex;align-items:center;gap:34px;font-size:13.5px">
+      <div data-mob="hide760" style="display:flex;align-items:center;gap:clamp(14px,2.2vw,34px)"><a href="Open Calls.dc.html" class="nav-link" style="font-size:13.5px;text-decoration:none;color:#24272A">Competitions</a><a href="Exhibitions Archive.dc.html" class="nav-link" style="font-size:13.5px;text-decoration:none;color:#0B5C6E;font-weight:600">Exhibitions</a><div class="nav-dd" style="position:relative;display:flex;align-items:center"><a href="Journal.dc.html" class="nav-link" style="font-size:13.5px;text-decoration:none;color:#24272A">Journal <span style="font-size:9px;vertical-align:middle">▾</span></a><div class="nav-dd-menu" style="position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:14px;z-index:200"><div style="background:#FFFFFF;border:1px solid #E2E4E8;box-shadow:0 14px 34px rgba(11,92,110,0.14);min-width:216px;display:flex;flex-direction:column;padding:6px 0"><a href="Journal.dc.html" style="display:block;padding:10px 20px;font-size:13px;color:#24272A;text-decoration:none;white-space:nowrap">Journal overview</a><a href="About the Journal.dc.html" style="display:block;padding:10px 20px;font-size:13px;color:#24272A;text-decoration:none;white-space:nowrap">About the Journal</a><a href="Editorial Board.dc.html" style="display:block;padding:10px 20px;font-size:13px;color:#24272A;text-decoration:none;white-space:nowrap">Editorial Board</a><a href="Submission Guidelines.dc.html" style="display:block;padding:10px 20px;font-size:13px;color:#24272A;text-decoration:none;white-space:nowrap">Submission Guidelines</a></div></div></div><div class="nav-dd" style="position:relative;display:flex;align-items:center"><a href="Jury List.dc.html" class="nav-link" style="font-size:13.5px;text-decoration:none;color:#24272A">Jury <span style="font-size:9px;vertical-align:middle">▾</span></a><div class="nav-dd-menu" style="position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:14px;z-index:200"><div style="background:#FFFFFF;border:1px solid #E2E4E8;box-shadow:0 14px 34px rgba(11,92,110,0.14);min-width:216px;display:flex;flex-direction:column;padding:6px 0"><a href="Jury List.dc.html" style="display:block;padding:10px 20px;font-size:13px;color:#24272A;text-decoration:none;white-space:nowrap">Jury list</a><a href="Become a Jury.dc.html" style="display:block;padding:10px 20px;font-size:13px;color:#24272A;text-decoration:none;white-space:nowrap">Become a jury</a></div></div></div><div class="nav-dd" style="position:relative;display:flex;align-items:center"><a href="About.dc.html" class="nav-link" style="font-size:13.5px;text-decoration:none;color:#24272A">About <span style="font-size:9px;vertical-align:middle">▾</span></a><div class="nav-dd-menu" style="position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:14px;z-index:200"><div style="background:#FFFFFF;border:1px solid #E2E4E8;box-shadow:0 14px 34px rgba(11,92,110,0.14);min-width:200px;display:flex;flex-direction:column;padding:6px 0"><a href="About.dc.html" style="display:block;padding:10px 20px;font-size:13px;color:#24272A;text-decoration:none;white-space:nowrap">About</a><a href="Contact.dc.html" style="display:block;padding:10px 20px;font-size:13px;color:#24272A;text-decoration:none;white-space:nowrap">Contact</a><a href="Certificate Examples.dc.html" style="display:block;padding:10px 20px;font-size:13px;color:#24272A;text-decoration:none;white-space:nowrap">Certificate examples</a><a href="Press.dc.html" style="display:block;padding:10px 20px;font-size:13px;color:#24272A;text-decoration:none;white-space:nowrap">Press</a></div></div></div></div>
+      <a href="Competition Entry Form.dc.html" class="cta-link" tabindex="0" style="background:#0B5C6E;color:#FFFFFF;padding:12px 26px;font-size:13.5px;cursor:pointer;transition:background 0.15s,color 0.15s,border-color 0.15s" style-hover="background:#053C48" style-active="background:#032A33" style-focus="outline:2px solid #0B5C6E;outline-offset:2px">Enter a competition</a>
+    </div>
+  </div>
+
+  <!-- HEADER BAND -->
+  <div style="padding:clamp(36px,6vw,72px) clamp(20px,5.5vw,64px) 0;max-width:1240px;margin:0 auto">
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;row-gap:16px;align-items:flex-end;gap:32px">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:#6A6F75">Concluded · public record</div>
+        <h1 style="font-family:Aboreto,serif;font-size:clamp(32px,5vw,52px);font-weight:400;line-height:1.1;margin:14px 0 0">Archive</h1>
+        <p style="font-size:15px;color:#5B6066;line-height:1.7;margin:16px 0 0;max-width:580px">Every concluded competition and online exhibition. Results, galleries, and certificates remain permanently available.</p>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <span tabindex="0" style="background:#0B5C6E;color:#FFFFFF;padding:9px 20px;font-size:12.5px;cursor:pointer;transition:background 0.15s" style-hover="background:#053C48" style-focus="outline:2px solid #0B5C6E;outline-offset:2px">All</span>
+        <span tabindex="0" style="border:1px solid #D7DADE;padding:9px 20px;font-size:12.5px;color:#5B6066;cursor:pointer;transition:border-color 0.15s,color 0.15s" style-hover="border-color:#24272A;color:#24272A" style-focus="outline:2px solid #0B5C6E;outline-offset:2px">Competitions</span>
+        <span tabindex="0" style="border:1px solid #D7DADE;padding:9px 20px;font-size:12.5px;color:#5B6066;cursor:pointer;transition:border-color 0.15s,color 0.15s" style-hover="border-color:#24272A;color:#24272A" style-focus="outline:2px solid #0B5C6E;outline-offset:2px">Exhibitions</span>
+        <span tabindex="0" style="border:1px solid #D7DADE;padding:9px 20px;font-size:12.5px;color:#5B6066;cursor:pointer;transition:border-color 0.15s,color 0.15s" style-hover="border-color:#24272A;color:#24272A" style-focus="outline:2px solid #0B5C6E;outline-offset:2px">2025</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ARCHIVE GRID -->
+  <div style="padding:clamp(32px,5vw,48px) clamp(20px,5.5vw,64px) 0;max-width:1240px;margin:0 auto">
+    <div data-mob="c2 s640" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px 28px">
+
+      <a href="Competition Page.dc.html#results" tabindex="0" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;border:1px solid #E2E4E8;transition:border-color 0.15s,box-shadow 0.15s" style-hover="border-color:#0B5C6E;box-shadow:0 16px 40px rgba(11,92,110,0.10)" style-focus="outline:2px solid #0B5C6E;outline-offset:3px">
+        <div style="aspect-ratio:4/3;background:repeating-linear-gradient(45deg,#E8EAED 0 12px,#F1F2F4 12px 24px);display:flex;align-items:center;justify-content:center"><span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.14em;color:#8A9096;text-transform:uppercase">Winning work</span></div>
+        <div style="padding:22px 24px;display:flex;flex-direction:column;flex:1">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.14em;color:#6A6F75;text-transform:uppercase">Competition · 2025</div>
+          <h3 style="font-family:Aboreto,serif;font-size:23px;font-weight:400;margin:10px 0 0">Moments of Life</h3>
+          <div style="font-size:13px;color:#6A6F75;margin-top:8px">214 works · 31 awards</div>
+          <div style="margin-top:auto;padding-top:20px;display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid #F1F2F4"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#9AA0A6">CONCLUDED SEP 2025</span><span style="font-size:12.5px;color:#0B5C6E;font-weight:600">Results →</span></div>
+        </div>
+      </a>
+
+      <a href="Exhibition.dc.html" tabindex="0" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;border:1px solid #E2E4E8;transition:border-color 0.15s,box-shadow 0.15s" style-hover="border-color:#0B5C6E;box-shadow:0 16px 40px rgba(11,92,110,0.10)" style-focus="outline:2px solid #0B5C6E;outline-offset:3px">
+        <div style="aspect-ratio:4/3;background:repeating-linear-gradient(45deg,#E4E7EA 0 12px,#EEF0F2 12px 24px);display:flex;align-items:center;justify-content:center"><span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.14em;color:#8A9096;text-transform:uppercase">Exhibition view</span></div>
+        <div style="padding:22px 24px;display:flex;flex-direction:column;flex:1">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.14em;color:#6A6F75;text-transform:uppercase">Online exhibition · 2025</div>
+          <h3 style="font-family:Aboreto,serif;font-size:23px;font-weight:400;margin:10px 0 0">Quiet Interiors</h3>
+          <div style="font-size:13px;color:#6A6F75;margin-top:8px">24 works · 9 artists</div>
+          <div style="margin-top:auto;padding-top:20px;display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid #F1F2F4"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#9AA0A6">JULY 2025</span><span style="font-size:12.5px;color:#0B5C6E;font-weight:600">Gallery →</span></div>
+        </div>
+      </a>
+
+      <a href="Competition Page.dc.html#results" tabindex="0" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;border:1px solid #E2E4E8;transition:border-color 0.15s,box-shadow 0.15s" style-hover="border-color:#0B5C6E;box-shadow:0 16px 40px rgba(11,92,110,0.10)" style-focus="outline:2px solid #0B5C6E;outline-offset:3px">
+        <div style="aspect-ratio:4/3;background:repeating-linear-gradient(45deg,#E8EAED 0 12px,#F1F2F4 12px 24px);display:flex;align-items:center;justify-content:center"><span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.14em;color:#8A9096;text-transform:uppercase">Winning work</span></div>
+        <div style="padding:22px 24px;display:flex;flex-direction:column;flex:1">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.14em;color:#6A6F75;text-transform:uppercase">Competition · 2025</div>
+          <h3 style="font-family:Aboreto,serif;font-size:23px;font-weight:400;margin:10px 0 0">Abstract Futures</h3>
+          <div style="font-size:13px;color:#6A6F75;margin-top:8px">176 works · 24 awards</div>
+          <div style="margin-top:auto;padding-top:20px;display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid #F1F2F4"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#9AA0A6">CONCLUDED MAY 2025</span><span style="font-size:12.5px;color:#0B5C6E;font-weight:600">Results →</span></div>
+        </div>
+      </a>
+
+      <a href="Exhibition.dc.html" tabindex="0" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;border:1px solid #E2E4E8;transition:border-color 0.15s,box-shadow 0.15s" style-hover="border-color:#0B5C6E;box-shadow:0 16px 40px rgba(11,92,110,0.10)" style-focus="outline:2px solid #0B5C6E;outline-offset:3px">
+        <div style="aspect-ratio:4/3;background:repeating-linear-gradient(45deg,#E4E7EA 0 12px,#EEF0F2 12px 24px);display:flex;align-items:center;justify-content:center"><span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.14em;color:#8A9096;text-transform:uppercase">Exhibition view</span></div>
+        <div style="padding:22px 24px;display:flex;flex-direction:column;flex:1">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.14em;color:#6A6F75;text-transform:uppercase">Online exhibition · 2025</div>
+          <h3 style="font-family:Aboreto,serif;font-size:23px;font-weight:400;margin:10px 0 0">Material Memory</h3>
+          <div style="font-size:13px;color:#6A6F75;margin-top:8px">18 works · 6 artists</div>
+          <div style="margin-top:auto;padding-top:20px;display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid #F1F2F4"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#9AA0A6">MARCH 2025</span><span style="font-size:12.5px;color:#0B5C6E;font-weight:600">Gallery →</span></div>
+        </div>
+      </a>
+
+      <a href="Competition Page.dc.html#results" tabindex="0" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;border:1px solid #E2E4E8;transition:border-color 0.15s,box-shadow 0.15s" style-hover="border-color:#0B5C6E;box-shadow:0 16px 40px rgba(11,92,110,0.10)" style-focus="outline:2px solid #0B5C6E;outline-offset:3px">
+        <div style="aspect-ratio:4/3;background:repeating-linear-gradient(45deg,#E8EAED 0 12px,#F1F2F4 12px 24px);display:flex;align-items:center;justify-content:center"><span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.14em;color:#8A9096;text-transform:uppercase">Winning work</span></div>
+        <div style="padding:22px 24px;display:flex;flex-direction:column;flex:1">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.14em;color:#6A6F75;text-transform:uppercase">Competition · 2024</div>
+          <h3 style="font-family:Aboreto,serif;font-size:23px;font-weight:400;margin:10px 0 0">The Human Form</h3>
+          <div style="font-size:13px;color:#6A6F75;margin-top:8px">148 works · 20 awards</div>
+          <div style="margin-top:auto;padding-top:20px;display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid #F1F2F4"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#9AA0A6">CONCLUDED NOV 2024</span><span style="font-size:12.5px;color:#0B5C6E;font-weight:600">Results →</span></div>
+        </div>
+      </a>
+
+      <a href="Exhibition.dc.html" tabindex="0" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;border:1px solid #E2E4E8;transition:border-color 0.15s,box-shadow 0.15s" style-hover="border-color:#0B5C6E;box-shadow:0 16px 40px rgba(11,92,110,0.10)" style-focus="outline:2px solid #0B5C6E;outline-offset:3px">
+        <div style="aspect-ratio:4/3;background:repeating-linear-gradient(45deg,#E4E7EA 0 12px,#EEF0F2 12px 24px);display:flex;align-items:center;justify-content:center"><span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.14em;color:#8A9096;text-transform:uppercase">Exhibition view</span></div>
+        <div style="padding:22px 24px;display:flex;flex-direction:column;flex:1">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.14em;color:#6A6F75;text-transform:uppercase">Online exhibition · 2024</div>
+          <h3 style="font-family:Aboreto,serif;font-size:23px;font-weight:400;margin:10px 0 0">City Fragments</h3>
+          <div style="font-size:13px;color:#6A6F75;margin-top:8px">21 works · 8 artists</div>
+          <div style="margin-top:auto;padding-top:20px;display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid #F1F2F4"><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:#9AA0A6">SEP 2024</span><span style="font-size:12.5px;color:#0B5C6E;font-weight:600">Gallery →</span></div>
+        </div>
+      </a>
+
+    </div>
+    <div style="height:clamp(56px,9vw,96px)"></div>
+  </div>
+
+  <div style="background:#24272A;color:#A9ADB2;padding:clamp(44px,6vw,60px) clamp(20px,5.5vw,64px) 0">
+    <div data-mob="c2 s640" style="display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1fr;gap:40px">
+      <div>
+        <a href="Homepage.dc.html" style="display:inline-block"><img src="uploads/logo.png" alt="Curatone.art" style="height:30px;display:block;filter:invert(1)"></a>
+        <div style="font-size:12.5px;color:#8B9096;line-height:1.7;margin-top:16px;max-width:230px">International juried art competitions, online exhibitions, and a peer-reviewed journal. Berlin · ISSN 3054-6621.</div>
+        <div><a href="mailto:info@curatone.art" style="display:inline-block;color:#FFFFFF;text-decoration:none;font-size:13px;font-weight:600;margin-top:16px;transition:color 0.15s" style-hover="color:#9FC3CC">info@curatone.art</a></div>
+      </div>
+      <div><a href="Open Calls.dc.html" class="foot-link" style="display:block;color:#A9ADB2;text-decoration:none;font-size:13px;padding:5px 0">Open calls</a><a href="Competition Entry Form.dc.html" class="foot-link" style="display:block;color:#A9ADB2;text-decoration:none;font-size:13px;padding:5px 0">Enter a competition</a><a href="Competition Page.dc.html#results" class="foot-link" style="display:block;color:#A9ADB2;text-decoration:none;font-size:13px;padding:5px 0">Results</a><a href="Winner Detail.dc.html" class="foot-link" style="display:block;color:#A9ADB2;text-decoration:none;font-size:13px;padding:5px 0">Winners</a></div>
+      <div><a href="Exhibitions Archive.dc.html" class="foot-link" style="display:block;color:#A9ADB2;text-decoration:none;font-size:13px;padding:5px 0">Exhibitions archive</a><a href="Exhibition.dc.html" class="foot-link" style="display:block;color:#A9ADB2;text-decoration:none;font-size:13px;padding:5px 0">Online exhibitions</a><a href="Personal Exhibition.dc.html" class="foot-link" style="display:block;color:#A9ADB2;text-decoration:none;font-size:13px;padding:5px 0">Personal exhibition</a><a href="Featured Artists.dc.html" class="foot-link" style="display:block;color:#A9ADB2;text-decoration:none;font-size:13px;padding:5px 0">Featured artists</a></div>
+      <div><a href="Journal.dc.html" class="foot-link" style="display:block;color:#A9ADB2;text-decoration:none;font-size:13px;padding:5px 0">Journal</a><a href="About the Journal.dc.html" class="foot-link" style="display:block;color:#A9ADB2;text-decoration:none;font-size:13px;padding:5px 0">About the journal</a><a href="Editorial Board.dc.html" class="foot-link" style="display:block;color:#A9ADB2;text-decoration:none;font-size:13px;padding:5px 0">Editorial board</a><a href="Submission Guidelines.dc.html" class="foot-link" style="display:block;color:#A9ADB2;text-decoration:none;font-size:13px;padding:5px 0">Submission guidelines</a><a href="Article Submission.dc.html" class="foot-link" style="display:block;color:#A9ADB2;text-decoration:none;font-size:13px;padding:5px 0">Submit an article</a></div>
+      <div><a href="Jury List.dc.html" class="foot-link" style="display:block;color:#A9ADB2;text-decoration:none;font-size:13px;padding:5px 0">Jury list</a><a href="Become a Jury.dc.html" class="foot-link" style="display:block;color:#A9ADB2;text-decoration:none;font-size:13px;padding:5px 0">Become a jury</a><a href="Certificate Examples.dc.html" class="foot-link" style="display:block;color:#A9ADB2;text-decoration:none;font-size:13px;padding:5px 0">Certificate examples</a><a href="Blog.dc.html" class="foot-link" style="display:block;color:#A9ADB2;text-decoration:none;font-size:13px;padding:5px 0">Blog</a><a href="About.dc.html" class="foot-link" style="display:block;color:#A9ADB2;text-decoration:none;font-size:13px;padding:5px 0">About</a><a href="Contact.dc.html" class="foot-link" style="display:block;color:#A9ADB2;text-decoration:none;font-size:13px;padding:5px 0">Contact</a><a href="Press.dc.html" class="foot-link" style="display:block;color:#A9ADB2;text-decoration:none;font-size:13px;padding:5px 0">Press</a></div>
+    </div>
+    <div style="border-top:1px solid #3B3F44;margin-top:clamp(32px,5vw,48px);padding:22px 0;display:flex;justify-content:space-between;flex-wrap:wrap;row-gap:8px;font-size:11.5px;color:#A9ADB2">
+      <span>© 2026 Curatone.art. All rights reserved.</span><span>Impressum · Datenschutzerklärung · AGB</span>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

@@ -3,7 +3,6 @@
   "redirects": [
     { "source": "/publications", "destination": "/exhibitions", "permanent": true },
     { "source": "/exhibitions_archive", "destination": "/exhibitions", "permanent": true },
-    { "source": "/featured-artists", "destination": "/exhibitions", "permanent": true },
     { "source": "/articles", "destination": "/blog", "permanent": true },
     { "source": "/editorial-board", "destination": "/journal/editorial-board", "permanent": true },
     { "source": "/allgemeine-geschäftsbedingungen-agb", "destination": "/agb", "permanent": true },

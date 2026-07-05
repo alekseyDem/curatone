@@ -230,7 +230,7 @@ export default async function JuryListPage() {
           </div>
         </div>
         <a
-          href="mailto:contact@curatone.art?subject=Jury%20application"
+          href="mailto:info@curatone.art?subject=Jury%20application"
           className="btn btn--primary"
           style={{ padding: '15px 32px', flex: 'none' }}
         >

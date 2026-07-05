@@ -178,8 +178,8 @@ export default function GuidelinesPage() {
       >
         <div style={{ fontSize: 13.5, color: 'var(--body-muted)', lineHeight: 1.7 }}>
           Questions before submitting:{' '}
-          <a href="mailto:journal@curatone.art" style={{ fontWeight: 600, color: 'var(--ink)' }}>
-            journal@curatone.art
+          <a href="mailto:info@curatone.art" style={{ fontWeight: 600, color: 'var(--ink)' }}>
+            info@curatone.art
           </a>
         </div>
         <Link href="/journal/submit" className="btn btn--primary" style={{ padding: '13px 28px', flex: 'none' }}>

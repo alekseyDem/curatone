@@ -484,6 +484,7 @@ h2,
 .site-header__link {
   font-size: 13.5px;
   transition: color 0.15s;
+  white-space: nowrap;
 }
 
 .site-header__link:hover {
@@ -493,6 +494,63 @@ h2,
 .site-header__link--active {
   color: var(--teal);
   font-weight: 600;
+}
+
+/* ---------- Header dropdowns ---------- */
+
+.nav-dd {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.nav-dd__caret {
+  font-size: 9px;
+  vertical-align: middle;
+}
+
+.nav-dd__menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-top: 14px;
+  z-index: 200;
+}
+
+.nav-dd:hover .nav-dd__menu,
+.nav-dd:focus-within .nav-dd__menu {
+  display: block;
+}
+
+.nav-dd__panel {
+  background: #fff;
+  border: 1px solid var(--gray-border);
+  box-shadow: 0 14px 34px rgba(11, 92, 110, 0.14);
+  min-width: 216px;
+  display: flex;
+  flex-direction: column;
+  padding: 6px 0;
+}
+
+.nav-dd__item {
+  display: block;
+  padding: 10px 20px;
+  font-size: 13px;
+  color: var(--ink);
+  white-space: nowrap;
+  transition: background 0.15s, color 0.15s;
+}
+
+.nav-dd__item:hover {
+  background: var(--gray-50);
+  color: var(--teal);
+}
+
+.nav-dd__item:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: -2px;
 }
 
 .site-header__burger {
@@ -533,9 +591,20 @@ h2,
     margin-top: 10px;
   }
   .site-header__drawer-link {
+    display: block;
     padding: 13px 2px;
     font-size: 14.5px;
     border-bottom: 1px solid var(--gray-border);
+  }
+  .site-header__drawer-sub {
+    display: flex;
+    flex-direction: column;
+    padding: 4px 0 8px 16px;
+  }
+  .site-header__drawer-sublink {
+    padding: 8px 2px;
+    font-size: 13px;
+    color: var(--caption);
   }
 }
 
@@ -549,10 +618,31 @@ h2,
   color: #fff;
 }
 
+.footer-email:hover {
+  color: var(--teal-dark-muted) !important;
+}
+
 /* ---------- Press strip ---------- */
 
 .press-logo:hover {
   color: var(--ink) !important;
+}
+
+/* ---------- Hoverable link cards (grids) ---------- */
+
+.card-hover {
+  text-decoration: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.card-hover:hover {
+  border-color: var(--teal);
+  box-shadow: 0 16px 40px rgba(11, 92, 110, 0.1);
+}
+
+.card-hover:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
 }
 
 /* ---------- Responsive grid helpers (match design data-mob) ---------- */

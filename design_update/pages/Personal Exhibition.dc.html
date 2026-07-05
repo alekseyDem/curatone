@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aboreto&amp;family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>body{margin:0;font-family:'Open Sans',sans-serif;color:#24272A;background:#FFFFFF}
+@media (max-width:1023px){[data-mob~="c2"]{grid-template-columns:repeat(2,1fr)!important}}
+@media (max-width:900px){[data-mob~="s900"]{grid-template-columns:1fr!important}[data-mob~="s900"]>*{grid-column:auto!important}}
+@media (max-width:760px){[data-mob~="hide760"]{display:none!important}}
+@media (max-width:640px){[data-mob~="s640"]{grid-template-columns:1fr!important}[data-mob~="s640"]>*{grid-column:auto!important}[data-mob~="c2m"]{grid-template-columns:repeat(2,1fr)!important}}
+
+.nav-link:hover{color:#0B5C6E !important}
+.nav-dd-menu{display:none}
+.nav-dd:hover .nav-dd-menu,.nav-dd:focus-within .nav-dd-menu{display:block}
+.nav-dd-menu a:hover{background:#F1F2F4;color:#0B5C6E !important}
+.foot-link:hover{color:#FFFFFF !important}
+.cta-link,.arrow-link{text-decoration:none}
+</style>
+</helmet>
+
+<div data-screen-label="Personal exhibition">
+
+  <div style="position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;row-gap:8px;padding:14px clamp(20px,5.5vw,64px);border-bottom:1px solid #E2E4E8">
+    <a href="Homepage.dc.html" style="display:block;flex:none"><img src="uploads/logo.png" alt="Curatone.art" style="height:36px;display:block"></a>
+    <div style="display:flex;align-items:center;gap:34px;font-size:13.5px">
+      <div data-mob="hide760" style="display:flex;align-items:center;gap:clamp(14px,2.2vw,34px)"><a href="Open Calls.dc.html" class="nav-link" style="font-size:13.5px;text-decoration:none;color:#24272A">Competitions</a><a href="Exhibitions Archive.dc.html" class="nav-link" style="font-size:13.5px;text-decoration:none;color:#0B5C6E;font-weight:600">Exhibitions</a><div class="nav-dd" style="position:relative;display:flex;align-items:center"><a href="Journal.dc.html" class="nav-link" style="font-size:13.5px;text-decoration:none;color:#24272A">Journal <span style="font-size:9px;vertical-align:middle">▾</span></a><div class="nav-dd-menu" style="position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:14px;z-index:200"><div style="background:#FFFFFF;border:1px solid #E2E4E8;box-shadow:0 14px 34px rgba(11,92,110,0.14);min-width:216px;display:flex;flex-direction:column;padding:6px 0"><a href="Journal.dc.html" style="display:block;padding:10px 20px;font-size:13px;color:#24272A;text-decoration:none;white-space:nowrap">Journal overview</a><a href="About the Journal.dc.html" style="display:block;padding:10px 20px;font-size:13px;color:#24272A;text-decoration:none;white-space:nowrap">About the Journal</a><a href="Editorial Board.dc.html" style="display:block;padding:10px 20px;font-size:13px;color:#24272A;text-decoration:none;white-space:nowrap">Editorial Board</a><a href="Submission Guidelines.dc.html" style="display:block;padding:10px 20px;font-size:13px;color:#24272A;text-decoration:none;white-space:nowrap">Submission Guidelines</a></div></div></div><div class="nav-dd" style="position:relative;display:flex;align-items:center"><a href="Jury List.dc.html" class="nav-link" style="font-size:13.5px;text-decoration:none;color:#24272A">Jury <span style="font-size:9px;vertical-align:middle">▾</span></a><div class="nav-dd-menu" style="position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:14px;z-index:200"><div style="background:#FFFFFF;border:1px solid #E2E4E8;box-shadow:0 14px 34px rgba(11,92,110,0.14);min-width:216px;display:flex;flex-direction:column;padding:6px 0"><a href="Jury List.dc.html" style="display:block;padding:10px 20px;font-size:13px;color:#24272A;text-decoration:none;white-space:nowrap">Jury list</a><a href="Become a Jury.dc.html" style="display:block;padding:10px 20px;font-size:13px;color:#24272A;text-decoration:none;white-space:nowrap">Become a jury</a></div></div></div><div class="nav-dd" style="position:relative;display:flex;align-items:center"><a href="About.dc.html" class="nav-link" style="font-size:13.5px;text-decoration:none;color:#24272A">About <span style="font-size:9px;vertical-align:middle">▾</span></a><div class="nav-dd-menu" style="position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:14px;z-index:200"><div style="background:#FFFFFF;border:1px solid #E2E4E8;box-shadow:0 14px 34px rgba(11,92,110,0.14);min-width:200px;display:flex;flex-direction:column;padding:6px 0"><a href="About.dc.html" style="display:block;padding:10px 20px;font-size:13px;color:#24272A;text-decoration:none;white-space:nowrap">About</a><a href="Contact.dc.html" style="display:block;padding:10px 20px;font-size:13px;color:#24272A;text-decoration:none;white-space:nowrap">Contact</a><a href="Certificate Examples.dc.html" style="display:block;padding:10px 20px;font-size:13px;color:#24272A;text-decoration:none;white-space:nowrap">Certificate examples</a><a href="Press.dc.html" style="display:block;padding:10px 20px;font-size:13px;color:#24272A;text-decoration:none;white-space:nowrap">Press</a></div></div></div></div>
+      <a href="Competition Entry Form.dc.html" class="cta-link" tabindex="0" style="background:#0B5C6E;color:#FFFFFF;padding:12px 26px;font-size:13.5px;cursor:pointer;transition:background 0.15s,color 0.15s,border-color 0.15s" style-hover="background:#053C48" style-active="background:#032A33" style-focus="outline:2px solid #0B5C6E;outline-offset:2px">Enter a competition</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div style="padding:clamp(36px,6vw,72px) clamp(20px,5.5vw,64px) 0;max-width:1180px;margin:0 auto">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:#6A6F75">Our services / <span style="color:#24272A">Personal exhibitions</span></div>
+    <div data-mob="s900" style="display:grid;grid-template-columns:1fr 380px;gap:clamp(28px,5vw,64px);align-items:end;margin-top:clamp(24px,4vw,40px)">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:#870000">Solo online exhibition</div>
+        <h1 style="font-family:Aboreto,serif;font-size:clamp(30px,4.5vw,46px);font-weight:400;line-height:1.1;margin:16px 0 0">A curated stage for your work</h1>
+        <p style="font-size:16px;color:#24272A;line-height:1.7;margin:22px 0 0;max-width:600px">Host a dedicated solo online exhibition and show your work to an international audience of collectors, curators, and art lovers — with your own page, statement, and permanent exhibition record.</p>
+      </div>
+      <div style="border:1px solid #E2E4E8;background:#F1F2F4;padding:26px 28px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:#6A6F75">Exhibition fee</span><span style="font-family:'IBM Plex Mono',monospace;font-size:22px;color:#24272A">$65</span></div>
+        <div style="height:1px;background:#E2E4E8;margin:18px 0"></div>
+        <div style="display:flex;flex-direction:column;gap:9px;font-size:13px;color:#5B6066">
+          <div style="display:flex;justify-content:space-between"><span>Up to</span><span style="color:#24272A;font-weight:600">10 artworks</span></div>
+          <div style="display:flex;justify-content:space-between"><span>Online for</span><span style="color:#24272A;font-weight:600">3+ months</span></div>
+          <div style="display:flex;justify-content:space-between"><span>Review within</span><span style="color:#24272A;font-weight:600">14 days</span></div>
+          <div style="display:flex;justify-content:space-between"><span>Sales commission</span><span style="color:#24272A;font-weight:600">0%</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT'S INCLUDED -->
+  <div style="padding:clamp(48px,7vw,88px) clamp(20px,5.5vw,64px) 0;max-width:1180px;margin:0 auto">
+    <div style="border-top:1px solid #24272A;padding-top:28px;display:flex;justify-content:space-between;flex-wrap:wrap;row-gap:8px;align-items:baseline">
+      <h2 style="font-family:Aboreto,serif;font-size:clamp(24px,3.2vw,32px);font-weight:400;margin:0">What's included</h2>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.12em;color:#6A6F75">EVERY EXHIBITION</span>
+    </div>
+    <div data-mob="c2 s640" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#E2E4E8;border:1px solid #E2E4E8;margin-top:32px">
+      <div style="background:#FFFFFF;padding:26px 28px"><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#0B5C6E">01</div><div style="font-weight:600;font-size:14.5px;margin-top:12px">Custom exhibition page</div><div style="font-size:13px;color:#5B6066;line-height:1.65;margin-top:6px">A dedicated page on Curatone.art built around your work.</div></div>
+      <div style="background:#FFFFFF;padding:26px 28px"><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#0B5C6E">02</div><div style="font-weight:600;font-size:14.5px;margin-top:12px">Up to 10 artworks</div><div style="font-size:13px;color:#5B6066;line-height:1.65;margin-top:6px">Each with its own artist statement and description.</div></div>
+      <div style="background:#FFFFFF;padding:26px 28px"><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#0B5C6E">03</div><div style="font-weight:600;font-size:14.5px;margin-top:12px">Biography &amp; portrait</div><div style="font-size:13px;color:#5B6066;line-height:1.65;margin-top:6px">A short biography and artist photo to introduce you.</div></div>
+      <div style="background:#FFFFFF;padding:26px 28px"><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#0B5C6E">04</div><div style="font-weight:600;font-size:14.5px;margin-top:12px">Social publication</div><div style="font-size:13px;color:#5B6066;line-height:1.65;margin-top:6px">Featured across our social media channels.</div></div>
+      <div style="background:#FFFFFF;padding:26px 28px"><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#0B5C6E">05</div><div style="font-weight:600;font-size:14.5px;margin-top:12px">Optional interview</div><div style="font-size:13px;color:#5B6066;line-height:1.65;margin-top:6px">An optional interview or Q&amp;A feature about your practice.</div></div>
+      <div style="background:#FFFFFF;padding:26px 28px"><div style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:#0B5C6E">06</div><div style="font-weight:600;font-size:14.5px;margin-top:12px">Newsletter &amp; partners</div><div style="font-size:13px;color:#5B6066;line-height:1.65;margin-top:6px">Promotion in our newsletter and partner networks.</div></div>
+    </div>
+  </div>
+
+  <!-- HOW TO APPLY + CONDITIONS -->
+  <div style="padding:clamp(48px,7vw,88px) clamp(20px,5.5vw,64px) 0;max-width:1180px;margin:0 auto">
+    <div style="border-top:1px solid #24272A;padding-top:28px">
+      <h2 style="font-family:Aboreto,serif;font-size:clamp(24px,3.2vw,32px);font-weight:400;margin:0">How to apply</h2>
+    </div>
+    <div data-mob="s900" style="display:grid;grid-template-columns:1fr 360px;gap:clamp(28px,5vw,64px);margin-top:28px;align-items:start">
+      <div>
+        <p style="font-size:14.5px;color:#5B6066;line-height:1.75;margin:0 0 24px">Send an email to <span style="color:#0B5C6E;font-weight:600">info@curatone.art</span> with the subject line <span style="color:#24272A;font-weight:600">"Solo Exhibition Application — [Your Full Name]"</span>. Include in your message:</p>
+        <div style="border-top:1px solid #E2E4E8">
+          <div style="display:flex;justify-content:space-between;flex-wrap:wrap;row-gap:6px;gap:24px;padding:16px 0;border-bottom:1px solid #E2E4E8;align-items:baseline"><span style="font-weight:600;font-size:14px">Artist statement</span><span style="font-size:12.5px;color:#6A6F75;text-align:right">A brief statement of intent</span></div>
+          <div style="display:flex;justify-content:space-between;flex-wrap:wrap;row-gap:6px;gap:24px;padding:16px 0;border-bottom:1px solid #E2E4E8;align-items:baseline"><span style="font-weight:600;font-size:14px">Biography</span><span style="font-size:12.5px;color:#6A6F75;text-align:right">Your background and practice</span></div>
+          <div style="display:flex;justify-content:space-between;flex-wrap:wrap;row-gap:6px;gap:24px;padding:16px 0;border-bottom:1px solid #E2E4E8;align-items:baseline"><span style="font-weight:600;font-size:14px">Portfolio links</span><span style="font-size:12.5px;color:#6A6F75;text-align:right">Website, Instagram, etc.</span></div>
+          <div style="display:flex;justify-content:space-between;flex-wrap:wrap;row-gap:6px;gap:24px;padding:16px 0;border-bottom:1px solid #E2E4E8;align-items:baseline"><span style="font-weight:600;font-size:14px">Selection of artworks</span><span style="font-size:12.5px;color:#6A6F75;text-align:right">At least 6–10 images</span></div>
+          <div style="display:flex;justify-content:space-between;flex-wrap:wrap;row-gap:6px;gap:24px;padding:16px 0;border-bottom:1px solid #E2E4E8;align-items:baseline"><span style="font-weight:600;font-size:14px">Press &amp; exhibitions</span><span style="font-size:12.5px;color:#6A6F75;text-align:right">Any relevant history</span></div>
+        </div>
+        <div style="margin-top:28px"><span tabindex="0" style="background:#0B5C6E;color:#FFFFFF;padding:14px 30px;font-size:14px;cursor:pointer;display:inline-block;transition:background 0.15s,color 0.15s,border-color 0.15s" style-hover="background:#053C48" style-active="background:#032A33" style-focus="outline:2px solid #0B5C6E;outline-offset:2px">Apply for a solo exhibition</span></div>
+      </div>
+      <div style="border:1px solid #E2E4E8;background:#F1F2F4;padding:26px 28px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:#870000">Conditions</div>
+        <div style="display:flex;flex-direction:column;gap:16px;margin-top:16px">
+          <div style="font-size:13px;color:#5B6066;line-height:1.65">All applications are reviewed by our curatorial team.</div>
+          <div style="font-size:13px;color:#5B6066;line-height:1.65">Selected artists are contacted within <span style="color:#24272A;font-weight:600">14 business days</span>.</div>
+          <div style="font-size:13px;color:#5B6066;line-height:1.65">A <span style="color:#24272A;font-weight:600">$65 exhibition fee</span> confirms participation — covering technical setup, publication, and promotional support.</div>
+          <div style="font-size:13px;color:#5B6066;line-height:1.65">The exhibition stays online for a minimum of <span style="color:#24272A;font-weight:600">3 months</span>; extensions and updates on request.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADDITIONAL NOTES -->
+  <div style="padding:clamp(48px,7vw,88px) clamp(20px,5.5vw,64px) 0;max-width:1180px;margin:0 auto">
+    <div style="border-top:1px solid #24272A;padding-top:28px">
+      <h2 style="font-family:Aboreto,serif;font-size:clamp(24px,3.2vw,32px);font-weight:400;margin:0">Good to know</h2>
+    </div>
+    <div data-mob="s640" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:32px">
+      <div style="border:1px solid #E2E4E8;border-left:3px solid #0B5C6E;padding:24px 26px"><div style="font-weight:600;font-size:14.5px">You keep 100% of sales</div><div style="font-size:13px;color:#5B6066;line-height:1.7;margin-top:8px">We take no commission from artwork sales. Buyers are directed straight to your contact or shop.</div></div>
+      <div style="border:1px solid #E2E4E8;border-left:3px solid #0B5C6E;padding:24px 26px"><div style="font-weight:600;font-size:14.5px">Promotional use</div><div style="font-size:13px;color:#5B6066;line-height:1.7;margin-top:8px">By applying, you agree to our Terms &amp; Conditions regarding the use of your artworks for promotional purposes.</div></div>
+      <div style="border:1px solid #E2E4E8;border-left:3px solid #0B5C6E;padding:24px 26px"><div style="font-weight:600;font-size:14.5px">Yours to update</div><div style="font-size:13px;color:#5B6066;line-height:1.7;margin-top:8px">Request an extension or refresh your exhibition at any time by contacting us.</div></div>
+    </div>
+    <div style="height:clamp(56px,9vw,96px)"></div>
+  </div>
+
+  <div style="background:#24272A;color:#A9ADB2;padding:clamp(44px,6vw,60px) clamp(20px,5.5vw,64px) 0">
+    <div data-mob="c2 s640" style="display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1fr;gap:40px">
+      <div>
+        <a href="Homepage.dc.html" style="display:inline-block"><img src="uploads/logo.png" alt="Curatone.art" style="height:30px;display:block;filter:invert(1)"></a>
+        <div style="font-size:12.5px;color:#8B9096;line-height:1.7;margin-top:16px;max-width:230px">International juried art competitions, online exhibitions, and a peer-reviewed journal. Berlin · ISSN 3054-6621.</div>
+        <div><a href="mailto:info@curatone.art" style="display:inline-block;color:#FFFFFF;text-decoration:none;font-size:13px;font-weight:600;margin-top:16px;transition:color 0.15s" style-hover="color:#9FC3CC">info@curatone.art</a></div>
+      </div>
+      <div><a href="Open Calls.dc.html" class="foot-link" style="display:block;color:#A9ADB2;text-decoration:none;font-size:13px;padding:5px 0">Open calls</a><a href="Competition Entry Form.dc.html" class="foot-link" style="display:block;color:#A9ADB2;text-decoration:none;font-size:13px;padding:5px 0">Enter a competition</a><a href="Competition Page.dc.html#results" class="foot-link" style="display:block;color:#A9ADB2;text-decoration:none;font-size:13px;padding:5px 0">Results</a><a href="Winner Detail.dc.html" class="foot-link" style="display:block;color:#A9ADB2;text-decoration:none;font-size:13px;padding:5px 0">Winners</a></div>
+      <div><a href="Exhibitions Archive.dc.html" class="foot-link" style="display:block;color:#A9ADB2;text-decoration:none;font-size:13px;padding:5px 0">Exhibitions archive</a><a href="Exhibition.dc.html" class="foot-link" style="display:block;color:#A9ADB2;text-decoration:none;font-size:13px;padding:5px 0">Online exhibitions</a><a href="Personal Exhibition.dc.html" class="foot-link" style="display:block;color:#A9ADB2;text-decoration:none;font-size:13px;padding:5px 0">Personal exhibition</a><a href="Featured Artists.dc.html" class="foot-link" style="display:block;color:#A9ADB2;text-decoration:none;font-size:13px;padding:5px 0">Featured artists</a></div>
+      <div><a href="Journal.dc.html" class="foot-link" style="display:block;color:#A9ADB2;text-decoration:none;font-size:13px;padding:5px 0">Journal</a><a href="About the Journal.dc.html" class="foot-link" style="display:block;color:#A9ADB2;text-decoration:none;font-size:13px;padding:5px 0">About the journal</a><a href="Editorial Board.dc.html" class="foot-link" style="display:block;color:#A9ADB2;text-decoration:none;font-size:13px;padding:5px 0">Editorial board</a><a href="Submission Guidelines.dc.html" class="foot-link" style="display:block;color:#A9ADB2;text-decoration:none;font-size:13px;padding:5px 0">Submission guidelines</a><a href="Article Submission.dc.html" class="foot-link" style="display:block;color:#A9ADB2;text-decoration:none;font-size:13px;padding:5px 0">Submit an article</a></div>
+      <div><a href="Jury List.dc.html" class="foot-link" style="display:block;color:#A9ADB2;text-decoration:none;font-size:13px;padding:5px 0">Jury list</a><a href="Become a Jury.dc.html" class="foot-link" style="display:block;color:#A9ADB2;text-decoration:none;font-size:13px;padding:5px 0">Become a jury</a><a href="Certificate Examples.dc.html" class="foot-link" style="display:block;color:#A9ADB2;text-decoration:none;font-size:13px;padding:5px 0">Certificate examples</a><a href="Blog.dc.html" class="foot-link" style="display:block;color:#A9ADB2;text-decoration:none;font-size:13px;padding:5px 0">Blog</a><a href="About.dc.html" class="foot-link" style="display:block;color:#A9ADB2;text-decoration:none;font-size:13px;padding:5px 0">About</a><a href="Contact.dc.html" class="foot-link" style="display:block;color:#A9ADB2;text-decoration:none;font-size:13px;padding:5px 0">Contact</a><a href="Press.dc.html" class="foot-link" style="display:block;color:#A9ADB2;text-decoration:none;font-size:13px;padding:5px 0">Press</a></div>
+    </div>
+    <div style="border-top:1px solid #3B3F44;margin-top:clamp(32px,5vw,48px);padding:22px 0;display:flex;justify-content:space-between;flex-wrap:wrap;row-gap:8px;font-size:11.5px;color:#A9ADB2">
+      <span>© 2026 Curatone.art. All rights reserved.</span><span>Impressum · Datenschutzerklärung · AGB</span>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>
