@@ -49,9 +49,9 @@ export default async function AllCertificatesPage({ params }: { params: Promise<
           {competition.title}
         </div>
         <h1 style={{ fontSize: 'clamp(24px, 3.5vw, 34px)', margin: '10px 0 0' }}>Finalist certificates</h1>
-        <p style={{ fontSize: 14, color: 'var(--body-muted)', lineHeight: 1.7, margin: '12px 0 20px', maxWidth: 620 }}>
+        <p style={{ fontSize: 14, color: 'var(--body-muted)', lineHeight: 1.7, margin: '12px 0 20px', maxWidth: 640 }}>
           {certs.length > 0
-            ? `${certs.length} ${certs.length === 1 ? 'certificate' : 'certificates'}, one per page. Use your browser’s print dialog and choose “Save as PDF” to export them all at once, or print selected pages.`
+            ? `${certs.length} ${certs.length === 1 ? 'certificate' : 'certificates'}, one per page. Two ways to save: “Print all” exports every certificate into a single PDF; or save each one individually below — each opens ready to print and saves as a PDF named after the artist.`
             : 'No certificates to generate yet. Certificates appear here for finalists once the competition is closed and — for paid competitions — the finalist fee is marked paid.'}
         </p>
         <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
@@ -60,6 +60,36 @@ export default async function AllCertificatesPage({ params }: { params: Promise<
             Back to competition
           </Link>
         </div>
+
+        {certs.length > 0 && (
+          <div style={{ marginTop: 28, border: '1px solid var(--gray-border)' }}>
+            <div className="mono" style={{ fontSize: 10, letterSpacing: '0.14em', color: 'var(--caption)', textTransform: 'uppercase', padding: '12px 18px', borderBottom: '1px solid var(--gray-border)', background: 'var(--gray-50)' }}>
+              Save each certificate individually (named by artist)
+            </div>
+            {certs.map((c) => (
+              <div
+                key={`row-${c.data.number}`}
+                style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16, flexWrap: 'wrap', padding: '12px 18px', borderBottom: '1px solid var(--gray-border)' }}
+              >
+                <div>
+                  <span style={{ fontWeight: 600, fontSize: 14 }}>{c.data.name}</span>
+                  <span className="mono" style={{ fontSize: 11, color: 'var(--caption)', marginLeft: 10 }}>
+                    {c.data.tierLabel} · {c.data.number}
+                  </span>
+                </div>
+                <a
+                  href={`/certificate/${encodeURIComponent(c.data.number)}?print=1`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="arrow-link"
+                  style={{ fontSize: 13 }}
+                >
+                  Save PDF →
+                </a>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
       {certs.map((c) => (

@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
+import { AutoPrint } from '@/components/AutoPrint'
 import { Certificate } from '@/components/Certificate'
 import { PrintButton } from '@/components/PrintButton'
 import { buildCertificateData, verifyQrSvg } from '@/lib/certificate'
@@ -55,8 +56,15 @@ export async function generateMetadata({ params }: { params: Promise<{ number: s
   }
 }
 
-export default async function CertificatePage({ params }: { params: Promise<{ number: string }> }) {
+export default async function CertificatePage({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ number: string }>
+  searchParams: Promise<{ print?: string }>
+}) {
   const { number } = await params
+  const { print } = await searchParams
   const data = await getCertificate(decodeParam(number))
   if (!data) notFound()
 
@@ -65,6 +73,7 @@ export default async function CertificatePage({ params }: { params: Promise<{ nu
 
   return (
     <div className="cert-print-root" style={{ padding: 'clamp(24px, 4vw, 44px) var(--gutter)' }}>
+      {print ? <AutoPrint /> : null}
       <div className="no-print" style={{ maxWidth: 210 + 'mm', margin: '0 auto clamp(20px, 3vw, 32px)', display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
         <div>
           <div className="mono" style={{ fontSize: 10, letterSpacing: '0.14em', color: 'var(--caption)', textTransform: 'uppercase' }}>
