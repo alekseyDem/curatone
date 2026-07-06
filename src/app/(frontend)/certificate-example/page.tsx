@@ -1,7 +1,7 @@
 import React from 'react'
 import type { Metadata } from 'next'
 
-import { VerifyInput } from './VerifyInput'
+import { VerifyInput } from '@/components/VerifyInput'
 
 export const dynamic = 'force-dynamic'
 

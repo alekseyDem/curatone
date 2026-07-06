@@ -6,6 +6,7 @@ import { CountdownDigits, CountdownInline, DaysRemaining } from '@/components/Co
 import { FaqAccordion } from '@/components/FaqAccordion'
 import { AwardBadge, Medallion, tierMeta, type AwardTier } from '@/components/Medallion'
 import { SectionHead } from '@/components/SectionHead'
+import { VerifyInput } from '@/components/VerifyInput'
 import { categoryLabel } from '@/lib/categories'
 import {
   authorCountry,
@@ -405,13 +406,22 @@ export default async function HomePage() {
               </div>
             ))}
           </div>
-          <Link
-            href="/certificate-example"
-            className="arrow-link"
-            style={{ marginTop: 30, fontSize: 14, borderBottom: '1px solid var(--teal)', display: 'inline-block', paddingBottom: 2, fontWeight: 400 }}
-          >
-            Certificate examples →
-          </Link>
+          <div style={{ marginTop: 30 }}>
+            <Link
+              href="/certificate-example"
+              className="arrow-link"
+              style={{ fontSize: 14, borderBottom: '1px solid var(--teal)', display: 'inline-block', paddingBottom: 2, fontWeight: 400 }}
+            >
+              Certificate examples →
+            </Link>
+          </div>
+          {/* Verify a certificate by number */}
+          <div style={{ marginTop: 30, borderTop: '1px solid var(--gray-border-2)', paddingTop: 24 }}>
+            <div className="mono" style={{ fontSize: 10, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--caption)', marginBottom: 12 }}>
+              Verify a certificate
+            </div>
+            <VerifyInput />
+          </div>
         </div>
         <CertificateMock />
       </div>
