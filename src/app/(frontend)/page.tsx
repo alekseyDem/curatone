@@ -2,8 +2,9 @@ import React from 'react'
 import Link from 'next/link'
 
 import { ArtworkImage } from '@/components/ArtworkImage'
-import { CountdownDigits, CountdownInline, DaysRemaining } from '@/components/Countdown'
+import { CountdownInline, DaysRemaining } from '@/components/Countdown'
 import { FaqAccordion } from '@/components/FaqAccordion'
+import { HeroPremium } from '@/components/HeroPremium'
 import { AwardBadge, Medallion, tierMeta, type AwardTier } from '@/components/Medallion'
 import { SectionHead } from '@/components/SectionHead'
 import { VerifyInput } from '@/components/VerifyInput'
@@ -72,76 +73,20 @@ export default async function HomePage() {
 
   return (
     <>
-      {/* ---------- Hero ---------- */}
-      <div className="m-s900" style={{ display: 'grid', gridTemplateColumns: '1fr 560px' }}>
-        <div
-          style={{
-            padding: 'var(--section-pad-lg) clamp(36px, 7vw, 72px) var(--section-pad) var(--gutter)',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-          }}
-        >
-          <div className="eyebrow" style={{ marginBottom: 26 }}>
-            {hero?.eyebrow || 'International curatorial platform · Berlin'}
-          </div>
-          <h1>{hero?.title || 'Juried competitions. Peer-reviewed publication. Documented recognition.'}</h1>
-          <p style={{ fontSize: 17, lineHeight: 1.7, color: 'var(--body-muted)', margin: '30px 0 0', maxWidth: 560 }}>
-            {hero?.lede}
-          </p>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 18, marginTop: 44 }}>
-            <Link
-              href={featured ? `/exhibitions/${featured.slug}` : '/competitions'}
-              className="btn btn--primary btn--lg"
-            >
-              View the open call
-            </Link>
-            <Link href="/journal" className="btn btn--secondary btn--lg">
-              Read the journal
-            </Link>
-          </div>
-        </div>
-        <div
-          className="panel-tinted"
-          style={{
-            borderLeft: '1px solid var(--gray-border)',
-            padding: 'var(--gutter) clamp(24px, 5vw, 60px)',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <div style={{ background: '#fff', padding: 18, border: '1px solid var(--gray-border-2)', boxShadow: 'var(--artifact-shadow)', width: 'min(366px, 100%)' }}>
-            <ArtworkImage
-              media={featured?.coverImage}
-              aspect="4/5"
-              placeholderLabel="Cover artwork — replace"
-              sizes="(max-width: 900px) 90vw, 330px"
-              priority
-            />
-          </div>
-          {featured && (
-            <div style={{ background: '#fff', border: '1px solid var(--gray-border-2)', padding: '18px 22px', marginTop: 24, width: 'min(286px, 100%)' }}>
-              <div style={{ ...eyebrowStyle, fontSize: 9.5, letterSpacing: '0.16em', color: 'var(--oxblood)' }}>
-                Now accepting entries
-              </div>
-              <div className="display" style={{ fontSize: 19, marginTop: 8 }}>
-                {featured.title}
-              </div>
-              <div style={{ fontSize: 12.5, color: 'var(--body-muted)', marginTop: 6 }}>
-                {(featured.categories ?? []).map(categoryLabel).join(' · ')}
-              </div>
-              {deadline && <CountdownDigits deadline={deadline} start={start} />}
-              {deadline && (
-                <div className="mono" style={{ fontSize: 9, letterSpacing: '0.14em', color: 'var(--faint)', marginTop: 9, textTransform: 'uppercase' }}>
-                  Closes {formatDate(deadline)}
-                </div>
-              )}
-            </div>
-          )}
-        </div>
-      </div>
+      {/* ---------- Premium hero ---------- */}
+      <HeroPremium
+        subtitle={
+          hero?.lede ||
+          'Curated international art competitions every seven weeks, a peer-reviewed journal with DOI-registered articles, and a jury of credentialed art professionals. Every result becomes part of a public, verifiable record.'
+        }
+        kicker={hero?.eyebrow || 'International curatorial platform · Berlin'}
+        enterHref={featured ? `/exhibitions/${featured.slug}/enter` : '/competitions'}
+        openCall={
+          featured
+            ? { title: featured.title, href: `/exhibitions/${featured.slug}`, deadline }
+            : null
+        }
+      />
 
       {/* ---------- Stats band ---------- */}
       {stats.length > 0 && (

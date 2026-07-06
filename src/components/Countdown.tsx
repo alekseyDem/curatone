@@ -31,6 +31,12 @@ function useCountdown(deadline?: string | null, start?: string | null): Parts | 
   return deadline ? parts : null
 }
 
+/** Premium hero open-call card: "{D}D {H}H REMAINING". */
+export function HeroCountdown({ deadline }: { deadline: string }) {
+  const p = useCountdown(deadline)
+  return <>{p ? `${p.d}D ${String(p.h).padStart(2, '0')}H REMAINING` : '— D — H REMAINING'}</>
+}
+
 /** Hero card: large D / H / M mono digits + 3px oxblood progress bar. */
 export function CountdownDigits({ deadline, start }: { deadline: string; start?: string | null }) {
   const p = useCountdown(deadline, start)

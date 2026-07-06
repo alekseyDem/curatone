@@ -1,6 +1,6 @@
 import React from 'react'
 import type { Metadata } from 'next'
-import { Aboreto, Open_Sans, IBM_Plex_Mono } from 'next/font/google'
+import { Aboreto, Open_Sans, IBM_Plex_Mono, Source_Serif_4 } from 'next/font/google'
 
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
@@ -15,6 +15,12 @@ const openSans = Open_Sans({
   variable: '--font-body',
 })
 const plexMono = IBM_Plex_Mono({ weight: ['400', '500'], subsets: ['latin'], variable: '--font-mono' })
+const sourceSerif = Source_Serif_4({
+  weight: '400',
+  style: ['italic', 'normal'],
+  subsets: ['latin'],
+  variable: '--font-serif',
+})
 
 const SITE_DESCRIPTION =
   'Juried international art competitions, a peer-reviewed journal (ISSN 3054-6621), online exhibitions, and a public, verifiable record of results.'
@@ -62,7 +68,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   const enterCompetition = await getEnterCompetition()
 
   return (
-    <html lang="en" className={`${aboreto.variable} ${openSans.variable} ${plexMono.variable}`}>
+    <html lang="en" className={`${aboreto.variable} ${openSans.variable} ${plexMono.variable} ${sourceSerif.variable}`}>
       <body>
         <script
           type="application/ld+json"
