@@ -10,3 +10,5 @@ curatone.db*
 .DS_Store
 *.tsbuildinfo
 .vercel
+.claude/scheduled_tasks.lock
+.claude/settings.local.json
