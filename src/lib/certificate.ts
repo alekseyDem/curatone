@@ -1,8 +1,8 @@
 import QRCode from 'qrcode'
 
 import { categoryLabel } from './categories'
-import { authorCountry, authorName, competitionOf } from './queries'
-import type { Exhibition, Submission } from '@/payload-types'
+import { authorCountry, authorName, competitionOf, formatDate } from './queries'
+import type { Exhibition, JournalArticle, Submission } from '@/payload-types'
 
 export type CertificateData = {
   number: string
@@ -46,6 +46,47 @@ export function buildCertificateData(submission: Submission, competition: Exhibi
     competitionTitle: comp?.title ?? '',
     year,
     verifyUrl: `${serverUrl()}/verify/${encodeURIComponent(number)}`,
+  }
+}
+
+export type PublicationCertificateData = {
+  author: string
+  articleTitle: string
+  volumeIssue: string
+  doiUrl: string
+  published: string
+  issued: string
+  year: string
+  selected?: string | null
+}
+
+/**
+ * Build the Certificate of Publication fields for a published journal
+ * article. The issue year and "certificate issued" date are the generation
+ * date (today), per spec §6.
+ */
+export function buildPublicationCertificateData(
+  article: JournalArticle,
+  now: Date = new Date(),
+): PublicationCertificateData {
+  const author =
+    article.authorsDisplay || (typeof article.author === 'object' && article.author ? article.author.name : '') || 'Author'
+  const year = String(now.getUTCFullYear())
+  const parts = [article.volume && `Volume ${article.volume}`, article.issue && `Issue ${article.issue}`]
+    .filter(Boolean)
+    .join(', ')
+  const volumeIssue = parts ? `${parts} (${year})` : `(${year})`
+  const doi = article.doi ?? ''
+  const doiUrl = doi ? (doi.startsWith('http') ? doi : `https://doi.org/${doi}`) : ''
+  return {
+    author,
+    articleTitle: article.title,
+    volumeIssue,
+    doiUrl,
+    published: formatDate(article.publishedDate) || '—',
+    issued: formatDate(now.toISOString()),
+    year,
+    selected: article.certificate?.selectedNote || null,
   }
 }
 

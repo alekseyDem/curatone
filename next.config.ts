@@ -25,6 +25,9 @@ const nextConfig: NextConfig = {
       {
         pathname: '/logo.png',
       },
+      {
+        pathname: '/sign-akimova.png',
+      },
     ],
   },
   webpack: (webpackConfig) => {

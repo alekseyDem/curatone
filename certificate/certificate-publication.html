@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Curatone.art — Certificate of Publication (browser-generated, print to PDF)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Open+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#24272A;
+  --teal:#0B5C6E;
+  --oxblood:#870000;
+  --text-muted:#5B6066;
+  --mono-muted:#6A6F75;
+  --hairline:#D7DADE;
+  --hairline-soft:#E2E4E8;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Open Sans',sans-serif;color:var(--ink);background:#EDEFF1}
+
+/* ============ Print geometry ============ */
+@page{size:A4 landscape;margin:0}
+@media print{
+  body{background:#FFF}
+  .no-print{display:none!important}
+  .sheet{margin:0;box-shadow:none}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+
+/* ============ Toolbar (screen only) ============ */
+.toolbar{
+  position:sticky;top:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:12px clamp(20px,4vw,40px);
+  background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--hairline-soft);
+}
+.toolbar .brand{font-family:Aboreto,serif;font-size:15px;letter-spacing:0.24em}
+.toolbar .meta{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.16em;color:var(--mono-muted);text-transform:uppercase}
+.toolbar button{
+  flex:none;border:none;background:var(--teal);color:#FFF;
+  padding:11px 26px;font-family:'Open Sans',sans-serif;font-size:13.5px;font-weight:600;letter-spacing:0.04em;
+  cursor:pointer;transition:background 0.15s;
+}
+.toolbar button:hover{background:#053C48}
+.toolbar button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+
+/* ============ Sheet: A4 landscape ============ */
+.sheet{
+  width:297mm;height:210mm;
+  padding:10mm;
+  margin:40px auto;
+  background:#FFF;
+  box-shadow:0 20px 50px rgba(11,92,110,0.14);
+}
+.frame{height:100%;border:1px solid var(--ink);padding:6px;background:#FFF}
+.inner{
+  height:100%;border:1px solid var(--hairline);
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+  padding:38px 72px 36px;
+  position:relative;isolation:isolate;
+}
+
+/* Background: vector SVG rings + corner ticks.
+   Rings MUST be inline SVG (not a CSS gradient): the browser print engine
+   rasterizes gradients at low DPI, making them blurry in the PDF. */
+.deco{position:absolute;inset:0;z-index:-1;overflow:hidden}
+.deco .rings{position:absolute;left:50%;top:38%;transform:translate(-50%,-50%)}
+.deco .tick{position:absolute;width:26px;height:26px;opacity:0.55}
+.deco .tl{top:14px;left:14px;border-top:1px solid var(--teal);border-left:1px solid var(--teal)}
+.deco .tr{top:14px;right:14px;border-top:1px solid var(--teal);border-right:1px solid var(--teal)}
+.deco .bl{bottom:14px;left:14px;border-bottom:1px solid var(--teal);border-left:1px solid var(--teal)}
+.deco .br{bottom:14px;right:14px;border-bottom:1px solid var(--teal);border-right:1px solid var(--teal)}
+
+/* Header */
+.wordmark{font-family:Aboreto,serif;font-size:19px;letter-spacing:0.32em}
+.subline{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.2em;color:var(--mono-muted);margin-top:8px;text-transform:uppercase}
+.rule{width:56px;height:1px;background:var(--oxblood);margin-top:22px}
+
+/* Centre block */
+.centre{flex:1;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.cert-label{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.26em;color:var(--mono-muted);text-transform:uppercase}
+.certify{font-size:15px;color:var(--text-muted);margin-top:22px}
+.author{font-family:'Source Serif 4',serif;font-style:italic;font-weight:400;font-size:36px;line-height:1.2;margin-top:8px}
+.is-author{font-size:15px;color:var(--text-muted);margin-top:14px}
+.article{font-family:Aboreto,serif;font-size:25px;line-height:1.45;margin-top:10px;max-width:860px}
+.published-in{font-size:14px;color:var(--text-muted);line-height:1.75;margin-top:16px;max-width:760px}
+.doi-label{font-size:14px;color:var(--text-muted);margin-top:14px}
+.doi{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.04em;color:var(--teal);margin-top:6px}
+.selected{font-size:13.5px;font-style:italic;color:var(--ink);margin-top:14px}
+
+/* Footer row */
+.footer-row{width:100%;display:flex;justify-content:space-between;align-items:flex-end;gap:24px}
+.sig-block{text-align:left;flex:1}
+.sig-block img{height:52px;display:block;margin:0 0 4px -4px;opacity:0.55}
+.sig-line{width:180px;height:1px;background:var(--ink)}
+.sig-block .row{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--mono-muted)}
+.sig-block .row.name{color:var(--ink);margin-top:9px}
+.sig-block .row + .row{margin-top:5px}
+
+.seal{
+  flex:none;width:96px;height:96px;border-radius:50%;border:1px solid var(--oxblood);
+  display:flex;align-items:center;justify-content:center;margin-bottom:2px;
+}
+.seal-in{
+  width:78px;height:78px;border-radius:50%;border:1px solid var(--oxblood);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  color:var(--oxblood);text-align:center;
+}
+.seal-in .w{font-family:Aboreto,serif;font-size:9px;letter-spacing:0.14em}
+.seal-in .y{font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:0.18em;margin-top:4px}
+
+.dates-block{flex:1;text-align:right}
+.dates-block div{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.18em;color:var(--mono-muted);text-transform:uppercase}
+.dates-block div + div{margin-top:8px}
+</style>
+</head>
+<body>
+
+<div class="toolbar no-print">
+  <div style="display:flex;align-items:baseline;gap:14px;min-width:0">
+    <span class="brand">CURATONE</span>
+    <span class="meta">Certificate of publication · A4 landscape · generated in browser</span>
+  </div>
+  <button onclick="window.print()">Save as PDF</button>
+</div>
+
+<div class="sheet">
+  <div class="frame">
+    <div class="inner">
+      <div class="deco" aria-hidden="true">
+        <svg class="rings" width="1400" height="1400" viewBox="0 0 1400 1400">
+    <circle cx="700" cy="700" r="16" fill="none" stroke="#0B5C6E" stroke-opacity="0.098" stroke-width="1"/>
+    <circle cx="700" cy="700" r="32" fill="none" stroke="#0B5C6E" stroke-opacity="0.095" stroke-width="1"/>
+    <circle cx="700" cy="700" r="48" fill="none" stroke="#0B5C6E" stroke-opacity="0.093" stroke-width="1"/>
+    <circle cx="700" cy="700" r="64" fill="none" stroke="#0B5C6E" stroke-opacity="0.091" stroke-width="1"/>
+    <circle cx="700" cy="700" r="80" fill="none" stroke="#0B5C6E" stroke-opacity="0.088" stroke-width="1"/>
+    <circle cx="700" cy="700" r="96" fill="none" stroke="#0B5C6E" stroke-opacity="0.086" stroke-width="1"/>
+    <circle cx="700" cy="700" r="112" fill="none" stroke="#0B5C6E" stroke-opacity="0.084" stroke-width="1"/>
+    <circle cx="700" cy="700" r="128" fill="none" stroke="#0B5C6E" stroke-opacity="0.081" stroke-width="1"/>
+    <circle cx="700" cy="700" r="144" fill="none" stroke="#0B5C6E" stroke-opacity="0.079" stroke-width="1"/>
+    <circle cx="700" cy="700" r="160" fill="none" stroke="#0B5C6E" stroke-opacity="0.076" stroke-width="1"/>
+    <circle cx="700" cy="700" r="176" fill="none" stroke="#0B5C6E" stroke-opacity="0.074" stroke-width="1"/>
+    <circle cx="700" cy="700" r="192" fill="none" stroke="#0B5C6E" stroke-opacity="0.072" stroke-width="1"/>
+    <circle cx="700" cy="700" r="208" fill="none" stroke="#0B5C6E" stroke-opacity="0.069" stroke-width="1"/>
+    <circle cx="700" cy="700" r="224" fill="none" stroke="#0B5C6E" stroke-opacity="0.067" stroke-width="1"/>
+    <circle cx="700" cy="700" r="240" fill="none" stroke="#0B5C6E" stroke-opacity="0.065" stroke-width="1"/>
+    <circle cx="700" cy="700" r="256" fill="none" stroke="#0B5C6E" stroke-opacity="0.062" stroke-width="1"/>
+    <circle cx="700" cy="700" r="272" fill="none" stroke="#0B5C6E" stroke-opacity="0.060" stroke-width="1"/>
+    <circle cx="700" cy="700" r="288" fill="none" stroke="#0B5C6E" stroke-opacity="0.058" stroke-width="1"/>
+    <circle cx="700" cy="700" r="304" fill="none" stroke="#0B5C6E" stroke-opacity="0.055" stroke-width="1"/>
+    <circle cx="700" cy="700" r="320" fill="none" stroke="#0B5C6E" stroke-opacity="0.053" stroke-width="1"/>
+    <circle cx="700" cy="700" r="336" fill="none" stroke="#0B5C6E" stroke-opacity="0.051" stroke-width="1"/>
+    <circle cx="700" cy="700" r="352" fill="none" stroke="#0B5C6E" stroke-opacity="0.048" stroke-width="1"/>
+    <circle cx="700" cy="700" r="368" fill="none" stroke="#0B5C6E" stroke-opacity="0.046" stroke-width="1"/>
+    <circle cx="700" cy="700" r="384" fill="none" stroke="#0B5C6E" stroke-opacity="0.044" stroke-width="1"/>
+    <circle cx="700" cy="700" r="400" fill="none" stroke="#0B5C6E" stroke-opacity="0.041" stroke-width="1"/>
+    <circle cx="700" cy="700" r="416" fill="none" stroke="#0B5C6E" stroke-opacity="0.039" stroke-width="1"/>
+    <circle cx="700" cy="700" r="432" fill="none" stroke="#0B5C6E" stroke-opacity="0.036" stroke-width="1"/>
+    <circle cx="700" cy="700" r="448" fill="none" stroke="#0B5C6E" stroke-opacity="0.034" stroke-width="1"/>
+    <circle cx="700" cy="700" r="464" fill="none" stroke="#0B5C6E" stroke-opacity="0.032" stroke-width="1"/>
+    <circle cx="700" cy="700" r="480" fill="none" stroke="#0B5C6E" stroke-opacity="0.029" stroke-width="1"/>
+    <circle cx="700" cy="700" r="496" fill="none" stroke="#0B5C6E" stroke-opacity="0.027" stroke-width="1"/>
+    <circle cx="700" cy="700" r="512" fill="none" stroke="#0B5C6E" stroke-opacity="0.025" stroke-width="1"/>
+    <circle cx="700" cy="700" r="528" fill="none" stroke="#0B5C6E" stroke-opacity="0.022" stroke-width="1"/>
+    <circle cx="700" cy="700" r="544" fill="none" stroke="#0B5C6E" stroke-opacity="0.020" stroke-width="1"/>
+    <circle cx="700" cy="700" r="560" fill="none" stroke="#0B5C6E" stroke-opacity="0.018" stroke-width="1"/>
+    <circle cx="700" cy="700" r="576" fill="none" stroke="#0B5C6E" stroke-opacity="0.015" stroke-width="1"/>
+    <circle cx="700" cy="700" r="592" fill="none" stroke="#0B5C6E" stroke-opacity="0.013" stroke-width="1"/>
+    <circle cx="700" cy="700" r="608" fill="none" stroke="#0B5C6E" stroke-opacity="0.011" stroke-width="1"/>
+    <circle cx="700" cy="700" r="624" fill="none" stroke="#0B5C6E" stroke-opacity="0.008" stroke-width="1"/>
+    <circle cx="700" cy="700" r="640" fill="none" stroke="#0B5C6E" stroke-opacity="0.006" stroke-width="1"/>
+    <circle cx="700" cy="700" r="656" fill="none" stroke="#0B5C6E" stroke-opacity="0.004" stroke-width="1"/>
+    <circle cx="700" cy="700" r="672" fill="none" stroke="#0B5C6E" stroke-opacity="0.001" stroke-width="1"/>
+  </svg>
+        <div class="tick tl"></div><div class="tick tr"></div>
+        <div class="tick bl"></div><div class="tick br"></div>
+      </div>
+
+      <div class="wordmark">CURATONE ART &amp; RESEARCH JOURNAL</div>
+      <div class="subline">ISSN 3054-6621 · Registered in the German Union Catalogue of Serials (ZDB)</div>
+      <div class="rule"></div>
+
+      <div class="centre">
+        <div class="cert-label">Certificate of publication</div>
+        <div class="certify">This is to certify that</div>
+        <div class="author" id="f-author">Yanwen Hang</div>
+        <div class="is-author">is the author of the scholarly article</div>
+        <div class="article">“<span id="f-article">Reconstructing Human Agency in the Age of Algorithmic Vitality</span>”</div>
+        <div class="published-in">published in the Curatone Art &amp; Research Journal, <span id="f-volume">Volume 1, Issue 2 (2026)</span>, following a peer review process conducted by the Editorial Board and independent subject-matter experts.</div>
+        <div class="doi-label">The article is permanently archived with a Digital Object Identifier:</div>
+        <div class="doi">DOI: <span id="f-doi">https://doi.org/10.5281/zenodo.21428028</span></div>
+        <div class="selected" id="f-selected">Selected for the Curatone Annual Review 2026 (Academic Print &amp; Digital Edition).</div>
+      </div>
+
+      <div class="footer-row">
+        <div class="sig-block">
+          <img src="uploads/sign_akimova.png" alt="Signature of Elizaveta Akimova">
+          <div class="sig-line"></div>
+          <div class="row name">Elizaveta Akimova</div>
+          <div class="row">Editor-in-Chief &amp; Founder</div>
+          <div class="row">Curatone Art &amp; Research Journal</div>
+        </div>
+        <div class="seal"><div class="seal-in"><span class="w">CURATONE</span><span class="y" id="f-sealyear">2026</span></div></div>
+        <div class="dates-block">
+          <div>Published: <span id="f-published">July 18, 2026</span></div>
+          <div>Certificate issued: <span id="f-issued">July 19, 2026</span></div>
+          <div>curatone.art</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+// ============ Certificate data ============
+// Defaults below; every field can be overridden via URL query params, e.g.:
+// certificate-publication.html?author=Jane%20Doe&article=My%20Article&volume=Volume%202%2C%20Issue%201%20(2027)&doi=https%3A%2F%2Fdoi.org%2F10.5281%2Fzenodo.1&published=May%201%2C%202027&issued=May%202%2C%202027&year=2027
+(function(){
+  var q = new URLSearchParams(location.search);
+  var set = function(id, v){ if(v) document.getElementById(id).textContent = v; };
+  set('f-author', q.get('author'));
+  set('f-article', q.get('article'));
+  set('f-volume', q.get('volume'));
+  set('f-doi', q.get('doi'));
+  set('f-published', q.get('published'));
+  set('f-issued', q.get('issued'));
+  set('f-sealyear', q.get('year'));
+  set('f-selected', q.get('selected'));
+})();
+</script>
+
+</body>
+</html>

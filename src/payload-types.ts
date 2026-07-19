@@ -626,6 +626,10 @@ export interface JournalArticle {
     certificateIssued?: boolean | null;
     certificatePaid?: boolean | null;
     /**
+     * Optional italic line on the Certificate of Publication, e.g. "Selected for the Curatone Annual Review 2026 (Academic Print & Digital Edition)." Leave empty to hide.
+     */
+    selectedNote?: string | null;
+    /**
      * Price of the publication certificate for this article.
      */
     certificateFee?: number | null;
@@ -1175,6 +1179,7 @@ export interface JournalArticlesSelect<T extends boolean = true> {
     | {
         certificateIssued?: T;
         certificatePaid?: T;
+        selectedNote?: T;
         certificateFee?: T;
         stripeSessionId?: T;
         payToken?: T;

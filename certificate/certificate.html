@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Curatone.art — Award Certificate (browser-generated, print to PDF)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Open+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+<style>
+:root{
+  --ink:#24272A;
+  --teal:#0B5C6E;
+  --oxblood:#870000;
+  --text-muted:#5B6066;
+  --mono-muted:#6A6F75;
+  --hairline:#D7DADE;
+  --hairline-soft:#E2E4E8;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Open Sans',sans-serif;color:var(--ink);background:#EDEFF1}
+
+/* ============ Print geometry ============ */
+@page{size:A4 landscape;margin:0}
+@media print{
+  body{background:#FFF}
+  .no-print{display:none!important}
+  .sheet{margin:0;box-shadow:none}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+
+/* ============ Toolbar (screen only) ============ */
+.toolbar{
+  position:sticky;top:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:12px clamp(20px,4vw,40px);
+  background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--hairline-soft);
+}
+.toolbar .brand{font-family:Aboreto,serif;font-size:15px;letter-spacing:0.24em}
+.toolbar .meta{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.16em;color:var(--mono-muted);text-transform:uppercase}
+.toolbar button{
+  flex:none;border:none;background:var(--teal);color:#FFF;
+  padding:11px 26px;font-family:'Open Sans',sans-serif;font-size:13.5px;font-weight:600;letter-spacing:0.04em;
+  cursor:pointer;transition:background 0.15s;
+}
+.toolbar button:hover{background:#053C48}
+.toolbar button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+
+/* ============ Sheet: A4 landscape ============ */
+.sheet{
+  width:297mm;height:210mm;
+  padding:10mm;
+  margin:40px auto;
+  background:#FFF;
+  box-shadow:0 20px 50px rgba(11,92,110,0.14);
+}
+.frame{height:100%;border:1px solid var(--ink);padding:6px;background:#FFF}
+.inner{
+  height:100%;border:1px solid var(--hairline);
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+  padding:44px 64px 40px;
+  position:relative;isolation:isolate;
+}
+
+/* Background: concentric hairline rings + corner ticks */
+.deco{position:absolute;inset:0;z-index:-1;overflow:hidden}
+/* Rings are an inline SVG (vector) so they stay crisp in the printed PDF —
+   CSS gradients get rasterized at low DPI by the browser print engine. */
+.deco .rings{
+  position:absolute;left:50%;top:36%;transform:translate(-50%,-50%);
+}
+.deco .tick{position:absolute;width:26px;height:26px;opacity:0.55}
+.deco .tl{top:14px;left:14px;border-top:1px solid var(--teal);border-left:1px solid var(--teal)}
+.deco .tr{top:14px;right:14px;border-top:1px solid var(--teal);border-right:1px solid var(--teal)}
+.deco .bl{bottom:14px;left:14px;border-bottom:1px solid var(--teal);border-left:1px solid var(--teal)}
+.deco .br{bottom:14px;right:14px;border-bottom:1px solid var(--teal);border-right:1px solid var(--teal)}
+
+/* Header */
+.wordmark{font-family:Aboreto,serif;font-size:19px;letter-spacing:0.32em}
+.subline{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.24em;color:var(--mono-muted);margin-top:8px;text-transform:uppercase}
+.rule{width:56px;height:1px;background:var(--oxblood);margin-top:26px}
+
+/* Centre block */
+.centre{flex:1;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.cert-label{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.26em;color:var(--mono-muted);text-transform:uppercase}
+.award{font-family:Aboreto,serif;font-size:52px;line-height:1.15;margin-top:16px}
+.tier-bar{width:150px;height:3px;margin-top:14px}
+.tier-bar[data-tier="Gold"]{background:linear-gradient(90deg,#C9A54E,#EAD9AC,#C9A54E)}
+.tier-bar[data-tier="Platinum"]{background:linear-gradient(90deg,#C9C8C2,#F1F0EC,#C9C8C2)}
+.tier-bar[data-tier="Silver"]{background:linear-gradient(90deg,#AEB3B8,#E4E7E9,#AEB3B8)}
+.awarded-to{font-size:15px;color:var(--text-muted);margin-top:30px}
+.artist{font-family:'Source Serif 4',serif;font-style:italic;font-weight:400;font-size:38px;line-height:1.2;margin-top:10px}
+.work-lines{font-size:15px;color:var(--text-muted);line-height:1.8;margin-top:16px}
+.work-lines .work{font-style:italic;color:var(--ink)}
+
+/* Footer row */
+.footer-row{width:100%;display:flex;justify-content:space-between;align-items:flex-end;gap:24px}
+.sig-block{text-align:left;flex:1}
+.sig-block img{height:52px;display:block;margin:0 0 4px -4px;opacity:0.55}
+.sig-line{width:180px;height:1px;background:var(--ink)}
+.sig-name{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.18em;color:var(--ink);margin-top:9px;text-transform:uppercase}
+.sig-role{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.18em;color:var(--mono-muted);margin-top:5px;text-transform:uppercase}
+
+.seal{
+  flex:none;width:96px;height:96px;border-radius:50%;border:1px solid var(--oxblood);
+  display:flex;align-items:center;justify-content:center;margin-bottom:2px;
+}
+.seal-in{
+  width:78px;height:78px;border-radius:50%;border:1px solid var(--oxblood);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  color:var(--oxblood);text-align:center;
+}
+.seal-in .w{font-family:Aboreto,serif;font-size:9px;letter-spacing:0.14em}
+.seal-in .y{font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:0.18em;margin-top:4px}
+
+.verify-block{flex:1;display:flex;align-items:flex-end;justify-content:flex-end;gap:16px}
+.qr-box{flex:none;width:72px;height:72px;border:1px solid var(--hairline-soft);padding:5px;background:#FFF}
+.qr-box img{width:100%;height:100%;display:block;image-rendering:pixelated}
+.verify-lines{text-align:right}
+.verify-lines div{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:0.18em;color:var(--mono-muted);text-transform:uppercase}
+.verify-lines div + div{margin-top:8px}
+</style>
+</head>
+<body>
+
+<div class="toolbar no-print">
+  <div style="display:flex;align-items:baseline;gap:14px;min-width:0">
+    <span class="brand">CURATONE</span>
+    <span class="meta">Award certificate · A4 landscape · generated in browser</span>
+  </div>
+  <button onclick="window.print()">Save as PDF</button>
+</div>
+
+<div class="sheet">
+  <div class="frame">
+    <div class="inner">
+      <div class="deco" aria-hidden="true">
+        <svg class="rings" aria-hidden="true" width="1400" height="1400" viewBox="0 0 1400 1400">
+    <circle cx="700" cy="700" r="16" fill="none" stroke="#0B5C6E" stroke-opacity="0.098" stroke-width="1"/>
+    <circle cx="700" cy="700" r="32" fill="none" stroke="#0B5C6E" stroke-opacity="0.095" stroke-width="1"/>
+    <circle cx="700" cy="700" r="48" fill="none" stroke="#0B5C6E" stroke-opacity="0.093" stroke-width="1"/>
+    <circle cx="700" cy="700" r="64" fill="none" stroke="#0B5C6E" stroke-opacity="0.091" stroke-width="1"/>
+    <circle cx="700" cy="700" r="80" fill="none" stroke="#0B5C6E" stroke-opacity="0.088" stroke-width="1"/>
+    <circle cx="700" cy="700" r="96" fill="none" stroke="#0B5C6E" stroke-opacity="0.086" stroke-width="1"/>
+    <circle cx="700" cy="700" r="112" fill="none" stroke="#0B5C6E" stroke-opacity="0.084" stroke-width="1"/>
+    <circle cx="700" cy="700" r="128" fill="none" stroke="#0B5C6E" stroke-opacity="0.081" stroke-width="1"/>
+    <circle cx="700" cy="700" r="144" fill="none" stroke="#0B5C6E" stroke-opacity="0.079" stroke-width="1"/>
+    <circle cx="700" cy="700" r="160" fill="none" stroke="#0B5C6E" stroke-opacity="0.076" stroke-width="1"/>
+    <circle cx="700" cy="700" r="176" fill="none" stroke="#0B5C6E" stroke-opacity="0.074" stroke-width="1"/>
+    <circle cx="700" cy="700" r="192" fill="none" stroke="#0B5C6E" stroke-opacity="0.072" stroke-width="1"/>
+    <circle cx="700" cy="700" r="208" fill="none" stroke="#0B5C6E" stroke-opacity="0.069" stroke-width="1"/>
+    <circle cx="700" cy="700" r="224" fill="none" stroke="#0B5C6E" stroke-opacity="0.067" stroke-width="1"/>
+    <circle cx="700" cy="700" r="240" fill="none" stroke="#0B5C6E" stroke-opacity="0.065" stroke-width="1"/>
+    <circle cx="700" cy="700" r="256" fill="none" stroke="#0B5C6E" stroke-opacity="0.062" stroke-width="1"/>
+    <circle cx="700" cy="700" r="272" fill="none" stroke="#0B5C6E" stroke-opacity="0.060" stroke-width="1"/>
+    <circle cx="700" cy="700" r="288" fill="none" stroke="#0B5C6E" stroke-opacity="0.058" stroke-width="1"/>
+    <circle cx="700" cy="700" r="304" fill="none" stroke="#0B5C6E" stroke-opacity="0.055" stroke-width="1"/>
+    <circle cx="700" cy="700" r="320" fill="none" stroke="#0B5C6E" stroke-opacity="0.053" stroke-width="1"/>
+    <circle cx="700" cy="700" r="336" fill="none" stroke="#0B5C6E" stroke-opacity="0.051" stroke-width="1"/>
+    <circle cx="700" cy="700" r="352" fill="none" stroke="#0B5C6E" stroke-opacity="0.048" stroke-width="1"/>
+    <circle cx="700" cy="700" r="368" fill="none" stroke="#0B5C6E" stroke-opacity="0.046" stroke-width="1"/>
+    <circle cx="700" cy="700" r="384" fill="none" stroke="#0B5C6E" stroke-opacity="0.044" stroke-width="1"/>
+    <circle cx="700" cy="700" r="400" fill="none" stroke="#0B5C6E" stroke-opacity="0.041" stroke-width="1"/>
+    <circle cx="700" cy="700" r="416" fill="none" stroke="#0B5C6E" stroke-opacity="0.039" stroke-width="1"/>
+    <circle cx="700" cy="700" r="432" fill="none" stroke="#0B5C6E" stroke-opacity="0.036" stroke-width="1"/>
+    <circle cx="700" cy="700" r="448" fill="none" stroke="#0B5C6E" stroke-opacity="0.034" stroke-width="1"/>
+    <circle cx="700" cy="700" r="464" fill="none" stroke="#0B5C6E" stroke-opacity="0.032" stroke-width="1"/>
+    <circle cx="700" cy="700" r="480" fill="none" stroke="#0B5C6E" stroke-opacity="0.029" stroke-width="1"/>
+    <circle cx="700" cy="700" r="496" fill="none" stroke="#0B5C6E" stroke-opacity="0.027" stroke-width="1"/>
+    <circle cx="700" cy="700" r="512" fill="none" stroke="#0B5C6E" stroke-opacity="0.025" stroke-width="1"/>
+    <circle cx="700" cy="700" r="528" fill="none" stroke="#0B5C6E" stroke-opacity="0.022" stroke-width="1"/>
+    <circle cx="700" cy="700" r="544" fill="none" stroke="#0B5C6E" stroke-opacity="0.020" stroke-width="1"/>
+    <circle cx="700" cy="700" r="560" fill="none" stroke="#0B5C6E" stroke-opacity="0.018" stroke-width="1"/>
+    <circle cx="700" cy="700" r="576" fill="none" stroke="#0B5C6E" stroke-opacity="0.015" stroke-width="1"/>
+    <circle cx="700" cy="700" r="592" fill="none" stroke="#0B5C6E" stroke-opacity="0.013" stroke-width="1"/>
+    <circle cx="700" cy="700" r="608" fill="none" stroke="#0B5C6E" stroke-opacity="0.011" stroke-width="1"/>
+    <circle cx="700" cy="700" r="624" fill="none" stroke="#0B5C6E" stroke-opacity="0.008" stroke-width="1"/>
+    <circle cx="700" cy="700" r="640" fill="none" stroke="#0B5C6E" stroke-opacity="0.006" stroke-width="1"/>
+    <circle cx="700" cy="700" r="656" fill="none" stroke="#0B5C6E" stroke-opacity="0.004" stroke-width="1"/>
+    <circle cx="700" cy="700" r="672" fill="none" stroke="#0B5C6E" stroke-opacity="0.001" stroke-width="1"/>
+  </svg>
+        <div class="tick tl"></div><div class="tick tr"></div>
+        <div class="tick bl"></div><div class="tick br"></div>
+      </div>
+
+      <div class="wordmark">CURATONE</div>
+      <div class="subline">Berlin · International curatorial platform</div>
+      <div class="rule"></div>
+
+      <div class="centre">
+        <div class="cert-label">Certificate of achievement</div>
+        <div class="award" id="f-award">Gold Award</div>
+        <div class="tier-bar" id="f-tierbar" data-tier="Gold"></div>
+        <div class="awarded-to">awarded to</div>
+        <div class="artist" id="f-artist">Artist Name</div>
+        <div class="work-lines">for the work <span class="work" id="f-work">Untitled</span> · <span id="f-category">Painting</span><br><span id="f-competition">Open Call: Colors</span>, <span id="f-year">2026</span></div>
+      </div>
+
+      <div class="footer-row">
+        <div class="sig-block">
+          <img src="uploads/sign_akimova.png" alt="Signature of Elizaveta Akimova">
+          <div class="sig-line"></div>
+          <div class="sig-name">Elizaveta Akimova</div>
+          <div class="sig-role">Founder &amp; Editor-in-Chief</div>
+        </div>
+        <div class="seal"><div class="seal-in"><span class="w">CURATONE</span><span class="y" id="f-sealyear">2026</span></div></div>
+        <div class="verify-block">
+          <div class="qr-box" id="f-qr"></div>
+          <div class="verify-lines">
+            <div>No. <span id="f-certno">CTA-2026-0147</span></div>
+            <div>Verified at curatone.art</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+// ============ Certificate data ============
+// Defaults below; every field can be overridden via URL query params, e.g.:
+// certificate.html?artist=Jane%20Doe&tier=Platinum&work=Tides&category=Photography&competition=Open%20Call%3A%20Structures&year=2026&certNo=CTA-2026-0201
+(function(){
+  var q = new URLSearchParams(location.search);
+  var data = {
+    tier:        q.get('tier')        || 'Gold',          // Platinum | Gold | Silver
+    artist:      q.get('artist')      || 'Artist Name',
+    work:        q.get('work')        || 'Untitled',
+    category:    q.get('category')    || 'Painting',
+    competition: q.get('competition') || 'Open Call: Colors',
+    year:        q.get('year')        || '2026',
+    certNo:      q.get('certNo')      || 'CTA-2026-0147'
+  };
+
+  document.getElementById('f-award').textContent = data.tier + ' Award';
+  document.getElementById('f-tierbar').setAttribute('data-tier', data.tier);
+  document.getElementById('f-artist').textContent = data.artist;
+  document.getElementById('f-work').textContent = data.work;
+  document.getElementById('f-category').textContent = data.category;
+  document.getElementById('f-competition').textContent = data.competition;
+  document.getElementById('f-year').textContent = data.year;
+  document.getElementById('f-sealyear').textContent = data.year;
+  document.getElementById('f-certno').textContent = data.certNo;
+
+  // QR: verification URL, generated fully in the browser.
+  var qr = qrcode(0, 'M');
+  qr.addData('https://curatone.art/verify/' + data.certNo);
+  qr.make();
+  var img = new Image();
+  img.src = qr.createDataURL(8, 0);
+  img.alt = 'Verification QR code';
+  document.getElementById('f-qr').appendChild(img);
+})();
+</script>
+
+</body>
+</html>

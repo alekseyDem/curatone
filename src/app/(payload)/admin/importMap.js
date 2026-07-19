@@ -23,6 +23,7 @@ import { BoldFeatureClient as BoldFeatureClient_e70f5e05f09f93e00b997edb1ef0c864
 import { ItalicFeatureClient as ItalicFeatureClient_e70f5e05f09f93e00b997edb1ef0c864 } from '@payloadcms/richtext-lexical/client'
 import { ExportButtons as ExportButtons_5c5c64d63b93effc2e1c1e039f3197d2 } from '../../../components/admin/ExportButtons'
 import { CertificateButtons as CertificateButtons_46de1488665413e39d977e1aa9089b06 } from '../../../components/admin/CertificateButtons'
+import { PublicationCertificateButton as PublicationCertificateButton_dd80fc0936f4b8c63e949524dadc9f67 } from '../../../components/admin/PublicationCertificateButton'
 import { CollectionCards as CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1 } from '@payloadcms/next/rsc'
 
 /** @type import('payload').ImportMap */
@@ -52,5 +53,6 @@ export const importMap = {
   "@payloadcms/richtext-lexical/client#ItalicFeatureClient": ItalicFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
   "/components/admin/ExportButtons#ExportButtons": ExportButtons_5c5c64d63b93effc2e1c1e039f3197d2,
   "/components/admin/CertificateButtons#CertificateButtons": CertificateButtons_46de1488665413e39d977e1aa9089b06,
+  "/components/admin/PublicationCertificateButton#PublicationCertificateButton": PublicationCertificateButton_dd80fc0936f4b8c63e949524dadc9f67,
   "@payloadcms/next/rsc#CollectionCards": CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1
 }

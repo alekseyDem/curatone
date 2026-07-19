@@ -149,6 +149,15 @@ export const JournalArticles: CollectionConfig = {
         { name: 'certificateIssued', type: 'checkbox', defaultValue: false, label: 'Certificate issued' },
         { name: 'certificatePaid', type: 'checkbox', defaultValue: false, label: 'Certificate paid' },
         {
+          name: 'selectedNote',
+          type: 'text',
+          label: 'Annual Review line (optional)',
+          admin: {
+            description:
+              'Optional italic line on the Certificate of Publication, e.g. "Selected for the Curatone Annual Review 2026 (Academic Print & Digital Edition)." Leave empty to hide.',
+          },
+        },
+        {
           name: 'certificateFee',
           type: 'number',
           defaultValue: 30,
@@ -167,6 +176,16 @@ export const JournalArticles: CollectionConfig = {
           },
         },
       ],
+    },
+    {
+      name: 'publicationCertificate',
+      type: 'ui',
+      admin: {
+        condition: (data) => data?.status === 'published',
+        components: {
+          Field: '/components/admin/PublicationCertificateButton#PublicationCertificateButton',
+        },
+      },
     },
     seoFields,
   ],
