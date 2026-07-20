@@ -32,7 +32,8 @@ const dirname = path.dirname(filename)
 const db = process.env.POSTGRES_URL
   ? postgresAdapter({
       pool: { connectionString: process.env.POSTGRES_URL },
-      prodMigrations: migrations,
+      // Gated so we can boot without migrating (diagnostics). Set RUN_MIGRATIONS=true to apply.
+      prodMigrations: process.env.RUN_MIGRATIONS === 'true' ? migrations : undefined,
     })
   : sqliteAdapter({ client: { url: process.env.DATABASE_URI || 'file:./curatone.db' } })
 
