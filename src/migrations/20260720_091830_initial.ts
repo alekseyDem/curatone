@@ -1,7 +1,11 @@
-import { MigrateUpArgs, MigrateDownArgs, sql } from '@payloadcms/db-postgres'
+import type { MigrateUpArgs, MigrateDownArgs } from '@payloadcms/db-postgres'
 
-export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
-  await db.execute(sql`
+// Run the whole DDL block through the pg pool's SIMPLE query protocol
+// (drizzle's execute uses prepared statements, which reject multi-command SQL).
+type PoolLike = { pool: { query: (text: string) => Promise<unknown> } }
+
+export async function up({ payload }: MigrateUpArgs): Promise<void> {
+  await (payload.db as unknown as PoolLike).pool.query(`
    CREATE TYPE "public"."enum_exhibitions_categories" AS ENUM('painting', 'drawing', 'photography', 'digital-art', 'mixed-media', 'illustration', 'modern-art', 'sculpture', 'ceramics');
   CREATE TYPE "public"."enum_exhibitions_type" AS ENUM('competition', 'personal', 'group', 'featured');
   CREATE TYPE "public"."enum_exhibitions_status" AS ENUM('draft', 'published');
@@ -754,8 +758,8 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   CREATE INDEX "homepage_hero_hero_featured_competition_idx" ON "homepage" USING btree ("hero_featured_competition_id");`)
 }
 
-export async function down({ db, payload, req }: MigrateDownArgs): Promise<void> {
-  await db.execute(sql`
+export async function down({ payload }: MigrateDownArgs): Promise<void> {
+  await (payload.db as unknown as PoolLike).pool.query(`
    DROP TABLE "exhibitions_categories" CASCADE;
   DROP TABLE "exhibitions_works" CASCADE;
   DROP TABLE "exhibitions" CASCADE;
