@@ -1,10 +1,10 @@
 import { postgresAdapter } from '@payloadcms/db-postgres'
-import { sqliteAdapter } from '@payloadcms/db-sqlite'
 import { s3Storage } from '@payloadcms/storage-s3'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
+import { createRequire } from 'module'
 import sharp from 'sharp'
 
 import { Users } from './collections/Users'
@@ -29,12 +29,21 @@ const dirname = path.dirname(filename)
 // applied automatically on init to create/update the schema. Regenerate with
 // `pnpm payload migrate:create` after changing collections. Dev (SQLite) still
 // auto-pushes the schema, so no migrations are needed locally.
+//
+// The SQLite adapter is loaded lazily and ONLY when POSTGRES_URL is unset. Its
+// driver (libsql) is a native module that is absent on Vercel; a top-level
+// import would make the webpack prod build require it at load time and 500 every
+// request. The computed require string keeps it out of the production bundle
+// entirely — in prod this branch never executes.
+const loadDev = createRequire(import.meta.url)
 const db = process.env.POSTGRES_URL
   ? postgresAdapter({
       pool: { connectionString: process.env.POSTGRES_URL },
       prodMigrations: migrations,
     })
-  : sqliteAdapter({ client: { url: process.env.DATABASE_URI || 'file:./curatone.db' } })
+  : (loadDev(['@payloadcms', 'db-sqlite'].join('/')) as typeof import('@payloadcms/db-sqlite')).sqliteAdapter(
+      { client: { url: process.env.DATABASE_URI || 'file:./curatone.db' } },
+    )
 
 export default buildConfig({
   admin: {
