@@ -24,8 +24,11 @@ const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
 // Production (Vercel + Neon): set POSTGRES_URL. Local development: SQLite file.
+// push:true lets Payload create/sync the schema on boot (Postgres in production
+// does not auto-create tables otherwise). Safe here — schema changes ship
+// through this codebase and deploy to low-concurrency serverless.
 const db = process.env.POSTGRES_URL
-  ? postgresAdapter({ pool: { connectionString: process.env.POSTGRES_URL } })
+  ? postgresAdapter({ pool: { connectionString: process.env.POSTGRES_URL }, push: true })
   : sqliteAdapter({ client: { url: process.env.DATABASE_URI || 'file:./curatone.db' } })
 
 export default buildConfig({
