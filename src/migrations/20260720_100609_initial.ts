@@ -8,12 +8,13 @@ export async function up({ payload }: MigrateUpArgs): Promise<void> {
   await (payload.db as unknown as PoolLike).pool.query(`
    CREATE TYPE "public"."enum_exhibitions_categories" AS ENUM('painting', 'drawing', 'photography', 'digital-art', 'mixed-media', 'illustration', 'modern-art', 'sculpture', 'ceramics');
   CREATE TYPE "public"."enum_exhibitions_type" AS ENUM('competition', 'personal', 'group', 'featured');
-  CREATE TYPE "public"."enum_exhibitions_status" AS ENUM('draft', 'published');
+  CREATE TYPE "public"."enum_exhibitions_lifecycle" AS ENUM('open', 'judging', 'closed');
   CREATE TYPE "public"."enum_exhibitions_payments_currency" AS ENUM('usd', 'eur');
+  CREATE TYPE "public"."enum_exhibitions_status" AS ENUM('draft', 'published');
   CREATE TYPE "public"."enum__exhibitions_v_version_categories" AS ENUM('painting', 'drawing', 'photography', 'digital-art', 'mixed-media', 'illustration', 'modern-art', 'sculpture', 'ceramics');
   CREATE TYPE "public"."enum__exhibitions_v_version_type" AS ENUM('competition', 'personal', 'group', 'featured');
-  CREATE TYPE "public"."enum__exhibitions_v_version_status" AS ENUM('draft', 'published');
   CREATE TYPE "public"."enum__exhibitions_v_version_payments_currency" AS ENUM('usd', 'eur');
+  CREATE TYPE "public"."enum__exhibitions_v_version_status" AS ENUM('draft', 'published');
   CREATE TYPE "public"."enum_submissions_category" AS ENUM('painting', 'drawing', 'photography', 'digital-art', 'mixed-media', 'illustration', 'modern-art', 'sculpture', 'ceramics');
   CREATE TYPE "public"."enum_submissions_award_tier" AS ENUM('platinum', 'gold', 'silver');
   CREATE TYPE "public"."enum_journal_articles_status" AS ENUM('submitted', 'under-review', 'accepted', 'rejected', 'published');
@@ -49,7 +50,7 @@ export async function up({ payload }: MigrateUpArgs): Promise<void> {
   	"title" varchar,
   	"slug" varchar,
   	"type" "enum_exhibitions_type" DEFAULT 'competition',
-  	"status" "enum_exhibitions_status" DEFAULT 'closed',
+  	"status" "enum_exhibitions_lifecycle" DEFAULT 'closed',
   	"theme" jsonb,
   	"cover_image_id" integer,
   	"dates_start" timestamp(3) with time zone,
@@ -105,7 +106,7 @@ export async function up({ payload }: MigrateUpArgs): Promise<void> {
   	"version_title" varchar,
   	"version_slug" varchar,
   	"version_type" "enum__exhibitions_v_version_type" DEFAULT 'competition',
-  	"version_status" "enum__exhibitions_v_version_status" DEFAULT 'closed',
+  	"version_status" "enum_exhibitions_lifecycle" DEFAULT 'closed',
   	"version_theme" jsonb,
   	"version_cover_image_id" integer,
   	"version_dates_start" timestamp(3) with time zone,
@@ -800,12 +801,13 @@ export async function down({ payload }: MigrateDownArgs): Promise<void> {
   DROP TABLE "homepage" CASCADE;
   DROP TYPE "public"."enum_exhibitions_categories";
   DROP TYPE "public"."enum_exhibitions_type";
-  DROP TYPE "public"."enum_exhibitions_status";
+  DROP TYPE "public"."enum_exhibitions_lifecycle";
   DROP TYPE "public"."enum_exhibitions_payments_currency";
+  DROP TYPE "public"."enum_exhibitions_status";
   DROP TYPE "public"."enum__exhibitions_v_version_categories";
   DROP TYPE "public"."enum__exhibitions_v_version_type";
-  DROP TYPE "public"."enum__exhibitions_v_version_status";
   DROP TYPE "public"."enum__exhibitions_v_version_payments_currency";
+  DROP TYPE "public"."enum__exhibitions_v_version_status";
   DROP TYPE "public"."enum_submissions_category";
   DROP TYPE "public"."enum_submissions_award_tier";
   DROP TYPE "public"."enum_journal_articles_status";

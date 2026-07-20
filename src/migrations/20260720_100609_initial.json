@@ -285,7 +285,7 @@
         },
         "status": {
           "name": "status",
-          "type": "enum_exhibitions_status",
+          "type": "enum_exhibitions_lifecycle",
           "typeSchema": "public",
           "primaryKey": false,
           "notNull": false,
@@ -940,7 +940,7 @@
         },
         "version_status": {
           "name": "version_status",
-          "type": "enum__exhibitions_v_version_status",
+          "type": "enum_exhibitions_lifecycle",
           "typeSchema": "public",
           "primaryKey": false,
           "notNull": false,
@@ -6166,12 +6166,13 @@
         "featured"
       ]
     },
-    "public.enum_exhibitions_status": {
-      "name": "enum_exhibitions_status",
+    "public.enum_exhibitions_lifecycle": {
+      "name": "enum_exhibitions_lifecycle",
       "schema": "public",
       "values": [
-        "draft",
-        "published"
+        "open",
+        "judging",
+        "closed"
       ]
     },
     "public.enum_exhibitions_payments_currency": {
@@ -6180,6 +6181,14 @@
       "values": [
         "usd",
         "eur"
+      ]
+    },
+    "public.enum_exhibitions_status": {
+      "name": "enum_exhibitions_status",
+      "schema": "public",
+      "values": [
+        "draft",
+        "published"
       ]
     },
     "public.enum__exhibitions_v_version_categories": {
@@ -6207,20 +6216,20 @@
         "featured"
       ]
     },
-    "public.enum__exhibitions_v_version_status": {
-      "name": "enum__exhibitions_v_version_status",
-      "schema": "public",
-      "values": [
-        "draft",
-        "published"
-      ]
-    },
     "public.enum__exhibitions_v_version_payments_currency": {
       "name": "enum__exhibitions_v_version_payments_currency",
       "schema": "public",
       "values": [
         "usd",
         "eur"
+      ]
+    },
+    "public.enum__exhibitions_v_version_status": {
+      "name": "enum__exhibitions_v_version_status",
+      "schema": "public",
+      "values": [
+        "draft",
+        "published"
       ]
     },
     "public.enum_submissions_category": {
@@ -6337,6 +6346,6 @@
     "tables": {},
     "columns": {}
   },
-  "id": "f420cf56-67f3-4187-925a-b43e1e60d0f4",
+  "id": "ff1a9901-0162-4171-9f4a-fb0fd57bb60a",
   "prevId": "00000000-0000-0000-0000-000000000000"
 }

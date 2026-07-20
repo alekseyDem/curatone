@@ -81,6 +81,9 @@ export const Exhibitions: CollectionConfig = {
       type: 'select',
       required: true,
       defaultValue: 'closed',
+      // Custom enum name — avoids a Postgres collision with the drafts `_status`
+      // field, which otherwise both resolve to enum_exhibitions_status.
+      enumName: 'enum_exhibitions_lifecycle',
       options: [
         { label: 'Open — accepting entries', value: 'open' },
         { label: 'Judging — entries closed, results pending', value: 'judging' },
