@@ -93,6 +93,11 @@ export default buildConfig({
   },
   plugins: [
     // File storage: Cloudflare R2 / S3 in production, local disk in development.
+    // ⚠️ This plugin registers the `S3ClientUploadHandler` admin client component,
+    // which MUST be present in src/app/(payload)/admin/importMap.js. Always run
+    // `payload generate:importmap` with S3_BUCKET set (i.e. with this plugin active)
+    // — regenerating it without S3_BUCKET drops that entry and the production admin
+    // (where R2 is enabled) renders a blank screen with no error.
     ...(process.env.S3_BUCKET
       ? [
           s3Storage({
