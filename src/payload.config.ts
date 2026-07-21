@@ -4,7 +4,6 @@ import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
-import { createRequire } from 'module'
 import sharp from 'sharp'
 
 import { Users } from './collections/Users'
@@ -24,26 +23,29 @@ import { migrations } from './migrations'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
-// Production (Vercel + Neon): set POSTGRES_URL. Local development: SQLite file.
-// Postgres in production skips dev-push, so migrations (prodMigrations) are
-// applied automatically on init to create/update the schema. Regenerate with
-// `pnpm payload migrate:create` after changing collections. Dev (SQLite) still
-// auto-pushes the schema, so no migrations are needed locally.
-//
-// The SQLite adapter is loaded lazily and ONLY when POSTGRES_URL is unset. Its
-// driver (libsql) is a native module that is absent on Vercel; a top-level
-// import would make the webpack prod build require it at load time and 500 every
-// request. The computed require string keeps it out of the production bundle
-// entirely — in prod this branch never executes.
-const loadDev = createRequire(import.meta.url)
-const db = process.env.POSTGRES_URL
-  ? postgresAdapter({
-      pool: { connectionString: process.env.POSTGRES_URL },
-      prodMigrations: migrations,
-    })
-  : (loadDev(['@payloadcms', 'db-sqlite'].join('/')) as typeof import('@payloadcms/db-sqlite')).sqliteAdapter(
-      { client: { url: process.env.DATABASE_URI || 'file:./curatone.db' } },
-    )
+// DB adapter: Postgres (Neon) in production, SQLite locally. The branch is gated
+// on NODE_ENV — which Next inlines at build time — so the production build
+// statically dead-code-eliminates the entire SQLite branch. That keeps the sqlite
+// adapter's native driver (libsql), which is absent on Vercel, out of the bundle
+// completely; a top-level `import` of it would require libsql at module load and
+// 500 every production request. The dev branch uses a dynamic import() (resolved at
+// runtime by Node/Turbopack) and only ever runs in development, so it never affects
+// the production bundle.
+// Postgres in production skips dev-push, so migrations (prodMigrations) create the
+// schema on init — regenerate with `pnpm payload migrate:create` after collection
+// changes. Dev (SQLite) auto-pushes the schema, so no migrations are needed locally.
+let db
+if (process.env.NODE_ENV === 'production') {
+  db = postgresAdapter({
+    pool: { connectionString: process.env.POSTGRES_URL },
+    prodMigrations: migrations,
+  })
+} else {
+  // Dynamic import (not require) so the ESM named export resolves correctly under
+  // Turbopack/Node; the NODE_ENV gate lets the production build drop this branch.
+  const { sqliteAdapter } = await import('@payloadcms/db-sqlite')
+  db = sqliteAdapter({ client: { url: process.env.DATABASE_URI || 'file:./curatone.db' } })
+}
 
 export default buildConfig({
   admin: {
