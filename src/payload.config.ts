@@ -48,6 +48,14 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 export default buildConfig({
+  // Absolute base URL of the deployment. Payload recommends setting this in
+  // production (used for admin, emails, previews, and CSRF/CORS). Vercel injects
+  // VERCEL_PROJECT_PRODUCTION_URL (the production domain) into every deployment.
+  serverURL:
+    process.env.NEXT_PUBLIC_SERVER_URL ||
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : undefined),
   admin: {
     user: Users.slug,
     importMap: {
