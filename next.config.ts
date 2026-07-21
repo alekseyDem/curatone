@@ -1,11 +1,6 @@
 import { withPayload } from '@payloadcms/next/withPayload'
 import type { NextConfig } from 'next'
-import path from 'path'
-import { fileURLToPath } from 'url'
 import { createRequire } from 'module'
-
-const __filename = fileURLToPath(import.meta.url)
-const dirname = path.dirname(__filename)
 
 const require = createRequire(import.meta.url)
 // 301 redirect map (spec §8.1) — maintained in redirects.json from the owner's URL spreadsheet.
@@ -14,6 +9,9 @@ const { redirects: redirectMap } = require('./redirects.json') as {
 }
 
 const nextConfig: NextConfig = {
+  // ESLint flat config (eslint.config.mjs) targets eslint-config-next 16; skip lint
+  // during the production build so it doesn't block builds on Next 15's legacy config.
+  eslint: { ignoreDuringBuilds: true },
   // The Payload admin invokes Server Actions; behind Vercel's proxy the forwarded
   // host can differ from the request origin, which trips Next's Server Action CSRF
   // check. Allow the known deployment/domain origins so admin actions aren't rejected.
@@ -46,9 +44,6 @@ const nextConfig: NextConfig = {
     }
 
     return webpackConfig
-  },
-  turbopack: {
-    root: path.resolve(dirname),
   },
 }
 

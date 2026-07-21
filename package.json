@@ -6,7 +6,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "cross-env NODE_OPTIONS=\"--no-deprecation --max-old-space-size=8000\" next build --webpack",
+    "build": "cross-env NODE_OPTIONS=\"--no-deprecation --max-old-space-size=8000\" next build",
     "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
     "devsafe": "rm -rf .next && cross-env NODE_OPTIONS=--no-deprecation next dev",
     "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
@@ -27,7 +27,7 @@
     "cross-env": "10.1.0",
     "dotenv": "16.4.7",
     "graphql": "^16.8.1",
-    "next": "16.2.10",
+    "next": "15.4.11",
     "payload": "3.85.2",
     "qrcode": "^1.5.4",
     "react": "19.2.6",
@@ -41,7 +41,7 @@
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "eslint": "^9.16.0",
-    "eslint-config-next": "16.2.10",
+    "eslint-config-next": "15.4.11",
     "prettier": "^3.4.2",
     "typescript": "6.0.3"
   },
