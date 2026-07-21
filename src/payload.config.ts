@@ -34,13 +34,18 @@ const dirname = path.dirname(filename)
 // Postgres in production skips dev-push, so migrations (prodMigrations) create the
 // schema on init — regenerate with `pnpm payload migrate:create` after collection
 // changes. Dev (SQLite) auto-pushes the schema, so no migrations are needed locally.
-// DIAGNOSTIC (temporary): postgres-only, NO top-level await, to test whether the
-// async config module (TLA) was breaking the admin's client-reference generation on
-// Vercel serverless. Local SQLite dev is disabled while this is in effect.
-const db = postgresAdapter({
-  pool: { connectionString: process.env.POSTGRES_URL },
-  prodMigrations: migrations,
-})
+let db
+if (process.env.NODE_ENV === 'production') {
+  db = postgresAdapter({
+    pool: { connectionString: process.env.POSTGRES_URL },
+    prodMigrations: migrations,
+  })
+} else {
+  // Dynamic import (not require) so the ESM named export resolves correctly under
+  // Turbopack/Node; the NODE_ENV gate lets the production build drop this branch.
+  const { sqliteAdapter } = await import('@payloadcms/db-sqlite')
+  db = sqliteAdapter({ client: { url: process.env.DATABASE_URI || 'file:./curatone.db' } })
+}
 
 export default buildConfig({
   // Absolute base URL of the deployment. Payload recommends setting this in
