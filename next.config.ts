@@ -14,6 +14,14 @@ const { redirects: redirectMap } = require('./redirects.json') as {
 }
 
 const nextConfig: NextConfig = {
+  // The Payload admin invokes Server Actions; behind Vercel's proxy the forwarded
+  // host can differ from the request origin, which trips Next's Server Action CSRF
+  // check. Allow the known deployment/domain origins so admin actions aren't rejected.
+  experimental: {
+    serverActions: {
+      allowedOrigins: ['curatone.vercel.app', 'curatone.art', 'www.curatone.art'],
+    },
+  },
   async redirects() {
     return redirectMap
   },
